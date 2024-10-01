@@ -104,6 +104,120 @@
             margin-bottom: 0;
         }
 
+        /* Our Products Section */
+        .our-products {
+        padding: 60px 0;
+        background-color: #f9f9f9; /* Light background for contrast */
+        }
+
+        .our-products .section-title {
+            margin-bottom: 40px;
+        }
+
+        .our-products .section-title h5 {
+            font-size: 1.5rem;
+            color: #333;
+            text-transform: uppercase;
+        }
+
+        .our-products .section-title h1 {
+            font-size: 2.5rem;
+            color: #007bff; /* Main theme color */
+        }
+
+        /* Card Styles */
+        .our-products .card {
+            border: none; /* Remove default border */
+            border-radius: 8px; /* Rounded corners */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth scaling effect */
+            overflow: hidden; /* To ensure rounded corners are applied to the image */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            height: 350px; /* Fixed height for all cards */
+            display: flex; /* Use flexbox to align content */
+            flex-direction: column; /* Arrange items in a column */
+            justify-content: space-between; /* Distribute space between items */
+                }
+                /* Ensure the content within the card is centered */
+        .our-products .card-body {
+            display: flex; /* Use flexbox for alignment */
+            flex-direction: column; /* Stack content vertically */
+            justify-content: center; /* Center content vertically */
+            height: 100%; /* Make sure it takes full height of the card */
+        }
+
+        .our-products .card img {
+            border-radius: 8px 8px 0 0; /* Rounded corners for the image */
+            transition: transform 0.3s ease; /* Smooth image scaling */
+            height: 250px; /* Fixed height for images */
+            object-fit: cover; /* Maintain aspect ratio and cover area */
+        }
+
+
+        /* Hover Effect */
+        .our-products .card:hover {
+            transform: scale(1.05); /* Enlarge the card */
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+        }
+
+        /* Modal Video Styles */
+        .modal-content {
+            border-radius: 8px; /* Rounded corners for modal */
+        }
+
+        .modal-header {
+            border-bottom: none; /* Remove default border */
+        }
+
+        .modal-body {
+            padding: 0; /* Remove padding for a better fit of the video */
+        }
+
+        /* Explore More Button Styles */
+        .our-products .btn-primary {
+            background-color: #007bff; /* Match the theme color */
+            border-color: #007bff; /* Match the theme color */
+            padding: 10px 20px; /* Add padding */
+            font-size: 1.1rem; /* Slightly larger font */
+            transition: background-color 0.3s ease; /* Smooth transition for hover */
+        }
+
+        .our-products .btn-primary:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        /* Scroll Animation */
+        .wow {
+            visibility: hidden;
+        }
+
+        .wow.fadeInUp {
+            visibility: visible;
+            animation-name: fadeInUp;
+            animation-duration: 0.5s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .our-products .card {
+                margin-bottom: 30px; /* Space between cards on mobile */
+            }
+
+            .our-products .section-title h1 {
+                font-size: 2rem; /* Smaller title on mobile */
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -192,27 +306,31 @@
         </button>
     </div>
 
-        <!-- About Start -->
-        <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <!-- About Start -->
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-7">
-                    <div class="section-title position-relative pb-3 mb-5">
+                    <!-- Section Title with Animation -->
+                    <div class="section-title position-relative pb-3 mb-5 wow fadeInLeft" data-wow-delay="0.3s">
                         <h5 class="fw-bold text-primary text-uppercase">About Us</h5>
                         <h1 class="mb-0">The Best SAP Solutions with 6 Years of Experience</h1>
                     </div>
-                    <p class="mb-4">At Indigi Consulting, we specialize in delivering top-notch SAP solutions, support, and custom ERP software tailored to your business needs. Our team of experts is dedicated to ensuring seamless integration and exceptional service.</p>
+                    <!-- Paragraph Text with Animation -->
+                    <p class="mb-4 wow fadeInUp" data-wow-delay="0.4s">At Indigi Consulting, we specialize in delivering top-notch SAP solutions, support, and custom ERP software tailored to your business needs. Our team of experts is dedicated to ensuring seamless integration and exceptional service.</p>
                     <div class="row g-0 mb-3">
-                        <div class="col-sm-6 wow zoomIn" data-wow-delay="0.2s">
+                        <!-- Feature Points with ZoomIn Animation -->
+                        <div class="col-sm-6 wow zoomIn" data-wow-delay="0.5s">
                             <h5 class="mb-3"><i class="fa fa-check text-primary me-3"></i>Best In The Town</h5>
                             <h5 class="mb-3"><i class="fa fa-check text-primary me-3"></i>Professional Staff</h5>
                         </div>
-                        <div class="col-sm-6 wow zoomIn" data-wow-delay="0.4s">
+                        <div class="col-sm-6 wow zoomIn" data-wow-delay="0.6s">
                             <h5 class="mb-3"><i class="fa fa-check text-primary me-3"></i>24/7 Support</h5>
                             <h5 class="mb-3"><i class="fa fa-check text-primary me-3"></i>Fair Prices</h5>
                         </div>
                     </div>
-                    <div class="d-flex align-items-center mb-4 wow fadeIn" data-wow-delay="0.6s">
+                    <!-- Call to Action Button with BounceIn Animation -->
+                    <div class="d-flex align-items-center mb-4 wow fadeIn" data-wow-delay="0.7s">
                         <div class="bg-primary d-flex align-items-center justify-content-center rounded" style="width: 60px; height: 60px;">
                             <i class="fa fa-phone-alt text-white"></i>
                         </div>
@@ -221,11 +339,12 @@
                             <h4 class="text-primary mb-0">+91-8586 0184 41</h4>
                         </div>
                     </div>
-                    <a href="quote.html" class="btn btn-primary py-3 px-5 mt-3 wow zoomIn" data-wow-delay="0.9s">Request A Quote</a>
+                    <a href="quote.html" class="btn btn-primary py-3 px-5 mt-3 wow bounceIn" data-wow-delay="0.9s">Request A Quote</a>
                 </div>
+                <!-- Image with ZoomIn Animation -->
                 <div class="col-lg-5" style="min-height: 500px;">
-                    <div class="position-relative h-100">
-                        <img class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.9s" src="images\about.jpg" style="object-fit: cover;">
+                    <div class="position-relative h-100 wow zoomIn" data-wow-delay="0.6s">
+                        <img class="position-absolute w-100 h-100 rounded" src="images\about.jpg" style="object-fit: cover;">
                     </div>
                 </div>
             </div>
@@ -277,6 +396,123 @@
         </div>
     </div>
 
+   <!-- Our Products Section -->
+<!-- Our Products Section -->
+<div class="container our-products">
+    <div class="section-title text-center">
+        <h5>Our Products</h5>
+        <h1>Innovative Solutions for Your Business</h1>
+    </div>
+    <div class="row g-4">
+        <!-- Product Card 1: Rise with SAP -->
+        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-duration="0.5s">
+            <div class="card" data-bs-toggle="modal" data-bs-target="#videoModal1">
+                <img src="{{ asset('images/rws.jpg') }}" class="card-img-top" alt="Rise with SAP">
+                <div class="card-body">
+                    <h5 class="card-title">Rise with SAP</h5>
+                    <p class="card-text">Transform your business with Rise with SAP solutions.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Product Card 2: S4HANA -->
+        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.1s">
+            <div class="card" data-bs-toggle="modal" data-bs-target="#videoModal2">
+                <img src="{{ asset('images/S4HANA.jpg') }}" class="card-img-top" alt="S4HANA">
+                <div class="card-body">
+                    <h5 class="card-title">S4HANA</h5>
+                    <p class="card-text">Experience the power of S4HANA for your enterprise.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Product Card 3: SAP Business ByDesign -->
+        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.2s">
+            <div class="card" data-bs-toggle="modal" data-bs-target="#videoModal3">
+                <img src="{{ asset('images/SBBD.jpg') }}" class="card-img-top" alt="SAP Business ByDesign">
+                <div class="card-body">
+                    <h5 class="card-title">SAP Business ByDesign</h5>
+                    <p class="card-text">A complete ERP solution for fast-growing businesses.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Product Card 4: Android Web Development -->
+        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
+            <div class="card" data-bs-toggle="modal" data-bs-target="#videoModal4">
+                <img src="{{ asset('images/A&Wd.jpg') }}" class="card-img-top" alt="Android Web Development">
+                <div class="card-body">
+                    <h5 class="card-title">Android Web Development</h5>
+                    <p class="card-text">Get cutting-edge Android web solutions.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Explore More Button -->
+    <div class="text-center mt-4">
+        <a href="/products" class="btn btn-primary">Explore More</a>
+    </div>
+</div>
+
+<!-- Modals for Videos -->
+<!-- Modal for Rise with SAP -->
+<div class="modal fade" id="videoModal1" tabindex="-1" aria-labelledby="videoModalLabel1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="videoModalLabel1">Rise with SAP</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&controls=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for S4HANA -->
+<div class="modal fade" id="videoModal2" tabindex="-1" aria-labelledby="videoModalLabel2" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="videoModalLabel2">S4HANA</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <iframe width="100%" height="315" src="https://youtu.be/G1SvFduB33Y" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for SAP Business ByDesign -->
+<div class="modal fade" id="videoModal3" tabindex="-1" aria-labelledby="videoModalLabel3" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="videoModalLabel3">SAP Business ByDesign</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&controls=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Android Web Development -->
+<div class="modal fade" id="videoModal4" tabindex="-1" aria-labelledby="videoModalLabel4" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="videoModalLabel4">Android Web Development</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&controls=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+    {{-- end of product--}}
     <!-- Footer -->
     <footer class="text-center p-4">
         <p>&copy; 2024 Indigi Consulting. All rights reserved.</p>
@@ -288,8 +524,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.counterup/1.0.0/jquery.counterup.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-waypoints/2.0.3/jquery.waypoints.min.js"></script>
-    
-    <!-- Counting Animation Script -->
+    <!-- Animate.css and WOW.js for Animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+
+    <script>
+        new WOW().init();
+    </script>
+        <!-- Counting Animation Script -->
     <script>
     function animateCounters() {
         const counters = document.querySelectorAll('.counter');
