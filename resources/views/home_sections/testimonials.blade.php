@@ -6,30 +6,36 @@
         border-radius: 10px; /* Rounded corners for the section */
     }
 
-    .nav-tabs {
+    .nav-testimonials {
         border-bottom: 2px solid #007bff; /* Blue underline for the tabs */
     }
 
-    .nav-tabs .nav-item .nav-link {
+    .nav-testimonials .nav-item .nav-link {
         border: none; /* Remove border */
         color: #007bff; /* Tab text color */
         font-weight: bold; /* Make tab text bold */
-        visibility: hidden; /* Hide all client names by default */
-        opacity: 0; /* Make invisible */
-        transition: opacity 0.3s ease; /* Smooth transition for visibility */
+        text-indent: -9999px; /* Move text off-screen */
+        overflow: hidden; /* Hide overflow */
+        white-space: nowrap; /* Prevent wrapping */
+        position: relative; /* Allow for positioning */
+        transition: text-indent 0.3s, opacity 0.3s; /* Smooth transition */
     }
 
-    .nav-tabs .nav-item .nav-link.active {
+    .nav-testimonials .nav-item .nav-link.active {
         color: #fff; /* White text for active tab */
         background-color: #007bff; /* Blue background for active tab */
         border-radius: 5px 5px 0 0; /* Rounded corners for active tab */
-        visibility: visible; /* Only the active tab's client name is visible */
-        opacity: 1; /* Make visible */
+        text-indent: 0; /* Show active tab name */
+        opacity: 1; /* Ensure the active tab is fully visible */
     }
 
-    .nav-tabs .nav-item:hover .nav-link {
-        visibility: visible; /* Show client name on hover */
-        opacity: 1; /* Make visible */
+    .nav-testimonials .nav-item .nav-link.inactive {
+        opacity: 0; /* Hide inactive tabs */
+    }
+
+    .nav-testimonials .nav-item:hover .nav-link.inactive {
+        opacity: 1; /* Show inactive tabs on hover */
+        text-indent: 0; /* Show text for hovered inactive tabs */
     }
 
     .testimonial-img {
@@ -50,12 +56,6 @@
         border: 1px solid #007bff; /* Border around tab content */
         border-radius: 0 0 10px 10px; /* Rounded corners for content */
     }
-
-    /* Show nav links on hover */
-    .testimonials-section:hover .nav-link {
-        visibility: visible; /* Show client name on hover */
-        opacity: 1; /* Make visible */
-    }
 </style>
 
 <!-- Testimonials Section -->
@@ -67,12 +67,12 @@
         </div>
 
         <div class="tabs">
-            <ul class="nav nav-tabs">
+            <ul class="nav nav-testimonials">
                 <li class="nav-item">
                     <a class="nav-link active" data-toggle="tab" href="#testimonial1">Rongsheng</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#testimonial2">Iggl</a>
+                    <a class="nav-link inactive" data-toggle="tab" href="#testimonial2">IGGL</a>
                 </li>
                 <!-- Add more clients as needed -->
             </ul>
@@ -80,14 +80,11 @@
                 <div id="testimonial1" class="tab-pane fade show active">
                     <img src="{{ asset('images/testimonials/rongsheng.jpg') }}" class="img-fluid testimonial-img" alt="Client 1">
                     <p class="testimonial-text">"Indigi Consulting transformed our business processes, leading to increased efficiency and satisfaction!"</p>
-                    <h5>Rongsheng Mobile India Pvt. Ltd.</h5>
                     <p>Android Development</p>
                 </div>
                 <div id="testimonial2" class="tab-pane fade">
                     <img src="{{ asset('images/testimonials/iggl_testimonial.jpg') }}" class="img-fluid testimonial-img" alt="Client 2">
                     <p class="testimonial-text">"The team at Indigi is knowledgeable and dedicated, ensuring that our needs were met at every stage."</p>
-                    <h5>iggl</h5>
-                    <p>Iggl</p>
                 </div>
                 <!-- Add more testimonials here -->
             </div>
@@ -96,54 +93,32 @@
 </section>
 
 <!-- JavaScript -->
+<!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<!-- Bootstrap JS -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 <script>
     $(document).ready(function() {
-        let currentIndex = 0;
-        const testimonials = $('.tab-pane');
-        const navLinks = $('.nav-link');
-        const totalTestimonials = testimonials.length;
-        let interval;
+        // Activate tabs on click
+        $('.nav-link').on('click', function() {
+            const target = $(this).attr('href');
 
-        function showTestimonial(index) {
-            // Hide all testimonials and reset client names
-            testimonials.removeClass('show active');
-            navLinks.removeClass('active').css('visibility', 'hidden').css('opacity', 0);
+            // Remove active class and add inactive class to all links
+            $('.nav-link').removeClass('active').addClass('inactive');
 
-            // Show current testimonial and client name
-            $(testimonials[index]).addClass('show active');
-            navLinks.eq(index).addClass('active').css('visibility', 'visible').css('opacity', 1);
-        }
+            // Set the clicked tab to active and reset its text indent
+            $(this).removeClass('inactive').addClass('active').css('text-indent', '0');
 
-        function nextTestimonial() {
-            currentIndex = (currentIndex + 1) % totalTestimonials;
-            showTestimonial(currentIndex);
-        }
+            // Show corresponding tab content
+            $('.tab-pane').removeClass('show active'); // Hide all tab content
+            $(target).addClass('show active'); // Show the selected tab content
 
-        // Start automatic cycling
-        interval = setInterval(nextTestimonial, 5000);
-
-        // Pause cycling on hover of the testimonials section or nav link
-        $('.testimonials-section, .nav-link').hover(function() {
-            clearInterval(interval); // Stop cycling on hover
-        }, function() {
-            interval = setInterval(nextTestimonial, 5000); // Restart cycling when hover ends
+            // Show all client names on hover
+            $('.nav-testimonials').hover(function() {
+                $('.nav-link.inactive').css('opacity', '1').css('text-indent', '0'); // Show inactive client names
+            }, function() {
+                $('.nav-link.inactive').css('opacity', '0').css('text-indent', '-9999px'); // Hide inactive client names
+            });
         });
-
-        // Show active client name on hover, keep non-active names hidden
-        navLinks.hover(function() {
-            $(this).css('visibility', 'visible').css('opacity', 1); // Show name on hover
-        }, function() {
-            if (!$(this).hasClass('active')) {
-                $(this).css('visibility', 'hidden').css('opacity', 0); // Hide non-active name
-            }
-        });
-
-        // Initialize with the first testimonial visible
-        showTestimonial(currentIndex);
     });
 </script>
-
-
-
