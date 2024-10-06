@@ -67,6 +67,7 @@
     <main>
     
     @include('home_sections.hero')
+    @include('home_sections.clientlogo')
     @include('home_sections.about')
     @include('home_sections.facts')
     @include('home_sections.products')
