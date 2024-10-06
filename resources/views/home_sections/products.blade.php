@@ -1,138 +1,189 @@
 <style>
     /* Our Products Section */
     .our-products {
-        padding: 60px 0;
-        background-color: #f9f9f9; /* Light background for contrast */
-        }
+        max-width: 100%; /* fit with the screen size */
+        position: relative; /* Positioning for the pseudo-elements */
+        padding: 60px 100px;
+        background-color: #f9f9f9;
+        overflow: hidden; /* Prevent overflow from animations */
+        z-index: 1; /* Ensure this section stays above background elements */
+    }
 
-        .our-products .section-title {
-            margin-bottom: 40px;
-        }
+    /* Background Elements */
+    .our-products::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), /* Faded gradient */
+                    url('images/pattern.jpg') no-repeat center; /* Background pattern */
+        background-size: cover;
+        z-index: -1; /* Place behind the product cards */
+        opacity: 0.5; /* Adjust opacity to blend */
+        pointer-events: none; /* Prevent interaction */
+    }
 
-        .our-products .section-title h5 {
-            font-size: 1.5rem;
-            color: #333;
-            text-transform: uppercase;
+    .our-products .section-title {
+        margin-bottom: 40px;
+    }
+
+    .our-products .section-title h5 {
+        font-size: 1.5rem;
+        color: #333;
+        text-transform: uppercase;
+    }
+
+    .our-products .section-title h1 {
+        font-size: 2.5rem;
+        color: #007bff; /* Main theme color */
+    }
+
+    /* Card Styles */
+    .our-products .card {
+        border: none;
+        border-radius: 8px;
+        transition: all 0.4s ease;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        position: relative;
+        background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+        height: 400px; /* Default height without hover */
+        animation: move 10s ease infinite; /* Background animation */
+    }
+
+    /* Hover Effects: Expand Description */
+    .our-products .card:hover {
+        height: 500px; /* Expands on hover */
+        box-shadow: 0 8px 40px rgba(0, 123, 255, 0.3);
+        background: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
+    }
+
+    /* Card Body - Only show name initially */
+    .our-products .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        transition: all 0.4s ease;
+        opacity: 0; /* Hidden by default */
+        transform: translateY(20px); /* Moved down a bit */
+    }
+
+    /* Show card content on hover */
+    .our-products .card:hover .card-body {
+        opacity: 1;
+        transform: translateY(0); /* Moves up into view */
+    }
+
+    .our-products .card img {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+        transition: all 0.4s ease;
+    }
+
+    .our-products .card:hover img {
+        height: 180px; /* Shrinks image when hovered */
+    }
+
+    /* Hide description text initially */
+    .our-products .card .card-text {
+        opacity: 0;
+        max-height: 0;
+        transition: all 0.4s ease;
+        overflow: hidden;
+    }
+
+    /* Show description when hovered */
+    .our-products .card:hover .card-text {
+        opacity: 1;
+        max-height: 100px; /* Enough to display text */
+        transition-delay: 0.2s;
+    }
+
+    /* Product Tag */
+    .our-products .product-tag {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background-color: #ff4757;
+        color: #fff;
+        padding: 5px 10px;
+        font-size: 0.8rem;
+        border-radius: 4px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    /* Button Pulse Effect */
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        padding: 10px 20px;
+        font-size: 1.1rem;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+        0% {
+            box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.4);
+        }
+        70% {
+            box-shadow: 0 0 0 10px rgba(0, 123, 255, 0);
+        }
+        100% {
+            box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+        }
+    }
+
+    /* Background Animation */
+    @keyframes move {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    /* Modal Video Styles */
+    .modal-content {
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+    }
+
+    .modal-header {
+        border-bottom: none;
+    }
+
+    .modal-body {
+        padding: 0;
+    }
+
+    .modal.show .modal-dialog {
+        transform: scale(1.05);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+        .our-products .card {
+            margin-bottom: 30px;
         }
 
         .our-products .section-title h1 {
-            font-size: 2.5rem;
-            color: #007bff; /* Main theme color */
+            font-size: 2rem;
         }
-
-        /* Card Styles */
-        .our-products .card {
-            border: none; /* Remove default border */
-            border-radius: 8px; /* Rounded corners */
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth scaling effect */
-            overflow: hidden; /* To ensure rounded corners are applied to the image */
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-            height: 350px; /* Fixed height for all cards */
-            display: flex; /* Use flexbox to align content */
-            flex-direction: column; /* Arrange items in a column */
-            justify-content: space-between; /* Distribute space between items */
-                }
-                /* Ensure the content within the card is centered */
-        .our-products .card-body {
-            display: flex; /* Use flexbox for alignment */
-            flex-direction: column; /* Stack content vertically */
-            justify-content: center; /* Center content vertically */
-            height: 100%; /* Make sure it takes full height of the card */
-        }
-
-        .our-products .card img {
-            border-radius: 8px 8px 0 0; /* Rounded corners for the image */
-            transition: transform 0.3s ease; /* Smooth image scaling */
-            height: 250px; /* Fixed height for images */
-            object-fit: cover; /* Maintain aspect ratio and cover area */
-        }
-
-
-        /* Hover Effect */
-        .our-products .card:hover {
-            transform: scale(1.05); /* Enlarge the card */
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
-        }
-
-        /* Modal Video Styles */
-        .modal-content {
-            border-radius: 8px; /* Rounded corners for modal */
-        }
-
-        .modal-header {
-            border-bottom: none; /* Remove default border */
-        }
-
-        .modal-body {
-            padding: 0; /* Remove padding for a better fit of the video */
-        }
-
-        /* Explore More Button Styles */
-        .our-products .btn-primary {
-            background-color: #007bff; /* Match the theme color */
-            border-color: #007bff; /* Match the theme color */
-            padding: 10px 20px; /* Add padding */
-            font-size: 1.1rem; /* Slightly larger font */
-            transition: background-color 0.3s ease; /* Smooth transition for hover */
-        }
-
-        .our-products .btn-primary:hover {
-            background-color: #0056b3; /* Darker blue on hover */
-        }
-
-        /* Scroll Animation */
-        .wow {
-            visibility: hidden;
-        }
-
-        .wow.fadeInUp {
-            visibility: visible;
-            animation-name: fadeInUp;
-            animation-duration: 0.5s;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            .our-products .card {
-                margin-bottom: 30px; /* Space between cards on mobile */
-            }
-
-            .our-products .section-title h1 {
-                font-size: 2rem; /* Smaller title on mobile */
-            }
-        }
-
-        /* General Section Styling 
-       .services-section {
-    position: relative;
-    background-color: #f0f8ff; 
-    overflow: hidden;
-}
-
- Asymmetrical Background Design 
-.services-section::before {
-    content: "";
-    position: absolute;
-    top: -30%;
-    left: -20%;
-    width: 120%;
-    height: 120%;
-    background: linear-gradient(135deg, #d6ecff 25%, transparent 25%, transparent 50%, #d6ecff 50%, #d6ecff 75%, transparent 75%, transparent);
-    z-index: -1;
-    transform: rotate(-5deg);
-} */
-
+    }
 </style>
 
 <!-- Our Products Section -->
@@ -143,8 +194,9 @@
     </div>
     <div class="row g-4">
         <!-- Product Card 1: Rise with SAP -->
-        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-duration="0.5s">
+        <div class="col-lg-3 col-md-6">
             <div class="card" data-bs-toggle="modal" data-bs-target="#videoModal1">
+                <div class="product-tag">New</div>
                 <img src="{{ asset('images/rws.jpg') }}" class="card-img-top" alt="Rise with SAP">
                 <div class="card-body">
                     <h5 class="card-title">Rise with SAP</h5>
@@ -153,8 +205,9 @@
             </div>
         </div>
         <!-- Product Card 2: S4HANA -->
-        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.1s">
+        <div class="col-lg-3 col-md-6">
             <div class="card" data-bs-toggle="modal" data-bs-target="#videoModal2">
+                <div class="product-tag">Featured</div>
                 <img src="{{ asset('images/S4HANA.jpg') }}" class="card-img-top" alt="S4HANA">
                 <div class="card-body">
                     <h5 class="card-title">S4HANA</h5>
@@ -163,7 +216,7 @@
             </div>
         </div>
         <!-- Product Card 3: SAP Business ByDesign -->
-        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.2s">
+        <div class="col-lg-3 col-md-6">
             <div class="card" data-bs-toggle="modal" data-bs-target="#videoModal3">
                 <img src="{{ asset('images/SBBD.jpg') }}" class="card-img-top" alt="SAP Business ByDesign">
                 <div class="card-body">
@@ -173,7 +226,7 @@
             </div>
         </div>
         <!-- Product Card 4: Android Web Development -->
-        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
+        <div class="col-lg-3 col-md-6">
             <div class="card" data-bs-toggle="modal" data-bs-target="#videoModal4">
                 <img src="{{ asset('images/A&Wd.jpg') }}" class="card-img-top" alt="Android Web Development">
                 <div class="card-body">
@@ -189,8 +242,7 @@
     </div>
 </div>
 
-<!-- Modals for Videos -->
-<!-- Modal for Rise with SAP -->
+<!-- Modals for Video -->
 <div class="modal fade" id="videoModal1" tabindex="-1" aria-labelledby="videoModalLabel1" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
@@ -199,13 +251,12 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&controls=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/BHriWZ5xTqM?autoplay=1&controls=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Modal for S4HANA -->
 <div class="modal fade" id="videoModal2" tabindex="-1" aria-labelledby="videoModalLabel2" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
@@ -214,13 +265,12 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <iframe width="100%" height="315" src="https://youtu.be/G1SvFduB33Y" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/N3AkSS5hXMA?autoplay=1&controls=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Modal for SAP Business ByDesign -->
 <div class="modal fade" id="videoModal3" tabindex="-1" aria-labelledby="videoModalLabel3" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
@@ -229,13 +279,12 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&controls=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/a3Z7zEc7AXQ?autoplay=1&controls=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Modal for Android Web Development -->
 <div class="modal fade" id="videoModal4" tabindex="-1" aria-labelledby="videoModalLabel4" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
@@ -244,9 +293,21 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&controls=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/qRmcpe_D10Q?autoplay=1&controls=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
         </div>
     </div>
 </div>
-   {{-- end of product--}}
+
+<script>
+    // Optional: Trigger autoplay for modals on show
+    $('#videoModal1, #videoModal2, #videoModal3, #videoModal4').on('shown.bs.modal', function (e) {
+        $(this).find('iframe').attr('src', function (i, val) {
+            return val + "&autoplay=1";
+        });
+    }).on('hide.bs.modal', function (e) {
+        $(this).find('iframe').attr('src', function (i, val) {
+            return val.replace("&autoplay=1", "");
+        });
+    });
+</script>
