@@ -1,96 +1,139 @@
 <style>
 /* General Styling */
-        .services-wrapper {
-            display: flex;
-            overflow-x: auto;
-            overflow-y: hidden;  /* Ensure no vertical scrolling occurs */
-            scroll-behavior: smooth;
-            padding-bottom: 1rem;
-            -webkit-overflow-scrolling: touch;
-            scroll-snap-type: x mandatory;
-            gap: 35px;
-            justify-content: flex-start; /* Align cards to the left */
-            height: 600px;  /* Adjust wrapper height to fit the full card */
-            align-items: center;  /* Vertically center cards in the container */
-            padding-left: 20px; /* Add padding to the left */
-        }
+.services-wrapper {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;  /* Ensure no vertical scrolling occurs */
+    scroll-behavior: smooth;
+    padding-bottom: 1rem;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    gap: 35px;
+    justify-content: flex-start; /* Align cards to the left */
+    height: 600px;  /* Adjust wrapper height to fit the full card */
+    align-items: center;  /* Vertically center cards in the container */
+    padding-left: 20px; /* Add padding to the left */
+    background: url('public/video/risewithsap.mp4') no-repeat center center; /* Placeholder for parallax effect */
+    background-size: cover;
+    position: relative;
+}
 
-        .service-card {
-            flex: 0 0 300px; /* Set a fixed width for consistent behavior */
-            height: 500px;  /* Ensure this fits well within the container height */
-            transition: transform 0.5s ease;
-            scroll-snap-align: center; /* Change to center to improve visibility */
-            position: relative;
-            transform-origin: center center;
-            border-radius: 10px; /* Rounded corners */
-            color: #333; /* Text color */
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
+/* Parallax Effect */
+.services-section {
+    position: relative;
+    overflow: hidden;
+}
 
-        /* Active and Neighbor Scaling */
-        .service-card.active {
-            transform: scale(1.1);
-        }
+.parallax {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Keep it behind content */
+    background-image: url('images/parallax_service.jpg'); /* Replace with actual background image */
+    background-attachment: fixed; /* Parallax effect */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
-        .service-card.neighbor {
-            transform: scale(1.05);
-        }
+/* Service Card Styling */
+.service-card {
+    flex: 0 0 300px; /* Set a fixed width for consistent behavior */
+    height: 500px;  /* Ensure this fits well within the container height */
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    scroll-snap-align: center; /* Center cards within scroll */
+    position: relative;
+    transform-origin: center center;
+    border-radius: 10px; /* Rounded corners */
+    color: #333; /* Text color */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
-        /* Remove Scrollbar */
-        .services-wrapper::-webkit-scrollbar {
-            display: none;
-        }
+/* Card Hover Effect */
+.service-card:hover {
+    transform: scale(1.15);  /* Scale up on hover */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); /* Add shadow */
+}
 
-        /* Button Styling */
-        .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
-            padding: 10px 20px;
-            font-size: 1rem;
-            border-radius: 30px;
-            transition: background-color 0.3s ease;
-        }
+/* Card Icon Animations */
+.service-card .icon i {
+    transition: transform 0.5s ease;
+}
 
-        .btn-primary:hover {
-            background-color: #0056b3;
-            border-color: #0056b3;
-        }
+.service-card:hover .icon i {
+    transform: rotate(360deg); /* Rotate the icon on hover */
+}
 
-        .service-link {
-            color: inherit; /* Inherit color from parent */
-            text-decoration: none; /* Remove underline */
-            transition: color 0.3s ease; /* Add a transition effect */
-        }
+/* Active and Neighbor Scaling */
+.service-card.active {
+    transform: scale(1.1);
+}
 
-        .service-link:hover {
-            color: #0056b3; /* Change color on hover */
-        }
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .service-card {
-                flex: 0 0 90%;
-                height: 450px;  /* Adjust height for smaller screens */
-            }
-            .services-wrapper {
-                height: 500px;  /* Adjust wrapper height for smaller screens */
-            }
-        }
+.service-card.neighbor {
+    transform: scale(1.05);
+}
 
-        @media (max-width: 576px) {
-            .service-card {
-                flex: 0 0 95%;
-                height: 400px;  /* Adjust height for the smallest screens */
-            }
-            .services-wrapper {
-                height: 450px;  /* Adjust wrapper height for the smallest screens */
-            }
-        }
+/* Remove Scrollbar */
+.services-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+/* Button Glow Effect */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 30px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); /* Glowing effect */
+}
+
+/* Service Link */
+.service-link {
+    color: inherit; /* Inherit color from parent */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease;
+}
+
+.service-link:hover {
+    color: #0056b3; /* Change color on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .service-card {
+        flex: 0 0 90%;
+        height: 450px;  /* Adjust height for smaller screens */
+    }
+    .services-wrapper {
+        height: 500px;  /* Adjust wrapper height for smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .service-card {
+        flex: 0 0 95%;
+        height: 400px;  /* Adjust height for the smallest screens */
+    }
+    .services-wrapper {
+        height: 450px;  /* Adjust wrapper height for the smallest screens */
+    }
+}
 </style>
 
 <!-- Services Section -->
 <section id="services" class="services-section py-5">
+    <div class="parallax"></div> <!-- Parallax background -->
+
     <div class="container">
         <div class="section-title text-center mb-5">
             <h5>Our Services</h5>
@@ -99,7 +142,7 @@
 
         <div class="services-wrapper">
             <!-- Service 1: SAP Consulting -->
-            <div class="service-card p-4 " style="background-color: #f8d7da;">
+            <div class="service-card p-4" style="background-color: #f8d7da;">
                 <div class="icon mb-3">
                     <i class="fas fa-handshake fa-3x"></i>
                 </div>
@@ -123,7 +166,7 @@
             </div>
 
             <!-- Service 3: SAP Support -->
-            <div class="service-card p-4 " style="background-color: #C0C78C;">
+            <div class="service-card p-4" style="background-color: #C0C78C;">
                 <div class="icon mb-3">
                     <i class="fas fa-life-ring fa-3x"></i>
                 </div>
@@ -135,7 +178,7 @@
             </div>
 
             <!-- Additional Service 4: CUSTOM ERP SOFTWARE -->
-            <div class="service-card p-4 " style="background-color: #C4D7FF;">
+            <div class="service-card p-4" style="background-color: #C4D7FF;">
                 <div class="icon mb-3">
                     <i class="fas fa-code fa-3x"></i>
                 </div>
@@ -146,28 +189,28 @@
                 <a href="#custom-development" class="btn btn-primary">Choose Service</a>
             </div>
 
-            <!-- Additional Service 5:SAP UPGRADATION -->
-            <div class="service-card p-4 " style="background-color: #d1ecf1;">
+            <!-- Additional Service 5: SAP Upgradation -->
+            <div class="service-card p-4" style="background-color: #d1ecf1;">
                 <div class="icon mb-3">
                     <i class="fas fa-arrow-up fa-3x"></i>
                 </div>
                 <h3 class="card-title">
-                    <a href="#cloud-solutions" class="service-link">SAP UPGRADATION</a>
+                    <a href="#sap-upgradation" class="service-link">SAP Upgradation</a>
                 </h3>
                 <p class="card-text">Elevate your enterprise with seamless SAP Upgradation! Stay ahead of the competition and unlock new features, enhanced performance, and improved user experience.</p>
-                <a href="#cloud-solutions" class="btn btn-primary">Choose Service</a>
+                <a href="#sap-upgradation" class="btn btn-primary">Choose Service</a>
             </div>
 
-            <!-- Additional Service 5:Business Process Automation -->
-            <div class="service-card p-4 " style="background-color: #d4edda;">
+            <!-- Additional Service 6: Business Process Automation -->
+            <div class="service-card p-4" style="background-color: #d4edda;">
                 <div class="icon mb-3">
                     <i class="fas fa-robot fa-3x"></i>
                 </div>
                 <h3 class="card-title">
-                    <a href="#cloud-solutions" class="service-link">Business Process Automation</a>
+                    <a href="#business-automation" class="service-link">Business Process Automation</a>
                 </h3>
-                <p class="card-text">Transform efficiency into excellence with Business Process Automation! Streamline your workflows, reduce manual tasks, and empower your team to focus on what matters most. Automate today for a smarter tomorrow!.</p>
-                <a href="#cloud-solutions" class="btn btn-primary">Choose Service</a>
+                <p class="card-text">Transform efficiency into excellence with Business Process Automation! Streamline your workflows, reduce manual tasks, and empower your team to focus on what matters most.</p>
+                <a href="#business-automation" class="btn btn-primary">Choose Service</a>
             </div>
         </div>
 
@@ -177,6 +220,7 @@
         </div>
     </div>
 </section>
+
 <!-- JavaScript -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -185,27 +229,22 @@
 
         // Function to check which card is in the center of the viewport
         function handleScroll() {
-            serviceCards.forEach(card => card.classList.remove('active', 'neighbor'));
-
             serviceCards.forEach((card, index) => {
-                const cardRect = card.getBoundingClientRect();
-                const wrapperRect = servicesWrapper.getBoundingClientRect();
+                const rect = card.getBoundingClientRect();
+                const center = window.innerWidth / 2;
 
-                if (cardRect.left + cardRect.width / 2 >= wrapperRect.left + wrapperRect.width / 2 - 100 &&
-                    cardRect.left + cardRect.width / 2 <= wrapperRect.left + wrapperRect.width / 2 + 100) {
+                // Scale the card when it is in the center of the viewport
+                if (rect.left < center && rect.right > center) {
                     card.classList.add('active');
-
-                    if (serviceCards[index - 1]) {
-                        serviceCards[index - 1].classList.add('neighbor');
-                    }
-                    if (serviceCards[index + 1]) {
-                        serviceCards[index + 1].classList.add('neighbor');
-                    }
+                } else if (rect.left < center + 300 && rect.right > center - 300) {
+                    card.classList.add('neighbor');
+                } else {
+                    card.classList.remove('active', 'neighbor');
                 }
             });
         }
 
+        // Attach the scroll event
         servicesWrapper.addEventListener('scroll', handleScroll);
-        handleScroll();
     });
 </script>
