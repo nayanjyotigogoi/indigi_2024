@@ -77,6 +77,9 @@
     @include('home_sections.products')
     @include('home_sections.services')
     @include('home_sections.clienttestimonialsmap')
+    {{-- @include('home_sections.testimonial') --}}
+    @include('home_sections.Portfolio',  ['projects' => $projects])
+
    
     
     

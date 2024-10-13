@@ -6,7 +6,7 @@
                 <div class="carousel-overlay"></div>
                 <div class="carousel-caption d-flex flex-column justify-content-center align-items-center" style="height: 100%;">
                     <h1>INNOVATE, INTEGRATE, ELEVATE</h1>
-                    <p>Powered by SAP, Delivered by Indigi.</p>
+                    <p>Powered & Delivered by Indigi.</p>
                     <a href="#" class="btn">Get started free</a>
                 </div>
             </div>
