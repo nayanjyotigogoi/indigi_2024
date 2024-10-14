@@ -75,10 +75,12 @@
     @include('home_sections.about')
     @include('home_sections.facts')
     @include('home_sections.products')
-    @include('home_sections.services')
+    @include('home_sections.service.game')
+    {{-- @include('home_sections.services') --}}
     @include('home_sections.clienttestimonialsmap')
     {{-- @include('home_sections.testimonial') --}}
     @include('home_sections.Portfolio',  ['projects' => $projects])
+    @include('home_sections.contactus')
 
    
     

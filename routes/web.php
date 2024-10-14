@@ -23,3 +23,5 @@ Route::get('/', function () {
 // Define a route for the homepage where the portfolio section will be included
 Route::get('/', [PortfolioController::class, 'index']);
 
+
+

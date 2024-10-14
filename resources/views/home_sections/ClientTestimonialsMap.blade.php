@@ -1,24 +1,25 @@
 <!-- Include Leaflet CSS -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-<style>
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 
+<style>
 #client-map {
     border: 2px solid #007bff; /* Optional styling for the map */
 }
 </style>
-<!-- google API key=AIzaSyCCQw6Ml9RSra-m29ycAfi8WPMeN8NkcXg  -->
-<div class="container my-5">
-    <h2 class="text-center mb-4">Our Clients</h2>
-    <div id="client-map" style="height: 500px;"></div>
+
+<div class="container my-5" data-aos="fade-up" data-aos-duration="1000">
+    <h2 class="text-center mb-4" data-aos="zoom-in" data-aos-duration="1000">Our Clients</h2>
+    <div id="client-map" style="height: 500px;" data-aos="fade-up" data-aos-duration="1000"></div>
 </div>
 
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     // Initialize the map
     function initMap() {
         var map = new google.maps.Map(document.getElementById('client-map'), {
             zoom: 2,
             center: { lat: 26.133127918480962, lng: 91.8301502270023 } // indigi office
-           
         });
 
         addMarkers(map);
@@ -73,9 +74,13 @@
             });
         });
     }
+
+    // Initialize AOS
+    AOS.init();
+
 </script>
+
 <!-- Load Google Maps API -->
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCQw6Ml9RSra-m29ycAfi8WPMeN8NkcXg&callback=initMap">
 </script>
-

@@ -110,15 +110,6 @@
         opacity: 1;
     }
 
-    .modal-dialog {
-        max-width: 800px;
-    }
-
-    .modal-body img {
-        width: 100%;
-        height: auto;
-    }
-
     .load-more {
         text-align: center;
         margin-top: 30px;
@@ -142,7 +133,20 @@
             transform: translateY(0); /* Move to original position */
         }
     }
+
+    /* Modal Styles */
+    .modal-content {
+        border-radius: 10px;
+    }
+
+    .modal-body img {
+        max-width: 100%;
+        margin-bottom: 15px;
+    }
 </style>
+
+<!-- Include AOS CSS -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <!-- Portfolio Section JavaScript -->
 <script>
@@ -163,13 +167,15 @@
                 const portfolioItem = document.createElement('div');
                 portfolioItem.className = 'portfolio-item';
                 portfolioItem.setAttribute('data-category', project.category);
+                portfolioItem.setAttribute('data-aos', 'fade-up'); // Add AOS effect
+                portfolioItem.setAttribute('data-aos-delay', `${i * 100}`); // Stagger animation
                 portfolioItem.innerHTML = `
                     <div class="portfolio-card">
                         <img src="${project.image}" alt="${project.title}" class="lazy" loading="lazy">
                         <div class="portfolio-hover">
                             <h3>${project.title}</h3>
                             <p>${project.short_description}</p>
-                            <button data-toggle="modal" data-target="#portfolioModal${project.id}">View Details</button>
+                            <button class="view-details-btn" data-title="${project.title}" data-description="${project.description}" data-image="${project.image}" data-toggle="modal" data-target="#portfolioModal">View Details</button>
                         </div>
                     </div>
                 `;
@@ -178,15 +184,25 @@
 
             displayedProjects += projectsToLoad;
 
-            // Trigger the animation by adding a class to each item
-            portfolioGrid.querySelectorAll('.portfolio-item').forEach((item, index) => {
-                item.style.animationDelay = `${index * 0.1}s`; // Staggered animation
-                item.style.opacity = 1; // Set opacity to visible
-            });
+            // Refresh AOS to apply animations to new elements
+            AOS.refresh();
 
             if (displayedProjects >= totalProjects) {
                 loadMoreBtn.style.display = 'none'; // Hide the button when no more projects
             }
+
+            // Attach event listeners for "View Details" buttons
+            document.querySelectorAll('.view-details-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const title = this.getAttribute('data-title');
+                    const description = this.getAttribute('data-description');
+                    const image = this.getAttribute('data-image');
+
+                    document.getElementById('portfolioModalLabel').innerText = title;
+                    document.getElementById('modalDescription').innerText = description;
+                    document.getElementById('modalImage').setAttribute('src', image);
+                });
+            });
         }
 
         // Load the initial set of projects
@@ -194,7 +210,7 @@
 
         // Add event listener for the load more button
         loadMoreBtn.addEventListener('click', loadProjects);
-        
+
         // Filter functionality
         let filterButtons = document.querySelectorAll('.filter-btn');
         filterButtons.forEach(button => {
@@ -217,4 +233,17 @@
             });
         });
     });
+
+    // Initialize AOS
+    AOS.init({
+        duration: 1000,  // Duration of the animation in milliseconds
+        easing: 'ease-in-out',  // Easing function for animations
+        once: true  // Whether animation should happen only once or every time you scroll
+    });
 </script>
+
+<!-- Include AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+
+<!-- Include Bootstrap JS for Modal functionality -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

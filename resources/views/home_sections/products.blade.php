@@ -27,6 +27,9 @@
 
     .our-products .section-title {
         margin-bottom: 40px;
+        opacity: 0; /* Hidden by default */
+        transform: translateY(-30px); /* Moved up a bit */
+        transition: opacity 0.6s ease, transform 0.6s ease; /* Transition for appearance */
     }
 
     .our-products .section-title h5 {
@@ -51,6 +54,9 @@
         background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
         height: 400px; /* Default height without hover */
         animation: move 10s ease infinite; /* Background animation */
+        opacity: 0; /* Hidden by default */
+        transform: translateY(20px); /* Moved down a bit */
+        transition: opacity 0.6s ease, transform 0.6s ease; /* Transition for appearance */
     }
 
     /* Hover Effects: Expand Description */
@@ -62,16 +68,41 @@
 
     /* Card Body - Only show name initially */
     .our-products .card-body {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        transition: all 0.4s ease;
-        opacity: 0; /* Hidden by default */
-        transform: translateY(20px); /* Moved down a bit */
-    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: all 0.4s ease;
+    opacity: 1; /* Make the card body content visible by default */
+    transform: translateY(0); /* Reset translate so the content is in place */
+}
+.our-products .card-body h5.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333; /* Add color for better contrast */
+}
 
+.our-products .card-body p.card-text {
+    opacity: 0; /* Hide the description text initially */
+    max-height: 0;
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+/* Show description on hover */
+.our-products .card:hover .card-text {
+    opacity: 1;
+    max-height: 100px; /* Display the description text on hover */
+    transition-delay: 0.2s;
+}
+
+/* Modal video styling */
+.modal-body video {
+    width: 100%;
+    height: auto;
+}
     /* Show card content on hover */
     .our-products .card:hover .card-body {
         opacity: 1;
@@ -186,128 +217,166 @@
     }
 </style>
 
+<!-- Include AOS CSS and JS in your head -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+
 <!-- Our Products Section -->
-<div class="container our-products">
-    <div class="section-title text-center">
-        <h5>Our Products</h5>
-        <h1>Innovative Solutions for Your Business</h1>
-    </div>
-    <div class="row g-4">
-        <!-- Product Card 1: Rise with SAP -->
-        <div class="col-lg-3 col-md-6">
-            <div class="card" data-bs-toggle="modal" data-bs-target="#videoModal1">
-                <div class="product-tag">New</div>
-                <img src="{{ asset('images/rws.jpg') }}" class="card-img-top" alt="Rise with SAP">
-                <div class="card-body">
-                    <h5 class="card-title">Rise with SAP</h5>
-                    <p class="card-text">Transform your business with Rise with SAP solutions.</p>
+<div class="our-products py-5" id="products">
+    <div class="container">
+        <h2 class="section-title text-center mb-4" data-aos="fade-up">Our Products</h2>
+        <div class="row">
+            <!-- Product Card 1 -->
+            <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="card">
+                    <img src="images/rws.jpg" class="card-img-top" alt="Rise with SAP">
+                    <div class="card-body">
+                        <!-- Product name visible by default -->
+                        <h5 class="card-title">Rise with SAP</h5>
+                        <!-- Description appears on hover -->
+                        <p class="card-text">Transform your business processes with SAP.</p>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#videoModal1">
+                            Watch Video
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Product Card 2 -->
+            <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="card">
+                    <img src="images/S4HANA.jpg" class="card-img-top" alt="S4HANA">
+                    <div class="card-body">
+                        <h5 class="card-title">S4HANA</h5>
+                        <p class="card-text">Innovate with real-time data insights.</p>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#videoModal2">
+                            Watch Video
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Product Card 3 -->
+            <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="card">
+                    <img src="images/SBBD.jpg" class="card-img-top" alt="SAP Business ByDesign">
+                    <div class="card-body">
+                        <h5 class="card-title">SAP Business ByDesign</h5>
+                        <p class="card-text">Cloud ERP for growing businesses.</p>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#videoModal3">
+                            Watch Video
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Product Card 4 -->
+            <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="card">
+                    <img src="images/A&Wd.jpg" class="card-img-top" alt="Android & Web Development">
+                    <div class="card-body">
+                        <h5 class="card-title">Android & Web Development</h5>
+                        <p class="card-text">Develop robust applications for web and mobile platforms.</p>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#videoModal4">
+                            Watch Video
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- Product Card 2: S4HANA -->
-        <div class="col-lg-3 col-md-6">
-            <div class="card" data-bs-toggle="modal" data-bs-target="#videoModal2">
-                <div class="product-tag">Featured</div>
-                <img src="{{ asset('images/S4HANA.jpg') }}" class="card-img-top" alt="S4HANA">
-                <div class="card-body">
-                    <h5 class="card-title">S4HANA</h5>
-                    <p class="card-text">Experience the power of S4HANA for your enterprise.</p>
-                </div>
-            </div>
-        </div>
-        <!-- Product Card 3: SAP Business ByDesign -->
-        <div class="col-lg-3 col-md-6">
-            <div class="card" data-bs-toggle="modal" data-bs-target="#videoModal3">
-                <img src="{{ asset('images/SBBD.jpg') }}" class="card-img-top" alt="SAP Business ByDesign">
-                <div class="card-body">
-                    <h5 class="card-title">SAP Business ByDesign</h5>
-                    <p class="card-text">A complete ERP solution for fast-growing businesses.</p>
-                </div>
-            </div>
-        </div>
-        <!-- Product Card 4: Android Web Development -->
-        <div class="col-lg-3 col-md-6">
-            <div class="card" data-bs-toggle="modal" data-bs-target="#videoModal4">
-                <img src="{{ asset('images/A&Wd.jpg') }}" class="card-img-top" alt="Android Web Development">
-                <div class="card-body">
-                    <h5 class="card-title">Android, Web Development</h5>
-                    <p class="card-text">Get cutting-edge Android web solutions.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Explore More Button -->
-    <div class="text-center mt-4">
-        <a href="/products" class="btn btn-primary">Explore More</a>
     </div>
 </div>
 
-<!-- Modals for Video -->
+<!-- Modals for each product video -->
+<!-- Modal 1 -->
 <div class="modal fade" id="videoModal1" tabindex="-1" aria-labelledby="videoModalLabel1" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="videoModalLabel1">Rise with SAP</h5>
+                <h5 class="modal-title" id="videoModalLabel1">Rise with SAP Video</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/BHriWZ5xTqM?autoplay=1&controls=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <video controls>
+                    <source src="public/video/risewithsap.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Modal 2 -->
 <div class="modal fade" id="videoModal2" tabindex="-1" aria-labelledby="videoModalLabel2" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="videoModalLabel2">S4HANA</h5>
+                <h5 class="modal-title" id="videoModalLabel2">S4HANA Video</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/N3AkSS5hXMA?autoplay=1&controls=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <video controls>
+                    <source src="public/video/s4hana.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Modal 3 -->
 <div class="modal fade" id="videoModal3" tabindex="-1" aria-labelledby="videoModalLabel3" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="videoModalLabel3">SAP Business ByDesign</h5>
+                <h5 class="modal-title" id="videoModalLabel3">SAP Business ByDesign Video</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/a3Z7zEc7AXQ?autoplay=1&controls=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <video controls>
+                    <source src="public/video/sapbydesign.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Modal 4 -->
 <div class="modal fade" id="videoModal4" tabindex="-1" aria-labelledby="videoModalLabel4" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="videoModalLabel4">Android, Web Development</h5>
+                <h5 class="modal-title" id="videoModalLabel4">Android & Web Development Video</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/qRmcpe_D10Q?autoplay=1&controls=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <video controls>
+                    <source src="public/video/androidwebdev.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
         </div>
     </div>
 </div>
 
 <script>
-    // Optional: Trigger autoplay for modals on show
-    $('#videoModal1, #videoModal2, #videoModal3, #videoModal4').on('shown.bs.modal', function (e) {
-        $(this).find('iframe').attr('src', function (i, val) {
-            return val + "&autoplay=1";
-        });
-    }).on('hide.bs.modal', function (e) {
-        $(this).find('iframe').attr('src', function (i, val) {
-            return val.replace("&autoplay=1", "");
-        });
+    // Initialize AOS
+    AOS.init();
+
+    // JavaScript to handle scroll animations for the products section
+    window.addEventListener('scroll', function() {
+        const sectionTitle = document.querySelector('.our-products .section-title');
+        const cards = document.querySelectorAll('.our-products .card');
+
+        // Check if the section is in view
+        const sectionPosition = sectionTitle.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.2; // Adjust this value as needed
+
+        if (sectionPosition < screenPosition) {
+            sectionTitle.style.opacity = 1;
+            sectionTitle.style.transform = 'translateY(0)';
+            cards.forEach(card => {
+                card.style.opacity = 1;
+                card.style.transform = 'translateY(0)';
+            });
+        }
     });
 </script>
