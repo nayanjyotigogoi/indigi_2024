@@ -71,6 +71,7 @@
     <main>
     
     @include('home_sections.hero')
+    @include('home_sections.3dtext')
     @include('home_sections.clientlogo')
     @include('home_sections.about')
     @include('home_sections.facts')
@@ -80,6 +81,7 @@
     @include('home_sections.clienttestimonialsmap')
     {{-- @include('home_sections.testimonial') --}}
     @include('home_sections.Portfolio',  ['projects' => $projects])
+    @include('home_sections.gallery')
     @include('home_sections.contactus')
 
    
