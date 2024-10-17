@@ -35,6 +35,7 @@
 
     /* Logo Wrapper */
     .logo-wrapper {
+        max-width: 100%;
         background: white; /* White background for logos */
         border-radius: 15px; /* Curved corners */
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Shadow effect */

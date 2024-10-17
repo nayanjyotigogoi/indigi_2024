@@ -5,8 +5,9 @@
     position: relative;
     background: url('images/parallax-bg.jpeg') no-repeat center center/cover;
     background-attachment: fixed;
-    color: #fff; /* Ensuring text is legible against the background */
+    color: #fff;
     z-index: 1;
+    overflow: hidden; /* Ensuring the content stays inside the section */
 }
 
 /* Overlay for better contrast */
@@ -21,7 +22,7 @@
     z-index: -1;
 }
 
-/* Section Title Styling */
+/* Section Title Styling with Animated Letter Spacing */
 .about h1 {
     font-size: 3rem;
     font-weight: 700;
@@ -29,6 +30,13 @@
     color: #fff;
     text-align: center;
     margin-bottom: 50px;
+    letter-spacing: 2px; /* Initial letter spacing */
+    transition: letter-spacing 0.5s ease-in-out; /* Transition for the letter spacing */
+}
+
+/* Hover effect to animate letter spacing */
+.about h1:hover {
+    letter-spacing: 10px; /* Increased spacing on hover */
 }
 
 .about p {
@@ -106,114 +114,53 @@
 .call-to-action:hover {
     background-color: #007bbf;
 }
-
-/* Animation (same as before) */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.value-box {
-    animation: fadeInUp 1s forwards;
-    opacity: 0;
-}
-
-.value-box:nth-child(1) {
-    animation-delay: 0.3s;
-}
-
-.value-box:nth-child(2) {
-    animation-delay: 0.5s;
-}
-
-.value-box:nth-child(3) {
-    animation-delay: 0.7s;
-}
-
-.value-box:nth-child(4) {
-    animation-delay: 0.9s;
-}
-
-/* Glowing and Floating Animation for Icons */
-@keyframes glow {
-    0% {
-        text-shadow: 0 0 5px #00d4ff, 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 30px #00d4ff, 0 0 40px #00d4ff;
-    }
-    50% {
-        text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 30px #00d4ff, 0 0 40px #00d4ff, 0 0 50px #00d4ff;
-    }
-    100% {
-        text-shadow: 0 0 5px #00d4ff, 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 30px #00d4ff, 0 0 40px #00d4ff;
-    }
-}
-
-@keyframes float {
-    0% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-    100% {
-        transform: translateY(0px);
-    }
-}
-
-/* Apply glowing and floating animation to icons */
-.value-box i {
-    font-size: 3rem;
-    color: #00d4ff;
-    margin-bottom: 20px;
-    animation: glow 2s ease-in-out infinite, float 3s ease-in-out infinite;
-}
-
 </style>
 
 <!-- About Section Start -->
-<div class="about">
-    <!-- Section Title -->
-    <h1>About Us</h1>
-    <!-- Paragraph -->
-    <p>At Indigi Consulting, we pride ourselves on delivering top-tier SAP solutions, ensuring that our clients stay ahead in a fast-evolving digital landscape. Discover what sets us apart.</p>
+<div class="about" data-aos="zoom-in-up">
+    <!-- Section Title with AOS -->
+    <h1 data-aos="fade-down">About Us</h1>
+    <!-- Paragraph with AOS -->
+    <p data-aos="fade-up" data-aos-delay="200">At Indigi Consulting, we pride ourselves on delivering top-tier SAP solutions, ensuring that our clients stay ahead in a fast-evolving digital landscape. Discover what sets us apart.</p>
     
     <!-- Core Values Section -->
     <div class="values-container">
         <!-- Value 1 -->
-        <div class="value-box">
+        <div class="value-box" data-aos="fade-right" data-aos-delay="300">
             <i class="fa fa-lightbulb"></i>
             <h3>Innovation</h3>
             <p>We lead with cutting-edge ideas and forward-thinking strategies.</p>
         </div>
         
         <!-- Value 2 -->
-        <div class="value-box">
+        <div class="value-box" data-aos="fade-right" data-aos-delay="400">
             <i class="fa fa-users"></i>
             <h3>Collaboration</h3>
             <p>Our approach is built on strong partnerships and teamwork.</p>
         </div>
         
         <!-- Value 3 -->
-        <div class="value-box">
+        <div class="value-box" data-aos="fade-right" data-aos-delay="500">
             <i class="fa fa-cogs"></i>
             <h3>Efficiency</h3>
             <p>We optimize your processes for smoother operations and maximum results.</p>
         </div>
         
         <!-- Value 4 -->
-        <div class="value-box">
+        <div class="value-box" data-aos="fade-right" data-aos-delay="600">
             <i class="fa fa-chart-line"></i>
             <h3>Growth</h3>
             <p>We help businesses scale by delivering tailored and scalable solutions.</p>
         </div>
     </div>
 
-    <!-- Call to Action -->
-    <a href="quote.html" class="call-to-action">Request A Quote</a>
+    <!-- Call to Action with AOS -->
+    <a href="quote.html" class="call-to-action" data-aos="fade-up" data-aos-delay="700">Request A Quote</a>
 </div>
 <!-- About Section End -->
+
+<!-- Include AOS script -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+<script>
+    AOS.init();
+</script>

@@ -1,45 +1,60 @@
-<section id="portfolio" class="portfolio-section">
+<!-- Portfolio Section -->
+<section id="portfolio" class="portfolio-section" data-aos="fade-up">
     <div class="container">
-        <h2 class="section-title">Our Portfolio</h2>
+        <h2 class="section-title" data-aos="zoom-in">Our Portfolio</h2>
+
         <!-- Filter bar for categories -->
-        <div class="filter-bar">
+        <div class="filter-bar" data-aos="zoom-in">
             <button data-filter="all" class="filter-btn active">All</button>
-            <button data-filter="web" class="filter-btn">Web Development</button>
             <button data-filter="sap" class="filter-btn">SAP Solutions</button>
             <button data-filter="android" class="filter-btn">Android Apps</button>
+            <button data-filter="website" class="filter-btn">Website</button> <!-- New filter button -->
         </div>
 
-        <!-- Portfolio grid layout -->
-        <div class="portfolio-grid" id="portfolioGrid">
-            <!-- Portfolio items will be loaded here -->
-        </div>
+        <!-- Single Project Display -->
+        <div class="portfolio-single" data-aos="fade-right">
+            <!-- Left Side: Project Details -->
+            <div class="portfolio-details" id="portfolioDetails">
+                <h3 id="projectTitle">Project Title</h3>
+                <p id="projectDescription">Project description goes here.</p>
+                <p id="clientName">Client: <strong>Client Name</strong></p>
+            </div>
 
-        <!-- Load more button -->
-        <div id="loadMore" class="load-more">Load More</div>
+            <!-- Right Side: Video Card -->
+            <div class="portfolio-media" data-aos="fade-left">
+                <div class="media-card">
+                    <video class="portfolio-video" muted loop preload="none" id="portfolioVideo">
+                        <source id="videoSource" src="video-placeholder.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
 <!-- Portfolio Section Styles -->
 <style>
     .portfolio-section {
-        background: white; /* Background color */
-        padding: 60px 0;
+        background: #f9f9f9;
+        padding: 80px 0;
         color: #333;
-        overflow: hidden;
     }
 
     .section-title {
         text-align: center;
-        margin-bottom: 40px;
-        font-size: 2.5rem;
+        margin-bottom: 50px;
+        font-size: 2.8rem;
+        font-weight: bold;
+        color: #2c3e50;
     }
 
     .filter-bar {
         text-align: center;
-        margin-bottom: 30px;
+        margin-bottom: 40px;
     }
 
-    .filter-bar .filter-btn {
+    .filter-btn {
         background-color: #4ca1af;
         border: none;
         color: #fff;
@@ -49,201 +64,162 @@
         transition: background 0.3s ease;
     }
 
-    .filter-bar .filter-btn.active,
-    .filter-bar .filter-btn:hover {
+    .filter-btn.active,
+    .filter-btn:hover {
         background-color: #2c3e50;
     }
 
-    .portfolio-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 20px;
+    /* Single project display styling */
+    .portfolio-single {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
     }
 
-    .portfolio-item {
+    .portfolio-details {
+        flex: 1;
+        padding-right: 20px;
+        color: #333;
         position: relative;
         overflow: hidden;
-        transition: transform 0.3s;
-        opacity: 0; /* Initially hidden */
-        transform: translateY(20px); /* Start below */
-        animation: fadeIn 0.5s forwards; /* Fade in animation */
     }
 
-    .portfolio-card {
-        background: #333;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        transition: transform 0.3s;
+    .portfolio-details h3 {
+        font-size: 2.2rem;
+        margin-bottom: 15px;
+        color: #2c3e50;
+        font-weight: bold;
+        position: relative;
+        background: linear-gradient(90deg, #4ca1af 0%, #2c3e50 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        transition: all 0.4s ease;
     }
 
-    .portfolio-card img {
+    .portfolio-details p {
+        font-size: 1.2rem;
+        color: #666;
+        margin-bottom: 10px;
+        position: relative;
+        opacity: 0.85;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .portfolio-details p strong {
+        color: #333;
+        font-weight: bold;
+    }
+
+    .portfolio-media {
+        flex: 1;
+        position: relative;
+    }
+
+    .media-card {
+        position: relative;
         width: 100%;
         height: auto;
-        display: block;
-        transition: transform 0.5s;
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
     }
 
-    .portfolio-card:hover {
-        transform: scale(1.05);
+    .portfolio-video {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
     }
 
-    .portfolio-hover {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.8);
-        opacity: 0;
-        transition: opacity 0.3s;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        color: #fff;
-        border-radius: 10px;
-    }
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .portfolio-single {
+            flex-direction: column;
+        }
 
-    .portfolio-card:hover .portfolio-hover {
-        opacity: 1;
-    }
+        .portfolio-details {
+            padding-right: 0;
+            text-align: center;
+        }
 
-    .load-more {
-        text-align: center;
-        margin-top: 30px;
-        padding: 10px 20px;
-        background-color: #4ca1af;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background 0.3s;
-    }
+        .portfolio-details h3 {
+            font-size: 1.8rem;
+        }
 
-    .load-more:hover {
-        background-color: #2c3e50;
-    }
-
-    /* Fade-in Animation */
-    @keyframes fadeIn {
-        to {
-            opacity: 1;
-            transform: translateY(0); /* Move to original position */
+        .portfolio-details p {
+            font-size: 1rem;
         }
     }
-
-    /* Modal Styles */
-    .modal-content {
-        border-radius: 10px;
-    }
-
-    .modal-body img {
-        max-width: 100%;
-        margin-bottom: 15px;
-    }
 </style>
-
-<!-- Include AOS CSS -->
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <!-- Portfolio Section JavaScript -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const loadMoreBtn = document.getElementById('loadMore');
-        const portfolioGrid = document.getElementById('portfolioGrid');
-        const allProjects = @json($projects); // All projects from the server
-        let displayedProjects = 0;
-        const projectsPerLoad = 8; // Number of projects to load at a time
+        let portfolioItems = @json($projects); // Fetch projects dynamically
+        let currentProjectIndex = 0;
+        let filteredProjects = portfolioItems; // Array to hold filtered projects
 
-        // Function to load more projects
-        function loadProjects() {
-            const totalProjects = allProjects.length;
-            const projectsToLoad = Math.min(projectsPerLoad, totalProjects - displayedProjects);
+        // Initial display
+        displayProject(filteredProjects[currentProjectIndex]);
 
-            for (let i = 0; i < projectsToLoad; i++) {
-                const project = allProjects[displayedProjects + i];
-                const portfolioItem = document.createElement('div');
-                portfolioItem.className = 'portfolio-item';
-                portfolioItem.setAttribute('data-category', project.category);
-                portfolioItem.setAttribute('data-aos', 'fade-up'); // Add AOS effect
-                portfolioItem.setAttribute('data-aos-delay', `${i * 100}`); // Stagger animation
-                portfolioItem.innerHTML = `
-                    <div class="portfolio-card">
-                        <img src="${project.image}" alt="${project.title}" class="lazy" loading="lazy">
-                        <div class="portfolio-hover">
-                            <h3>${project.title}</h3>
-                            <p>${project.short_description}</p>
-                            <button class="view-details-btn" data-title="${project.title}" data-description="${project.description}" data-image="${project.image}" data-toggle="modal" data-target="#portfolioModal">View Details</button>
-                        </div>
-                    </div>
-                `;
-                portfolioGrid.appendChild(portfolioItem);
+        // Scroll event listener
+        window.addEventListener('wheel', function(event) {
+            if (event.deltaY > 0) {
+                // Scroll down, show the next project
+                if (currentProjectIndex < filteredProjects.length - 1) {
+                    currentProjectIndex++;
+                    displayProject(filteredProjects[currentProjectIndex]);
+                }
+            } else {
+                // Scroll up, show the previous project
+                if (currentProjectIndex > 0) {
+                    currentProjectIndex--;
+                    displayProject(filteredProjects[currentProjectIndex]);
+                }
             }
-
-            displayedProjects += projectsToLoad;
-
-            // Refresh AOS to apply animations to new elements
-            AOS.refresh();
-
-            if (displayedProjects >= totalProjects) {
-                loadMoreBtn.style.display = 'none'; // Hide the button when no more projects
-            }
-
-            // Attach event listeners for "View Details" buttons
-            document.querySelectorAll('.view-details-btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    const title = this.getAttribute('data-title');
-                    const description = this.getAttribute('data-description');
-                    const image = this.getAttribute('data-image');
-
-                    document.getElementById('portfolioModalLabel').innerText = title;
-                    document.getElementById('modalDescription').innerText = description;
-                    document.getElementById('modalImage').setAttribute('src', image);
-                });
-            });
-        }
-
-        // Load the initial set of projects
-        loadProjects();
-
-        // Add event listener for the load more button
-        loadMoreBtn.addEventListener('click', loadProjects);
+        });
 
         // Filter functionality
-        let filterButtons = document.querySelectorAll('.filter-btn');
-        filterButtons.forEach(button => {
+        document.querySelectorAll('.filter-btn').forEach(button => {
             button.addEventListener('click', function() {
-                // Remove active class from all buttons
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                // Add active class to clicked button
+                const filter = this.getAttribute('data-filter');
+
+                // Mark the current filter button as active
+                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
                 this.classList.add('active');
 
-                let filterValue = this.getAttribute('data-filter');
-                let portfolioItems = document.querySelectorAll('.portfolio-item');
+                // Filter the projects based on the selected category
+                if (filter === 'all') {
+                    filteredProjects = portfolioItems;
+                } else {
+                    filteredProjects = portfolioItems.filter(p => p.category === filter);
+                }
 
-                portfolioItems.forEach(item => {
-                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
+                // Reset index and display the first filtered project
+                if (filteredProjects.length > 0) {
+                    currentProjectIndex = 0;
+                    displayProject(filteredProjects[currentProjectIndex]);
+                } else {
+                    alert('No projects found for the selected category.');
+                }
             });
         });
-    });
 
-    // Initialize AOS
-    AOS.init({
-        duration: 1000,  // Duration of the animation in milliseconds
-        easing: 'ease-in-out',  // Easing function for animations
-        once: true  // Whether animation should happen only once or every time you scroll
+        // Function to display a project based on the index
+        function displayProject(project) {
+            document.getElementById('projectTitle').innerText = project.title;
+            document.getElementById('projectDescription').innerText = project.description;
+            document.getElementById('clientName').innerHTML = `Client: <strong>${project.clientName}</strong>`;
+            
+            const videoElement = document.getElementById('portfolioVideo');
+            const videoSourceElement = document.getElementById('videoSource');
+
+            // Update the video source
+            videoSourceElement.src = project.video;
+            videoElement.load();
+
+            // Play the video after it has been loaded
+            videoElement.play();
+        }
     });
 </script>
-
-<!-- Include AOS JS -->
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
-
-<!-- Include Bootstrap JS for Modal functionality -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
