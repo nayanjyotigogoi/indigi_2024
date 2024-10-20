@@ -295,7 +295,7 @@
             </div>
             <div class="modal-body">
                 <video controls>
-                    <source src="public/video/risewithsap.mp4" type="video/mp4">
+                    <source src="video/risewithsap.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
@@ -313,7 +313,7 @@
             </div>
             <div class="modal-body">
                 <video controls>
-                    <source src="public/video/s4hana.mp4" type="video/mp4">
+                    <source src="video/S_4HANA.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
@@ -331,7 +331,7 @@
             </div>
             <div class="modal-body">
                 <video controls>
-                    <source src="public/video/sapbydesign.mp4" type="video/mp4">
+                    <source src="video/byD.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
@@ -349,7 +349,7 @@
             </div>
             <div class="modal-body">
                 <video controls>
-                    <source src="public/video/androidwebdev.mp4" type="video/mp4">
+                    <source src="video/androidwebdev.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>

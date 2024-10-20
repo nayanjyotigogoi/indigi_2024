@@ -7,6 +7,7 @@
     }
 
     .footer-columns {
+        font-size: 0.6rem;
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
@@ -14,7 +15,7 @@
 
     .footer-column {
         flex: 1;
-        min-width: 200px;
+        max-width: 400px;
         margin: 20px;
     }
 

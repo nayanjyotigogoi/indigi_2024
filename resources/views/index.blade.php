@@ -71,7 +71,7 @@
     <main>
     
     @include('home_sections.hero')
-    @include('home_sections.3dtext')
+    {{-- @include('home_sections.3dtext') --}}
     @include('home_sections.clientlogo')
     @include('home_sections.about')
     @include('home_sections.facts')
