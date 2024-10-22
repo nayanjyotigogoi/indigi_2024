@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\ApplicationController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +30,8 @@ Route::get('/', [PortfolioController::class, 'index']);
 //nav-bar routes
 
 
+
+
 Route::get('/about', function () {
     return view('nav-bar.nav_about');
 })->name('about');
@@ -34,15 +40,13 @@ Route::get('/products', function () {
     return view('nav-bar.nav_products');
 })->name('products');
 
-Route::get('/service', function () {
-    return view('nav-bar.nav_service');
-})->name('service');
+Route::get('/services', [ServiceController::class, 'index'])->name('services');
 
 Route::get('/portfolio', [PortfolioController::class, 'view'])->name('portfolio');
 
 
 Route::get('/gallery', function () {
-    return view('home_sections.gallery');
+    return view('nav-bar\nav_gallery');
 })->name('gallery');
 
 Route::get('/contact', function () {
@@ -53,8 +57,17 @@ Route::get('/career', function () {
     return view('nav-bar.nav_career');
 })->name('career');
 
-Route::get('/contact', function () {
-    return view('nav-bar.nav_contact');
-})->name('contact');
+//contact us route
+Route::get('/contact', [ContactController::class, 'show'])->name('contact.show');
+Route::post('/contact/submit', [ContactController::class, 'submitContactForm'])->name('contact.submit');
+
+
+//route for the apply now button. 
+Route::get('/apply-now', [ApplicationController::class, 'show']);
+
+Route::post('/submit-application', [ApplicationController::class, 'store'])->name('submit-application');
+
+//products learn-more.
+Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.learn-more');
 
 

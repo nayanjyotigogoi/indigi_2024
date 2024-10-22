@@ -11,10 +11,7 @@
         <p class="description">Each project showcases our commitment to innovation, precision, and client satisfaction, ensuring that we stay ahead in a fast-evolving technological landscape.</p>
         
     </div>
-
-    
     <div class="container">
-    
         <div class="filter-bar" data-aos="zoom-in">
             <button data-filter="all" class="filter-btn active">All</button>
             <button data-filter="sap" class="filter-btn">SAP Solutions</button>
@@ -36,22 +33,14 @@
             @endforeach
         </div>
     </div>
+</div>
 </section>
-        {{-- Mini-map for project cards
-        <div class="mini-map">
-            @foreach($projects as $project)
-                <div class="mini-card" data-index="{{ $loop->index }}" onclick="displayProject({{ $loop->index }})">
-                    <h4 class="mini-title">{{ $project['title'] }}</h4>
-                </div>
-            @endforeach
-        </div> --}}
+      
 @endsection
 
 <style>
 
-/* Caption section - 10% height */
-
-
+/* Caption section */
 .caption-text {
     font-size: 1.2rem;
     color: #2c3e50;
@@ -63,37 +52,38 @@
     font-family: 'Poppins', sans-serif; /* Modern font style */
 }
 .main-title {
-            font-size: 3rem;
+            font-size: 2rem;
             font-weight: bold;
             animation: fadeIn 1s ease-in-out;
         }
 
-        .sub-title {
+.sub-title {
             font-size: 1.8rem;
             margin: 10px 0;
             animation: fadeIn 1.5s ease-in-out;
         }
 
-        .description {
+.description {
             font-size: 1.2rem;
             margin: 20px 0;
             animation: fadeIn 2s ease-in-out;
         }
 
-    .section-title {
+.section-title {
+        animation: fadeIn 1s ease-in-out;
         text-align: center;
         margin-bottom: 50px;
-        font-size: 2.8rem;
+        font-size: 1.8rem;
         font-weight: bold;
-        color: #2c3e50;
+        
     }
 
-    .filter-bar {
+.filter-bar {
         text-align: center;
         margin-bottom: 40px;
     }
 
-    .filter-btn {
+.filter-btn {
         background-color: #4ca1af;
         border: none;
         color: #fff;
@@ -103,14 +93,15 @@
         transition: background 0.3s ease;
     }
 
-    .filter-btn.active,
-    .filter-btn:hover {
+.filter-btn.active,
+.filter-btn:hover {
         background-color: #2c3e50;
     }
 
-    .portfolio-caption {
+.portfolio-caption {
             color: #ffffff;
             padding: 100px 20px;
+            height: 80vh;
          
     background: linear-gradient(135deg, #C4E1F6, #37AFE1);
     border-top: 1px solid #ddd;
@@ -176,52 +167,6 @@
     align-items: flex-start;
     gap: 30px; /* Gap between the main display and mini-map */
 }
-/* mini map style */
-.mini-map {
-    flex-basis: 20%; /* 20% width */
-    max-height: 80vh; /* Max height to allow vertical scrolling if necessary */
-    display: flex;
-    flex-direction: column; /* Stack mini-cards vertically */
-    overflow-y: auto; /* Allow vertical scrolling */
-    background-color: #f4f4f4; /* Background color for better visibility */
-    padding: 20px;
-    border-left: 1px solid #ddd; /* Divider between the main content and mini-map */
-}
-
-.mini-card {
-    background-color: #4ca1af;
-    border-radius: 8px;
-    padding: 10px;
-    margin: 10px 0;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-    color: #fff;
-    text-align: center;
-}
-
-.mini-card:hover {
-    background-color: #2c3e50;
-    transform: scale(1.05);
-}
-
-.mini-title {
-    font-size: 0.9rem;
-    font-weight: bold;
-    white-space: nowrap; /* Prevent text wrapping */
-}
-
-.mini-map::-webkit-scrollbar {
-    width: 8px;
-}
-
-.mini-map::-webkit-scrollbar-thumb {
-    background-color: #888;
-    border-radius: 10px;
-}
-
-.mini-map::-webkit-scrollbar-track {
-    background-color: #f1f1f1;
-}
 
 /* Main portfolio section adjustments */
 .portfolio-section {
@@ -242,12 +187,6 @@
 @media (max-width: 768px) {
     .portfolio-container {
         flex-direction: column; /* Stack the elements vertically on smaller screens */
-    }
-
-    .mini-map {
-        width: 100%; /* Make mini-map full width on small screens */
-        height: auto;
-        max-height: none;
     }
 }
 </style>

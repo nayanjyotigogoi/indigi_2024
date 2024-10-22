@@ -3,81 +3,66 @@
 @section('content')
     <!-- Include styles for 3D cube, divider, and additional sections -->
     <style>
-        body {
+        html, body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             background-color: #f9f9f9;
         }
-        /* why us */
+        section {
+            min-height: 100vh; /* Each section will now cover the full height of the screen */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+           
+        }
+
+        /* Section: Why Us */
         .why-us {
             background: linear-gradient(135deg, #C4E1F6, #37AFE1);
-            color: #ffffff;
+            color: #fff;
             padding: 100px 20px;
             text-align: center;
         }
 
-        .container {
-            /* max-width: 100%; */
+        .why-us .container {
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        .main-title {
+        .why-us h1 {
             font-size: 3rem;
             font-weight: bold;
             animation: fadeIn 1s ease-in-out;
         }
 
-        .sub-title {
-            font-size: 1.8rem;
+        .why-us p {
             margin: 10px 0;
+            font-size: 1.8rem;
             animation: fadeIn 1.5s ease-in-out;
         }
 
-        .description {
+        .why-us .description {
             font-size: 1.2rem;
             margin: 20px 0;
             animation: fadeIn 2s ease-in-out;
         }
 
-        .icons {
-            display: flex;
-            justify-content: space-around;
-            margin: 30px 0;
-        }
-
-        .icon {
-            flex: 1;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .icon i {
-            font-size: 2.5rem;
-            color: #FFD700; /* Gold color */
-        }
-
-        .icon:hover {
-            transform: scale(1.1);
-        }
-
-        .cta-button {
+        .why-us .cta-button {
             display: inline-block;
             padding: 15px 30px;
             font-size: 1.2rem;
-            color: #fff;
             background: #ff4c4c;
-            border: none;
+            color: #fff;
             border-radius: 25px;
-            text-decoration: none;
             transition: background 0.3s, transform 0.3s;
         }
 
-        .cta-button:hover {
+        .why-us .cta-button:hover {
             background: #ff1a1a;
             transform: translateY(-2px);
         }
 
-        /* Animation */
+        /* Keyframes for animations */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -89,23 +74,20 @@
             }
         }
 
-    /* 3D Cuboid Styles */
-
-    
-    .core-values-title {
+        /* Section: Core Values - 3D Cuboid */
+        .core-values-title {
             text-align: center;
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: bold;
-            margin-bottom: 40px;
             color: #333;
+            margin: 50px 0;
         }
+
         .cuboid-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 70vh; /* Center the cuboid vertically */
-
-            /* padding: 100px 0; */
+            height: 70vh;
             background-color: #fff;
         }
 
@@ -120,8 +102,8 @@
 
         .cuboid-face {
             position: absolute;
-            width: 750px;
-            height: 300px;
+            width: 500px;
+            height: 250px;
             border-radius: 10px;
             display: flex;
             justify-content: center;
@@ -131,7 +113,6 @@
             opacity: 0.9;
             transition: transform 0.5s, opacity 0.5s;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-
         }
 
         .cuboid-face.face-1 { background: #00b7c2; transform: rotateY(0deg) translateZ(150px); }
@@ -141,164 +122,36 @@
         .cuboid-face.face-5 { background: #28a745; transform: rotateX(90deg) translateZ(150px); }
         .cuboid-face.face-6 { background: #dc3545; transform: rotateX(-90deg) translateZ(150px); }
 
-        
-
         .cuboid-content {
             opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.5s ease, transform 0.5s ease;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Updated font */
-        font-size: 1rem; /* Increased font size */
-        line-height: 1.6; /* Improved line height for readability */
-        color: white; /* Ensure white text color for clarity */
-        text-align: center; /* Center-align text for better focus */
-        padding: 20px; /* Add padding for spacing */
-        background: rgba(0, 0, 0, 0.5); /* Semi-transparent background to highlight content */
-        border-radius: 15px; /* Add border radius for smoother appearance */
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
-        /* Make visible content more dynamic */
-        .cuboid-content.visible {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-            /* Update specific face content style */
-            .cuboid-face.face-1 .cuboid-content {
-                background-color: rgba(0, 183, 194, 0.7); /* Custom background for face-1 */
-            }
-
-            .cuboid-face.face-2 .cuboid-content {
-                background-color: rgba(245, 124, 32, 0.7); /* Custom background for face-2 */
-            }
-
-            .cuboid-face.face-3 .cuboid-content {
-                background-color: rgba(13, 110, 253, 0.7); /* Custom background for face-3 */
-            }
-
-            .cuboid-face.face-4 .cuboid-content {
-                background-color: rgba(111, 66, 193, 0.7); /* Custom background for face-4 */
-            }
-            .cuboid-face.face-2 .cuboid-content {
-                background-color: rgba(245, 124, 32, 0.7); /* Custom background for face-2 */
-            }
-            .cuboid-face.face-3 .cuboid-content {
-                background-color: rgba(13, 110, 253, 0.7); /* Custom background for face-3 */
-            }
-
 
         .cuboid-content.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        .cuboid-content h2 {
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-
-        .cuboid-content p {
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
-
-        /* Divider styles */
-        .divider {
-            margin: 50px 0;
-            text-align: center;
-        }
-
-        .divider-line {
-            width: 80%;
-            margin: 0 auto;
-            border-top: 2px solid #ccc;
-        }
-
-        /* Meet the Founders section */
-        .founders-section {
-            padding: 50px 20px;
-            background-color: #fff;
-        }
-
-        .founders-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #333;
-        }
-
-        .small-title {
-            text-align: center;
-            font-weight: bold;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: #555;
-        }
-
-        .who-we-are {
-            font-size: 1rem;
-            color: #666;
-            max-width: 800px;
-            margin: 0 auto 40px;
-        }
-        /* .founders-section */
-
-        .founder-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-
-        .founder {
-            position: relative;
-            width: 250px;
-            text-align: center;
-        }
-
-        .founder img {
-            width: 100%;
-            border-radius: 10px;
-            transition: transform 0.3s;
-        }
-
-        .founder:hover img {
-            transform: scale(1.05);
-        }
-
-        .founder-description {
-            margin-top: 15px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #333;
-        }
-
-              /* Our Journey Timeline */
+        /* Section: Our Journey - Timeline */
         .timeline-section {
             padding: 50px 20px;
             background-color: #f0f0f0;
             text-align: center;
-            position: relative; /* Add position relative for absolute positioning of SVG */
-        }
-
-        .rocket-icon {
-            position: absolute;
-            width: 50px; /* Adjust as needed */
-            height: auto;
-            /* Initial position to be adjusted in JavaScript */
-            left: 0;
-            top: 0; /* Position relative to the first event */
-            opacity: 0; /* Start hidden */
-            transition: opacity 0.5s;
+            position: relative;
         }
 
         .timeline-title {
             font-size: 2rem;
             font-weight: bold;
-            margin-bottom: 40px;
             color: #333;
+            margin-bottom: 40px;
         }
 
         .timeline {
@@ -319,43 +172,81 @@
         }
 
         .timeline-event {
-        padding: 20px;
-        position: relative;
-        width: 50%;
+            padding: 20px;
+            position: relative;
+            width: 50%;
         }
 
         .timeline-event.left {
-            left: 0; /* Position left events */
+            left: 0;
         }
 
         .timeline-event.right {
-            left: 50%; /* Position right events */
+            left: 50%;
         }
 
         .timeline-event-content {
-            margin: 0 30px; /* Adjust margin for both sides */
+            margin: 0 30px;
         }
 
-        /* SVG Path Animation */
-        .journey-path {
-            position: absolute;
+        /* Section: Founders */
+        .founders-section {
+            padding: 50px 20px;
+            background-color: #fff;
+        }
+
+        .founders-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .small-title {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .who-we-are {
+            font-size: 1rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .founder-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .founder {
+            text-align: center;
+            width: 250px;
+        }
+
+        .founder img {
             width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 0; /* Position it behind the timeline */
+            border-radius: 10px;
+            transition: transform 0.3s;
         }
 
-        .journey-path path {
-            fill: none;
-            stroke: #00b7c2;
-            stroke-width: 3;
-            stroke-dasharray: 1000; /* Long enough to accommodate the path length */
-            stroke-dashoffset: 1000; /* Start hidden */
-            transition: stroke-dashoffset 2s ease; /* Animation for drawing */
+        .founder:hover img {
+            transform: scale(1.05);
         }
-        
-        /* Testimonials Section */
+
+        .founder-description {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+            margin-top: 15px;
+        }
+
+        /* Section: Testimonials */
         .testimonials-section {
             padding: 50px 20px;
             background-color: #f0f0f0;
@@ -365,14 +256,13 @@
         .testimonials-title {
             font-size: 2rem;
             font-weight: bold;
-            margin-bottom: 40px;
             color: #333;
+            margin-bottom: 40px;
         }
 
         .testimonial-carousel {
             max-width: 800px;
             margin: 0 auto;
-            position: relative;
         }
 
         .testimonial-item {
@@ -395,7 +285,6 @@
             color: #00b7c2;
         }
 
-        /* Carousel controls */
         .carousel-controls {
             margin-top: 20px;
         }
@@ -414,7 +303,13 @@
             background-color: #0195a6;
         }
 
-        /* Responsive Design */
+        /* Responsive Styles */
+        @media (min-width: 1200px) {
+            .container, .container-lg, .container-md, .container-sm, .container-xl 
+            {
+                max-width: 1349px;
+            }
+        }
         @media (max-width: 768px) {
             .founder-container, .values-container {
                 flex-direction: column;
@@ -422,23 +317,16 @@
             }
 
             .timeline-event {
-                left: 0 !important;
                 width: 100%;
+                left: 0 !important;
                 margin-bottom: 20px;
-            }
-
-            .timeline-event-content {
-                margin: 0 30px;
             }
 
             .timeline::after {
                 left: 0;
             }
-
-            .timeline-event::before {
-                left: -13px;
-            }
         }
+  
     </style>
 
 <!-- why us-->
@@ -455,11 +343,6 @@
 <!-- Our Journey Timeline Section -->
     <div class="timeline-section">
         <div class="timeline-title">Our Journey</div>
-
-        <!-- SVG Path for Animation -->
-        <svg class="journey-path" viewBox="0 0 800 400">
-            <path d="M 400 0 L 400 100 L 200 100 L 200 200 L 400 200 L 400 300 L 600 300" />
-        </svg>
 
         <div class="timeline">
             <!-- Event 1 -->
