@@ -101,14 +101,12 @@
 .portfolio-caption {
             color: #ffffff;
             padding: 100px 20px;
-            height: 80vh;
-         
+            min-height: 70vh;
+            border-radius: 20px;
     background: linear-gradient(135deg, #C4E1F6, #37AFE1);
     border-top: 1px solid #ddd;
-    border-radius: 0 0 12px 12px; /* Only round the bottom corners */
     text-align: center;
     font-size: 1.2rem;
-   
     justify-content: center;
     align-items: center;
     }

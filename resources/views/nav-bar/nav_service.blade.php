@@ -1,11 +1,40 @@
 @extends('layouts')
 
 @section('content')
-    <!-- Hero Section -->
+    {{-- Hero Section 
     <section id="hero">
         <div class="hero-content">
             <h1>Our Services</h1>
             <p>We provide exceptional services to help you grow.</p>
+        </div> 
+    </section> --}}
+
+        <!-- Why Choose Us Section -->
+        <section id="why-us">
+        <h2>Why Choose Us?</h2>
+        <div class="reasons">
+            <div class="reason">
+                <img src="https://img.icons8.com/ios-filled/100/000000/teamwork.png" alt="Expert Team" class="reason-icon">
+                <h3>Expert Team</h3>
+                <p>We have a team of experts ready to help.</p>
+            </div>
+            <div class="reason">
+                <img src="https://img.icons8.com/ios-filled/100/000000/innovation.png" alt="Innovative Solutions" class="reason-icon">
+                <h3>Innovative Solutions</h3>
+                <p>We offer creative solutions for complex challenges.</p>
+            </div>
+            <div class="reason">
+                <img src="https://img.icons8.com/ios-filled/100/000000/satisfaction.png" alt="Customer Satisfaction" class="reason-icon">
+                <h3>Customer Satisfaction</h3>
+                <p>Your satisfaction is our priority.</p>
+            </div>
+
+            <section id="services-tagline">
+                <h2>Check Our Services Below</h2>
+                <div class="arrow-container">
+                    <div class="glowing-arrow"></div>
+                </div>
+            </section>
         </div>
     </section>
 
@@ -15,38 +44,19 @@
         <div class="service-cards">
             @foreach($services as $service)
                 <div class="service-card">
-                    <div class="icon"><img src="{{ asset($service['icon']) }}" alt="{{ $service['title'] }}"></div>
                     <h3>{{ $service['title'] }}</h3>
                     <p>{{ $service['description'] }}</p>
-                    <a href="" class="service-btn">Learn More</a>
+                    <a href="{{ route('services.show', $service['id']) }}" class="service-btn">Choose Service</a>
+
                 </div>
             @endforeach
-        </div>
-    </section>
-
-    <!-- Why Choose Us Section -->
-    <section id="why-us">
-        <h2>Why Choose Us?</h2>
-        <div class="reasons">
-            <div class="reason">
-                <h3>Expert Team</h3>
-                <p>We have a team of experts ready to help.</p>
-            </div>
-            <div class="reason">
-                <h3>Innovative Solutions</h3>
-                <p>We offer creative solutions for complex challenges.</p>
-            </div>
-            <div class="reason">
-                <h3>Customer Satisfaction</h3>
-                <p>Your satisfaction is our priority.</p>
-            </div>
         </div>
     </section>
 
     <!-- Footer Call to Action -->
     <section id="cta-footer">
         <h2>Ready to Get Started?</h2>
-        <button class="cta-button">Contact Us</button>
+        <button class="/contact">Contact Us</button>
     </section>
 
 @endsection
@@ -65,7 +75,8 @@
 
     /* Hero Section */
     #hero {
-        min-height: 100vh; /* Covers full screen */
+        border-radius: 20px;
+        min-height: 80vh; /* Covers full screen */
     background: linear-gradient(135deg, #C4E1F6, #37AFE1);
     display: flex;
     align-items: center;
@@ -75,6 +86,7 @@
     padding: 2rem;
     box-sizing: border-box;
     }
+    
 
     /* Services Section */
     #services {
@@ -104,6 +116,13 @@
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     }
 
+    /* Image in Service Cards */
+    .service-icon {
+        width: 80px; /* Set the desired width */
+        height: auto; /* Maintain aspect ratio */
+        margin-bottom: 1rem; /* Space between image and text */
+    }
+
     /* Button in Service Cards */
     .service-btn {
         display: inline-block;
@@ -127,24 +146,121 @@
 
     /* Why Choose Us Section */
     #why-us {
-        margin-bottom: 40px;
+        margin-top: 20px;
+        border-radius: 10px;
         padding: 4rem 2rem;
         background-color: #f1f1f1;
         text-align: center;
+    }
+
+    #why-us h2 {
+        margin-bottom: 2rem;
+        font-size: 2rem;
+        animation: fadeIn 1s ease forwards; /* Fade-in animation */
     }
 
     .reasons {
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
+        animation: fadeIn 1s ease forwards;
+    }
+
+    .reason {
+        flex-basis: calc(30% - 1rem); /* Flex basis for the reason cards */
+        padding: 2rem;
+        margin: 1rem;
+        background: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+    }
+
+    .reason:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Icon for Reasons */
+    .reason-icon {
+        width: 50px; /* Adjust width as needed */
+        height: auto;
+        margin-bottom: 1rem; /* Space between icon and text */
+    }
+
+    /* Style for h3 Tags */
+    .reason h3 {
+        font-size: 1.5rem; /* Adjust font size */
+        margin: 1rem 0; /* Space above and below */
+        color: #007BFF; /* Primary color for the heading */
+        font-weight: bold; /* Bold text */
+        position: relative; /* To position the pseudo-element */
+    }
+
+    .reason h3::after {
+        content: ''; /* Empty content for the line */
+        display: block;
+        width: 60px; /* Line width */
+        height: 4px; /* Line height */
+        background: #007BFF; /* Line color */
+        margin: 0.5rem auto; /* Center the line */
+        border-radius: 2px; /* Rounded edges */
     }
 
     /* Footer CTA */
     #cta-footer {
+        margin-top: 20px;
+        border-radius: 10px;
         padding: 4rem 2rem;
         background-color: #007BFF;
         color: white;
         text-align: center;
+    }
+
+    /* Tagline Section */
+    #services-tagline {
+        text-align: center;
+        padding: 2rem 0; /* Add padding for spacing */
+       
+    }
+
+    #services-tagline h2 {
+        font-size: 2rem;
+        color: #333; /* Main text color */
+        margin-bottom: 1rem; /* Space below the tagline */
+        animation: fadeIn 1s ease forwards; /* Fade-in animation */
+        position: relative; /* To position the arrow */
+    }
+
+    .arrow-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Glowing Arrow */
+    .glowing-arrow {
+        width: 0;
+        height: 0;
+        border-left: 15px solid transparent; /* Left side */
+        border-right: 15px solid transparent; /* Right side */
+        border-top: 20px solid #007BFF; /* Triangle color */
+        /* box-shadow: 0 0 20px rgba(0, 123, 255, 0.8); Glowing effect */
+        animation: bounce 1.5s infinite; /* Bouncing animation */
+        margin-top: 1rem; /* Space above the arrow */
+    }
+
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(-10px); /* Upwards bounce */
+        }
+        60% {
+            transform: translateY(-5px); /* Slight downward bounce */
+        }
     }
     
 

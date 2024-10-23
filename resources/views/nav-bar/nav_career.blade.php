@@ -98,7 +98,8 @@
 
     /* Hero Section */
     #career-hero {
-        height: 60vh;
+        border-radius: 10px;
+        min-height: 60vh;
         background: linear-gradient(135deg, #C4E1F6, #37AFE1);
         display: flex;
         align-items: center;
@@ -128,6 +129,8 @@
 
     /* Company Culture Section */
     #company-culture {
+        margin: 20px;
+        border-radius: 10px;
         padding: 4rem 2rem;
         text-align: center;
         background-color: white;
@@ -160,6 +163,8 @@
 
     /* Job Listings Section */
     #job-listings {
+        margin: 20px;
+        border-radius: 20px;
         padding: 4rem 2rem;
         background-color: white;
         text-align: center;
@@ -202,6 +207,7 @@
 
     /* Footer Call to Action */
     #cta-footer {
+        border-radius: 20px;
         padding: 4rem 2rem;
         background-color: #007BFF;
         color: white;

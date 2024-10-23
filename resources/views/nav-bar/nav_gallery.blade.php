@@ -7,6 +7,7 @@
     }
 
     .gallery-section {
+        border-radius: 10px;
         padding: 60px 0;
         text-align: center;
         background-color: #f9f9f9;

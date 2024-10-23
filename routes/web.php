@@ -40,19 +40,25 @@ Route::get('/products', function () {
     return view('nav-bar.nav_products');
 })->name('products');
 
-Route::get('/services', [ServiceController::class, 'index'])->name('services');
+//Route for services in the nav-bar.
+Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
+Route::get('/services/{id}', [ServiceController::class, 'show'])->name('services.show');
 
+
+//Route for portfolio in the nav-bar.
 Route::get('/portfolio', [PortfolioController::class, 'view'])->name('portfolio');
 
-
+//Route for gallery in the nav-bar
 Route::get('/gallery', function () {
     return view('nav-bar\nav_gallery');
 })->name('gallery');
 
+//Route for Contact in the home-section
 Route::get('/contact', function () {
     return view('home_sections.contactus');
 })->name('contact');
 
+//Route for the career in the nav-bar
 Route::get('/career', function () {
     return view('nav-bar.nav_career');
 })->name('career');
@@ -62,12 +68,12 @@ Route::get('/contact', [ContactController::class, 'show'])->name('contact.show')
 Route::post('/contact/submit', [ContactController::class, 'submitContactForm'])->name('contact.submit');
 
 
-//route for the apply now button. 
+//route for the apply now button present at the career. 
 Route::get('/apply-now', [ApplicationController::class, 'show']);
 
 Route::post('/submit-application', [ApplicationController::class, 'store'])->name('submit-application');
 
-//products learn-more.
+//products learn-more button.
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.learn-more');
 
 

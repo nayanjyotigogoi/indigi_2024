@@ -229,7 +229,7 @@
 
         <!-- Explore More Button -->
         <div class="text-center mt-5">
-            <a href="{{ route('services') }}" class="btn btn-primary">Explore More</a>
+            <a href="{{ route('services.index') }}" class="btn btn-primary">Explore More</a>
         </div>
     </div>
 </section>

@@ -71,7 +71,7 @@
                     <a class="nav-link {{ Request::is('products') ? 'active' : '' }}" href="{{ route('products') }}">Products</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('services') ? 'active' : '' }}" href="{{ route('services') }}">Service</a>
+                    <a class="nav-link {{ Request::is('services') ? 'active' : '' }}" href="{{ route('services.index') }}">Service</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('portfolio') ? 'active' : '' }}" href="{{ route('portfolio') }}">Portfolio</a>

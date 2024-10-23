@@ -18,6 +18,7 @@
 
         /* Section: Why Us */
         .why-us {
+            border-radius: 20px;
             background: linear-gradient(135deg, #C4E1F6, #37AFE1);
             color: #fff;
             padding: 100px 20px;
@@ -76,6 +77,7 @@
 
         /* Section: Core Values - 3D Cuboid */
         .core-values-title {
+            
             text-align: center;
             font-size: 2.5rem;
             font-weight: bold;
@@ -141,6 +143,8 @@
 
         /* Section: Our Journey - Timeline */
         .timeline-section {
+            margin-top: 30px;
+            border-radius: 30px;
             padding: 50px 20px;
             background-color: #f0f0f0;
             text-align: center;
@@ -248,6 +252,8 @@
 
         /* Section: Testimonials */
         .testimonials-section {
+            margin-top: 30px;
+            border-radius: 10px;
             padding: 50px 20px;
             background-color: #f0f0f0;
             text-align: center;

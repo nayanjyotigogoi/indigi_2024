@@ -37,6 +37,8 @@
         }
 
         .scrollable {
+            margin-bottom: 10px;
+            border-radius: 10px;
             height: 60vh;
             background: linear-gradient(135deg, #C4E1F6, #37AFE1);
             align-items: center;
