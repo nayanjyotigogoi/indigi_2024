@@ -1,0 +1,99 @@
+/* Hero Section */
+#our-service-hero {
+    /* border-radius: 10px; */
+    min-height: 60vh;
+    background: linear-gradient(135deg, #C4E1F6, #37AFE1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    /* padding: 20px; */
+}
+
+.our-service-content {
+    position: relative;
+    z-index: 1;
+}
+
+.our-service-content p{
+    margin: 0px 0px 40px 0px;
+}
+
+/* service container */
+
+.services-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    text-align: center;
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    background-color: #64b8f4; /* Light blue */
+}
+
+.service-title {
+    color: #002B5B;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.service-description {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.know-more {
+    color: #007BFF;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.know-more:hover {
+    color: #0056b3;
+}
+
+/* Arrow indicator */
+.service-card::after {
+    content: '➜';
+    font-size: 20px;
+    color: #007BFF;
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.service-card:hover::after {
+    opacity: 1;
+    transform: translateX(5px);
+}
+
+@media (max-width: 768px) {
+    .services-container {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+}

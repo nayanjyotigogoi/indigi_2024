@@ -1,96 +1,42 @@
-<style>
-    /* Navbar styles */
-    nav {
-        background-color: #fff; /* Vibrant background color */
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-        transition: background-color 0.3s ease; /* Smooth transition for background color */
-    }
-
-    nav a {
-        padding: 0.75rem 1rem; /* Padding for better touch targets */
-        color: white; /* Text color */
-        text-transform: uppercase; /* Uppercase text for a bold look */
-        font-weight: bold; /* Bold font weight */
-        border-bottom: 3px solid transparent; /* Default border for links */
-        transition: border-color 0.3s ease, color 0.3s ease; /* Transition effects */
-    }
-
-    nav a:hover {
-        color: #FFD700; /* Gold color on hover */
-        border-bottom: 3px solid #FFD700; /* Underline effect on hover */
-    }
-
-    nav a.active {
-        border-bottom: 3px solid #FFD700; /* Active page underline */
-    }
-
-    /* Responsive styles */
-    @media (max-width: 768px) {
-        nav {
-            background-color: #007BFF; /* Consistent background for mobile */
-        }
-
-        nav .navbar-collapse {
-            background-color: #007BFF; /* Background for collapsed navbar */
-        }
-        
-        nav a {
-            padding: 0.75rem 1rem; /* Adjust padding for mobile */
-            border-bottom: none; /* Remove underline for mobile */
-        }
-
-        nav .navbar-toggler {
-            border: none; /* Remove border on toggler */
-            background-color: transparent; /* Transparent background for the toggler */
-        }
-
-        nav .navbar-toggler .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='white' stroke-width='2' d='M5 7h20M5 15h20M5 23h20'/%3E%3C/svg%3E"); /* Custom white toggle icon */
-        }
-    }
-</style>
-
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg">
-    <div class="container">
+<nav class="bg-white shadow-md transition-colors duration-300 ease-in-out relative">
+    <div class="container mx-auto px-4 py-2 flex justify-between items-center">
         <a class="navbar-brand" href="/">
-            <img src="{{ asset('images/indigi_logo.jpg') }}" alt="Indigi Logo" width="120">
+            <img src="{{ asset('images/indigi_logo.jpg') }}" alt="Indigi Logo" class="w-32">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler block lg:hidden px-2 py-1 text-gray-600 border border-gray-300 rounded-md" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon block w-5 h-0.5 bg-gray-600 mb-1"></span>
+            <span class="navbar-toggler-icon block w-5 h-0.5 bg-gray-600 mb-1"></span>
+            <span class="navbar-toggler-icon block w-5 h-0.5 bg-gray-600"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav me-auto">
+        <!-- Navbar Menu -->
+        <div class="lg:flex lg:justify-end lg:space-x-6 hidden" id="navbarNav">
+            <ul class="navbar-nav flex flex-col lg:flex-row gap-4 lg:gap-6">
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="/">Home</a>
+                    <a class="nav-link text-gray-700 uppercase font-bold py-2 px-4 transition-colors duration-300 hover:text-[#147DC0] hover:border-b-4 border-transparent {{ Request::is('/') ? 'border-b-4 border-yellow-500' : '' }}" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('about') ? 'active' : '' }}" href="{{ route('about') }}">About</a>
+                    <a class="text-gray-700 uppercase font-bold py-2 px-4 transition-colors duration-300 hover:text-[#147DC0] hover:border-b-4 border-transparent {{ Request::is('about') ? 'border-b-4 border-yellow-500' : '' }}" href="{{ route('about') }}">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('products') ? 'active' : '' }}" href="{{ route('products') }}">Products</a>
+                    <a class="text-gray-700 uppercase font-bold py-2 px-4 transition-colors duration-300 hover:text-[#147DC0] hover:border-b-4 border-transparent {{ Request::is('products') ? 'border-b-4 border-yellow-500' : '' }}" href="{{ route('products') }}">Products</a>
+                </li>
+                <li class="nav-item relative group">
+                    <a class="text-gray-700 uppercase font-bold py-2 px-4 transition-colors duration-300 hover:text-[#147DC0] hover:border-b-4 border-transparent {{ Request::is('services') ? 'border-b-4 border-yellow-500' : '' }}" href="{{ route('services.index') }}">Service</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('services') ? 'active' : '' }}" href="{{ route('services.index') }}">Service</a>
+                    <a class="text-gray-700 uppercase font-bold py-2 px-4 transition-colors duration-300 hover:text-[#147DC0] hover:border-b-4 border-transparent {{ Request::is('portfolio') ? 'border-b-4 border-yellow-500' : '' }}" href="{{ route('portfolio') }}">Portfolio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('portfolio') ? 'active' : '' }}" href="{{ route('portfolio') }}">Portfolio</a>
+                    <a class="text-gray-700 uppercase font-bold py-2 px-4 transition-colors duration-300 hover:text-[#147DC0] hover:border-b-4 border-transparent {{ Request::is('gallery') ? 'border-b-4 border-yellow-500' : '' }}" href="{{ route('gallery') }}">Gallery</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('gallery') ? 'active' : '' }}" href="{{ route('gallery') }}">Gallery</a>
+                    <a class="text-gray-700 uppercase font-bold py-2 px-4 transition-colors duration-300 hover:text-[#147DC0] hover:border-b-4 border-transparent {{ Request::is('career') ? 'border-b-4 border-yellow-500' : '' }}" href="{{ route('career') }}">Career</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('career') ? 'active' : '' }}" href="{{ route('career') }}">Career</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ Request::is('contact') ? 'active' : '' }}" href="{{ route('contact.show') }}">Contact</a>
+                    <a class="text-gray-700 uppercase font-bold py-2 px-4 transition-colors duration-300 hover:text-[#147DC0] hover:border-b-4 border-transparent {{ Request::is('contact') ? 'border-b-4 border-yellow-500' : '' }}" href="{{ route('contact.show') }}">Contact</a>
                 </li>
             </ul>
-
-            <!-- Search form -->
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="border-radius: 20px;">
-            </form>
         </div>
     </div>
 </nav>

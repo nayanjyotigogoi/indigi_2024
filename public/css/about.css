@@ -1,0 +1,412 @@
+
+/* Our story */
+.story-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    display: flex;
+    gap: 4rem;
+    align-items: flex-start;
+    line-height: 1.3;
+    padding: 2rem;
+}
+
+.story-image-container {
+    flex: 1;
+}
+
+.story-image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.story-content {
+    flex: 1;
+}
+
+.story-content h2 {
+    color: #003366;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.story-content p {
+    font-size: 1rem;
+    color: #4a4a4a;
+    margin-bottom: 1rem;
+}
+
+.story-image-container {
+    flex: 1;
+    overflow: hidden;
+}
+
+.story-image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.story-image-container:hover img {
+    transform: scale(1.05);
+}
+
+
+@media (max-width: 768px) {
+    .story-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .story-image-container,
+    .story-content {
+        flex: none;
+        width: 100%;
+    }
+}
+
+/* vision mission */
+.Vission-mission-container {
+    background-color: rgba(245, 251, 255, 1); /*rgba(245, 251, 255, 1)*/
+    /* max-width: 1200px;
+    margin: 0 auto; */
+}
+
+.header-vision{
+    text-align: center;
+    color: #003366;
+   
+}
+
+h1 {
+    /* color: #003366; */
+    /* text-align: center; */
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.Vission-mission-cards-container {
+    padding-bottom: 80px;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.Vission-mission-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    padding: 2rem;
+    border: 1px solid #e1f0ff;
+    border-radius: 8px;
+    text-align: center;
+    background-color: white;
+    transition: transform 0.3s ease;
+}
+
+.Vission-mission-card:hover {
+    transform: translateY(-5px);
+}
+
+.icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 1.5rem;
+}
+
+.Vission-mission-card h2 {
+    color: #003366;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.Vission-mission-card p {
+    color: #4a4a4a;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+    .Vission-mission-cards-container {
+        flex-direction: column;
+    }
+    
+    .Vission-mission-card {
+        max-width: 100%;
+    }
+}
+
+/* Hero Section */
+#career-hero {
+    /* border-radius: 10px; */
+    min-height: 60vh;
+    background: linear-gradient(135deg, #C4E1F6, #37AFE1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    /* padding: 20px; */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content p{
+    margin: 30px auto;
+}
+/* .main-section {
+        margin: 70px;
+  
+} */
+
+.cta-button {
+    padding: 0.75rem 1.5rem;
+    background-color: #FFD700;
+    color: black;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #FFC107;
+}
+
+/* Timeline Section */
+.timeline-section {
+    margin-top: 30px;
+    /* border-radius: 30px; */
+    padding: 50px 20px;
+    background-color: #f0f0f0;
+    text-align: center;
+    position: relative;
+}
+
+.timeline-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: #00b7c2;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+
+.timeline-event {
+    padding: 20px;
+    position: relative;
+    width: 50%;
+}
+
+.timeline-event.left {
+    left: 0;
+}
+
+.timeline-event.right {
+    left: 50%;
+}
+
+.timeline-event-content {
+    margin: 0 30px;
+}
+
+        /* Section: Founders */
+        .founders-section {
+            padding: 50px 20px;
+            background-color: #fff;
+        }
+
+        .founders-title {
+            padding-bottom: 20px;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #003366;
+        }
+
+        .small-title {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .who-we-are {
+            font-size: 1rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .founder-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .founder {
+            text-align: center;
+            width: 250px;
+        }
+
+        .founder img {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .founder:hover img {
+            transform: scale(1.05);
+        }
+
+        .founder-description {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+            margin-top: 15px;
+        }
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .timeline-event {
+        width: 100%;
+        left: 0 !important;
+        text-align: left;
+        padding-left: 40px;
+    }
+
+    .timeline::after {
+        left: 20px;
+    }
+
+    .founder-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-section {
+        margin: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    #career-hero {
+        min-height: 50vh;
+        padding: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .cta-button {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .timeline-section {
+        padding: 30px 10px;
+    }
+
+    .timeline-title {
+        font-size: 1.5rem;
+    }
+
+    .founders-title {
+        font-size: 2rem;
+    }
+
+    .founder-description {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+
+    .cta-button {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    .timeline-event {
+        padding-left: 30px;
+    }
+
+    .timeline::after {
+        left: 15px;
+    }
+
+    .timeline-title {
+        font-size: 1.3rem;
+    }
+
+    .main-section {
+        margin: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    .hero-content h1 {
+        font-size: 1.3rem;
+    }
+
+    .hero-content p {
+        font-size: 0.8rem;
+    }
+
+    .cta-button {
+        padding: 0.4rem 0.7rem;
+        font-size: 0.8rem;
+    }
+
+    .timeline-title {
+        font-size: 1.2rem;
+    }
+
+    .timeline-event {
+        padding-left: 20px;
+    }
+
+    .timeline::after {
+        left: 10px;
+    }
+
+    .founder-description {
+        font-size: 0.9rem;
+    }
+}

@@ -1,225 +1,129 @@
-<!-- Portfolio Section -->
-<section id="portfolio" class="portfolio-section" data-aos="fade-up">
-    <div class="container">
-        <h2 class="section-title" data-aos="zoom-in">Our Portfolio</h2>
+<section id="portfolio" class="bg-gray-100 py-16">
+    <div class="container mx-auto px-4">
+        <!-- Section Title -->
+        <h2 class="text-center text-md font-bold text-[#147DC0] mb-12" data-aos="zoom-in">
+            Our Portfolio
+        </h2>
 
-        <!-- Filter bar for categories -->
-        <div class="filter-bar" data-aos="zoom-in">
-            <button data-filter="all" class="filter-btn active">All</button>
-            <button data-filter="sap" class="filter-btn">SAP Solutions</button>
-            <button data-filter="android" class="filter-btn">Android Apps</button>
-            <button data-filter="website" class="filter-btn">Website</button> <!-- New filter button -->
-        </div>
+        <!-- Project Grid -->
+        <div class="grid grid-cols-3 grid-rows-2 w-full h-[600px] gap-0">
+            <!-- Single Project Box -->
+            <div class="group relative overflow-hidden flex items-center justify-center bg-gray-200 cursor-pointer" data-aos="fade-up" onmousemove="handleMouseMove(event, this)" onmouseleave="handleMouseLeave(event, this)">
+                <!-- Project Image -->
+                <img src="images/rws.jpg" alt="Project" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out" />
 
-        <!-- Single Project Display -->
-        <div class="portfolio-single" data-aos="fade-right">
-            <!-- Left Side: Project Details -->
-            <div class="portfolio-details" id="portfolioDetails">
-                <h3 id="projectTitle">Project Title</h3>
-                <p id="projectDescription">Project description goes here.</p>
-                <p id="clientName">Client: <strong>Client Name</strong></p>
+                <!-- Hover Overlay with Dynamic Colors -->
+                <div class="absolute inset-0 bg-[#147DC0] bg-opacity-0 group-hover:bg-opacity-70 transition duration-300 ease-out">
+                    <!-- Play Button (Icon) in Top Right Corner of the Box -->
+                    <div class="absolute top-4 right-4 w-12 h-12 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
+                        <!-- Play Icon -->
+                        <i class="fas fa-play text-white text-4xl"></i>
+                    </div>
+                </div>
+                
+                <!-- Hover Content -->
+                <div class="opacity-0 group-hover:opacity-100 transition duration-500 ease-in-out z-10 text-center text-white px-4 transform rotate-0 transition-transform duration-300 ease-in-out">
+                    <!-- Project Title -->
+                    <h3 class="text-xl font-semibold mb-2">Project Title</h3>
+                    <!-- Project Description -->
+                    <p class="text-sm mb-4">Short description of the project goes here.</p>
+                </div>
             </div>
 
-            <!-- Right Side: Video Card -->
-            <div class="portfolio-media" data-aos="fade-left">
-                <div class="media-card">
-                    <video class="portfolio-video" muted loop preload="none" id="portfolioVideo">
-                        <source id="videoSource" src="video-placeholder.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+            <!-- Repeat for other projects with different dynamic hover colors -->
+            <div class="group relative overflow-hidden flex items-center justify-center bg-gray-200 cursor-pointer" onmousemove="handleMouseMove(event, this)" onmouseleave="handleMouseLeave(event, this)">
+                <img src="images/rws.jpg" alt="Project" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out" />
+                <div class="absolute inset-0 bg-[#10B981] bg-opacity-0 group-hover:bg-opacity-70 transition duration-300 ease-out">
+                    <div class="absolute top-4 right-4 w-12 h-12 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
+                        <i class="fas fa-play text-white text-4xl"></i>
+                    </div>
+                </div>
+                <div class="opacity-0 group-hover:opacity-100 transition duration-500 ease-in-out z-10 text-center text-white px-4 transform rotate-0 transition-transform duration-300 ease-in-out">
+                    <h3 class="text-xl font-semibold mb-2">Project Title</h3>
+                    <p class="text-sm mb-4">Short description of the project goes here.</p>
+                </div>
+            </div>
+
+            <div class="group relative overflow-hidden flex items-center justify-center bg-gray-200 cursor-pointer" onmousemove="handleMouseMove(event, this)" onmouseleave="handleMouseLeave(event, this)">
+                <img src="images/rws.jpg" alt="Project" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out" />
+                <div class="absolute inset-0 bg-[#F59E0B] bg-opacity-0 group-hover:bg-opacity-70 transition duration-300 ease-out">
+                    <div class="absolute top-4 right-4 w-12 h-12 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
+                        <i class="fas fa-play text-white text-4xl"></i>
+                    </div>
+                </div>
+                <div class="opacity-0 group-hover:opacity-100 transition duration-500 ease-in-out z-10 text-center text-white px-4 transform rotate-0 transition-transform duration-300 ease-in-out">
+                    <h3 class="text-xl font-semibold mb-2">Project Title</h3>
+                    <p class="text-sm mb-4">Short description of the project goes here.</p>
+                </div>
+            </div>
+
+            <div class="group relative overflow-hidden flex items-center justify-center bg-gray-200 cursor-pointer" onmousemove="handleMouseMove(event, this)" onmouseleave="handleMouseLeave(event, this)">
+                <img src="images/rws.jpg" alt="Project" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out" />
+                <div class="absolute inset-0 bg-[#A12E0B] bg-opacity-0 group-hover:bg-opacity-70 transition duration-300 ease-out">
+                    <div class="absolute top-4 right-4 w-12 h-12 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
+                        <i class="fas fa-play text-white text-4xl"></i>
+                    </div>
+                </div>
+                <div class="opacity-0 group-hover:opacity-100 transition duration-500 ease-in-out z-10 text-center text-white px-4 transform rotate-0 transition-transform duration-300 ease-in-out">
+                    <h3 class="text-xl font-semibold mb-2">Project Title</h3>
+                    <p class="text-sm mb-4">Short description of the project goes here.</p>
+                </div>
+            </div>
+
+            <div class="group relative overflow-hidden flex items-center justify-center bg-gray-200 cursor-pointer" onmousemove="handleMouseMove(event, this)" onmouseleave="handleMouseLeave(event, this)">
+                <img src="images/rws.jpg" alt="Project" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out" />
+                <div class="absolute inset-0 bg-[#1F77D0] bg-opacity-0 group-hover:bg-opacity-70 transition duration-300 ease-out">
+                    <div class="absolute top-4 right-4 w-12 h-12 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
+                        <i class="fas fa-play text-white text-4xl"></i>
+                    </div>
+                </div>
+                <div class="opacity-0 group-hover:opacity-100 transition duration-500 ease-in-out z-10 text-center text-white px-4 transform rotate-0 transition-transform duration-300 ease-in-out">
+                    <h3 class="text-xl font-semibold mb-2">Project Title</h3>
+                    <p class="text-sm mb-4">Short description of the project goes here.</p>
+                </div>
+            </div>
+
+            <div class="group relative overflow-hidden flex items-center justify-center bg-gray-200 cursor-pointer" onmousemove="handleMouseMove(event, this)" onmouseleave="handleMouseLeave(event, this)">
+                <img src="images/rws.jpg" alt="Project" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out" />
+                <div class="absolute inset-0 bg-[#E94E77] bg-opacity-0 group-hover:bg-opacity-70 transition duration-300 ease-out">
+                    <div class="absolute top-4 right-4 w-12 h-12 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
+                        <i class="fas fa-play text-white text-4xl"></i>
+                    </div>
+                </div>
+                <div class="opacity-0 group-hover:opacity-100 transition duration-500 ease-in-out z-10 text-center text-white px-4 transform rotate-0 transition-transform duration-300 ease-in-out">
+                    <h3 class="text-xl font-semibold mb-2">Project Title</h3>
+                    <p class="text-sm mb-4">Short description of the project goes here.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Portfolio Section Styles -->
-<style>
-    .portfolio-section {
-        background: #f9f9f9;
-        padding: 80px 0;
-        color: #333;
-    }
+<!-- Add FontAwesome CDN for play icon -->
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
-    .section-title {
-        text-align: center;
-        margin-bottom: 50px;
-        font-size: 2.8rem;
-        font-weight: bold;
-        color: #2c3e50;
-    }
-
-    .filter-bar {
-        text-align: center;
-        margin-bottom: 40px;
-    }
-
-    .filter-btn {
-        background-color: #4ca1af;
-        border: none;
-        color: #fff;
-        padding: 10px 20px;
-        margin: 5px;
-        cursor: pointer;
-        transition: background 0.3s ease;
-    }
-
-    .filter-btn.active,
-    .filter-btn:hover {
-        background-color: #2c3e50;
-    }
-
-    /* Single project display styling */
-    .portfolio-single {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 40px;
-    }
-
-    .portfolio-details {
-        flex: 1;
-        padding-right: 20px;
-        color: #333;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .portfolio-details h3 {
-        font-size: 2.2rem;
-        margin-bottom: 15px;
-        color: #2c3e50;
-        font-weight: bold;
-        position: relative;
-        background: linear-gradient(90deg, #4ca1af 0%, #2c3e50 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        transition: all 0.4s ease;
-    }
-
-    .portfolio-details p {
-        font-size: 1.2rem;
-        color: #666;
-        margin-bottom: 10px;
-        position: relative;
-        opacity: 0.85;
-        transition: opacity 0.3s ease-in-out;
-    }
-
-    .portfolio-details p strong {
-        color: #333;
-        font-weight: bold;
-    }
-
-    .portfolio-media {
-        flex: 1;
-        position: relative;
-    }
-
-    .media-card {
-        position: relative;
-        width: 100%;
-        height: auto;
-        overflow: hidden;
-        border-radius: 12px;
-        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
-    }
-
-    .portfolio-video {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        .portfolio-single {
-            flex-direction: column;
-        }
-
-        .portfolio-details {
-            padding-right: 0;
-            text-align: center;
-        }
-
-        .portfolio-details h3 {
-            font-size: 1.8rem;
-        }
-
-        .portfolio-details p {
-            font-size: 1rem;
-        }
-    }
-</style>
-
-<!-- Portfolio Section JavaScript -->
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        let portfolioItems = @json($projects); // Fetch projects dynamically
-        let currentProjectIndex = 0;
-        let filteredProjects = portfolioItems; // Array to hold filtered projects
+    // Mouse move and leave functions for rotation (same as before)
+    function handleMouseMove(event, element) {
+        const rect = element.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const mouseX = event.clientX;
+        const mouseY = event.clientY;
 
-        // Initial display
-        displayProject(filteredProjects[currentProjectIndex]);
+        const deltaX = (mouseX - centerX) / rect.width;
+        const deltaY = (mouseY - centerY) / rect.height;
 
-        // Scroll event listener
-        window.addEventListener('wheel', function(event) {
-            if (event.deltaY > 0) {
-                // Scroll down, show the next project
-                if (currentProjectIndex < filteredProjects.length - 1) {
-                    currentProjectIndex++;
-                    displayProject(filteredProjects[currentProjectIndex]);
-                }
-            } else {
-                // Scroll up, show the previous project
-                if (currentProjectIndex > 0) {
-                    currentProjectIndex--;
-                    displayProject(filteredProjects[currentProjectIndex]);
-                }
-            }
-        });
+        const rotateX = deltaY * 15; // Rotate based on vertical mouse movement
+        const rotateY = deltaX * 15; // Rotate based on horizontal mouse movement
 
-        // Filter functionality
-        document.querySelectorAll('.filter-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                const filter = this.getAttribute('data-filter');
+        // Apply rotation effect
+        const projectContent = element.querySelector('#projectContent');
+        projectContent.style.transform = `rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
+    }
 
-                // Mark the current filter button as active
-                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-                this.classList.add('active');
-
-                // Filter the projects based on the selected category
-                if (filter === 'all') {
-                    filteredProjects = portfolioItems;
-                } else {
-                    filteredProjects = portfolioItems.filter(p => p.category === filter);
-                }
-
-                // Reset index and display the first filtered project
-                if (filteredProjects.length > 0) {
-                    currentProjectIndex = 0;
-                    displayProject(filteredProjects[currentProjectIndex]);
-                } else {
-                    alert('No projects found for the selected category.');
-                }
-            });
-        });
-
-        // Function to display a project based on the index
-        function displayProject(project) {
-            document.getElementById('projectTitle').innerText = project.title;
-            document.getElementById('projectDescription').innerText = project.description;
-            document.getElementById('clientName').innerHTML = `Client: <strong>${project.clientName}</strong>`;
-            
-            const videoElement = document.getElementById('portfolioVideo');
-            const videoSourceElement = document.getElementById('videoSource');
-
-            // Update the video source
-            videoSourceElement.src = project.video;
-            videoElement.load();
-
-            // Play the video after it has been loaded
-            videoElement.play();
-        }
-    });
+    function handleMouseLeave(event, element) {
+        const projectContent = element.querySelector('#projectContent');
+        projectContent.style.transform = 'rotateX(0deg) rotateY(0deg)'; // Reset rotation on mouse leave
+    }
 </script>

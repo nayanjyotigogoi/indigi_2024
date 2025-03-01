@@ -9,10 +9,6 @@ class ServiceController extends Controller
     // Display the services page
     public function index()
     {
-        // You can fetch services from the database or use static data
-        // Example: Fetching services from a Service model (if you have a Service model)
-        // $services = Service::all();
-
         // Or passing static data (for now)
         $services = [
             [
@@ -78,7 +74,7 @@ class ServiceController extends Controller
         ];
 
         // Return the view with the services data
-        return view('nav-bar.nav_service', ['services' => $services]);
+        return view('service.services', ['services' => $services]);
      
     }
 
@@ -90,105 +86,161 @@ class ServiceController extends Controller
                 'id' => 1,
                 'icon' => 'images/icon1.png',
                 'title' => 'SAP CONSULTING',
-                'description' => "Either you're a well-established corporate, or a small start-up, get Indigi's expert SAP consulting.",
-                'price' => '$1000',
+                'description' => "Our SAP Consulting services provide expert guidance on SAP solutions, optimizing your business with strategic planning and seamless integration.",
                 'duration' => '3 months',
-                'includes' => 'Consulting, Strategy, Roadmap',
+                'features' => [
+                    'SAP strategy and planning',
+                    'System architecture and design',
+                    'Business process optimization',
+                    'Integration with existing software',
+                    'Security and compliance advisory',
+                    'Cost and efficiency analysis'
+                ]
             ],
             [
                 'id' => 2,
                 'icon' => 'images/icon2.png',
                 'title' => 'SAP IMPLEMENTATION',
-                'description' => 'Implementation of ERP helps integrate your workforce, business processes and data into a single system.',
-                'price' => '$5000',
+                'description' => "Our SAP Implementation services unify your workforce, business processes, and data into a single system for seamless ERP deployment.",
                 'duration' => '6 months',
-                'includes' => 'Implementation, Support, Training',
+                'features' => [
+                    'End-to-end SAP deployment',
+                    'Data migration and system setup',
+                    'Module-specific implementation (e.g., S/4HANA)',
+                    'User training and support',
+                    'Custom configuration and development',
+                    'Post-implementation monitoring'
+                ]
             ],
             [
                 'id' => 3,
-                'icon' => 'images/icon3.png',
+                'icon' => 'images/services/SAP-Support.png',
                 'title' => 'SAP SUPPORT',
-                'description' => 'Our support projects can enable users to resolve issues related to transactions and functionals.',
-                'price' => '$1500',
+                'description' => "We provide 24/7 SAP support services, ensuring your system runs smoothly with minimal downtime and maximum efficiency.",
                 'duration' => 'Ongoing',
-                'includes' => 'Support, Ticket Resolution, User Guidance',
+                'features' => [
+                    '24/7 SAP support services',
+                    'Issue resolution and troubleshooting',
+                    'SAP performance optimization',
+                    'System upgrades and patch management',
+                    'Functional and technical user guidance',
+                    'Dedicated SAP consultants for continuous support'
+                ]
             ],
             [
                 'id' => 4,
                 'icon' => 'images/icon3.png',
-                'title' => 'SAP SUPPORT',
-                'description' => 'Our support projects can enable users to resolve issues related to transactions and functionals.',
-                'price' => '$1500',
-                'duration' => 'Ongoing',
-                'includes' => 'Support, Ticket Resolution, User Guidance',
+                'title' => 'SAP UPGRADATION',
+                'description' => "Upgrade your SAP system with the latest technology for improved performance, security, and business efficiency.",
+                'duration' => '4 months',
+                'features' => [
+                    'SAP version upgrade planning',
+                    'Seamless data migration',
+                    'System testing and validation',
+                    'Performance tuning and optimization',
+                    'Integration with new SAP modules',
+                    'User training and documentation'
+                ]
             ],
             [
                 'id' => 5,
                 'icon' => 'images/icon3.png',
-                'title' => 'SAP SUPPORT',
-                'description' => 'Our support projects can enable users to resolve issues related to transactions and functionals.',
-                'price' => '$1500',
-                'duration' => 'Ongoing',
-                'includes' => 'Support, Ticket Resolution, User Guidance',
+                'title' => 'SAP ROLLOUT',
+                'description' => "Expand your SAP system to new locations or business units with a structured and risk-free rollout approach.",
+                'duration' => 'Varies based on project',
+                'features' => [
+                    'SAP rollout strategy development',
+                    'Multi-location system deployment',
+                    'Data consistency and synchronization',
+                    'Standardized business process implementation',
+                    'Compliance and regulatory adherence',
+                    'End-user training and support'
+                ]
             ],
             [
                 'id' => 6,
                 'icon' => 'images/icon3.png',
-                'title' => 'SAP SUPPORT',
-                'description' => 'Our support projects can enable users to resolve issues related to transactions and functionals.',
-                'price' => '$1500',
-                'duration' => 'Ongoing',
-                'includes' => 'Support, Ticket Resolution, User Guidance',
+                'title' => 'Business Process Automation',
+                'description' => "Automate business processes to enhance efficiency and reduce manual workloads with intelligent automation solutions.",
+                'duration' => 'Customized per business needs',
+                'features' => [
+                    'Workflow automation solutions',
+                    'AI-driven process optimization',
+                    'Seamless ERP system integration',
+                    'Reduction of manual errors',
+                    'Real-time data analytics',
+                    'Custom automation strategies'
+                ]
             ],
             [
                 'id' => 7,
                 'icon' => 'images/icon3.png',
-                'title' => 'SAP SUPPORT',
-                'description' => 'Our support projects can enable users to resolve issues related to transactions and functionals.',
-                'price' => '$1500',
-                'duration' => 'Ongoing',
-                'includes' => 'Support, Ticket Resolution, User Guidance',
+                'title' => 'Manpower Outsourcing',
+                'description' => "Get access to skilled SAP professionals and IT experts through our flexible manpower outsourcing services.",
+                'duration' => 'Ongoing / Contract-based',
+                'features' => [
+                    'SAP experts on demand',
+                    'Flexible hiring models',
+                    'Cost-effective resource management',
+                    'Remote and on-site staffing solutions',
+                    'Short-term and long-term contracts',
+                    'End-to-end HR and payroll management'
+                ]
             ],
             [
                 'id' => 8,
                 'icon' => 'images/icon3.png',
-                'title' => 'SAP SUPPORT',
-                'description' => 'Our support projects can enable users to resolve issues related to transactions and functionals.',
-                'price' => '$1500',
-                'duration' => 'Ongoing',
-                'includes' => 'Support, Ticket Resolution, User Guidance',
+                'title' => 'IoT Solutions',
+                'description' => "Leverage IoT technology to automate processes, monitor assets in real-time, and drive data-driven decision-making.",
+                'duration' => 'Varies based on implementation',
+                'features' => [
+                    'Smart device connectivity',
+                    'Real-time data collection and analysis',
+                    'Predictive maintenance solutions',
+                    'Integration with cloud platforms',
+                    'Secure IoT network infrastructure',
+                    'Industry-specific IoT applications'
+                ]
             ],
             [
                 'id' => 9,
                 'icon' => 'images/icon3.png',
-                'title' => 'SAP SUPPORT',
-                'description' => 'Our support projects can enable users to resolve issues related to transactions and functionals.',
-                'price' => '$1500',
-                'duration' => 'Ongoing',
-                'includes' => 'Support, Ticket Resolution, User Guidance',
+                'title' => 'Tailored ERP Solutions',
+                'description' => "Custom ERP solutions designed for small and medium businesses to enhance efficiency and streamline operations.",
+                'duration' => '6+ months',
+                'features' => [
+                    'Fully customizable ERP software',
+                    'Scalable and modular architecture',
+                    'Seamless third-party integrations',
+                    'Cloud-based and on-premise options',
+                    'Real-time business intelligence reports',
+                    'Industry-specific ERP functionalities'
+                ]
             ],
             [
                 'id' => 10,
                 'icon' => 'images/icon3.png',
-                'title' => 'SAP SUPPORT',
-                'description' => 'Our support projects can enable users to resolve issues related to transactions and functionals.',
-                'price' => '$1500',
-                'duration' => 'Ongoing',
-                'includes' => 'Support, Ticket Resolution, User Guidance',
-            ],
-            // Add more services with unique IDs and additional fields...
+                'title' => 'Website Security Audit',
+                'description' => "Identify vulnerabilities and protect your online presence with our comprehensive website security audit services.",
+                'duration' => '1 month',
+                'features' => [
+                    'Full website vulnerability scan',
+                    'Penetration testing and security checks',
+                    'Malware detection and removal',
+                    'Security patch implementation',
+                    'Data protection and compliance assessment',
+                    'Detailed audit reports with recommendations'
+                ]
+            ]
         ];
 
-        // Find the service by its ID using firstWhere
         $service = collect($services)->firstWhere('id', $id);
 
-        // If service is not found, return a 404 error
         if (!$service) {
             abort(404, 'Service not found');
         }
 
-        // Return the view with the specific service details
-        return view('nav-bar.services.choose_service', ['service' => (object) $service]);
+        return view('service.know_more', ['service' => $service]);
     }
 
 }

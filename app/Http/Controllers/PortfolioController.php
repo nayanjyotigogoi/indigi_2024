@@ -50,7 +50,7 @@ class PortfolioController extends Controller
         ];
 
         // Passing $projects to the index view
-        return view('nav-bar.nav_portfolio', compact('projects'));
+        return view('portfolio.portfolio', compact('projects'));
     }
 
     public function index()
@@ -100,6 +100,8 @@ class PortfolioController extends Controller
         // Passing $projects to the index view
         return view('index', compact('projects'));
     }
+
+    
 }
 
 

@@ -78,7 +78,7 @@
 
 <!-- Client's Logo Section -->
 <div class="client-logos">
-    <div class="wave"></div> <!-- Colorful wave effect -->
+  <!-- Colorful wave effect -->
     <div class="container logo-wrapper">
         <div class="logo-container">
             <!-- Original logos -->

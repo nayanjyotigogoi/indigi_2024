@@ -1,4 +1,6 @@
-@extends('layouts')
+@extends('layouts.app')
+
+@section('title', 'Gallery | Indigi')
 
 @section('content')
 <style>

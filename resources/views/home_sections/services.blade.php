@@ -1,295 +1,87 @@
-<style>
-    /* General Styling */
-    .services-wrapper {
-        display: flex;
-        overflow-x: auto;
-        overflow-y: hidden;
-        scroll-behavior: smooth;
-        padding-bottom: 1rem;
-        -webkit-overflow-scrolling: touch;
-        scroll-snap-type: x mandatory;
-        gap: 35px;
-        justify-content: flex-start;
-        height: 600px;
-        align-items: center;
-        padding-left: 20px;
-        background: url('public/video/risewithsap.mp4') no-repeat center center;
-        background-size: cover;
-    }
-
-    /* Parallax Effect */
-    .services-section {
-        position: relative;
-        overflow: hidden;
-    }
-
-    .parallax {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        background-image: url('images/white-bg.jpg');
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-
-    /* Service Card Styling */
-    .service-card {
-        flex: 0 0 270px; /* Reduced width */
-        height: 400px; /* Reduced height */
-        transition: transform 0.5s ease, box-shadow 0.5s ease;
-        scroll-snap-align: center;
-        position: relative;
-        transform-origin: center center;
-        border-radius: 10px;
-        color: #333;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        background-color: #fff;
-        font-size: 1rem; /* Reduced font size */
-    }
-
-    /* Card Hover Effect */
-    .service-card:hover {
-        transform: scale(1.1);
-        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Card Highlight */
-    .highlighted {
-        border: 2px solid gold;
-        box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
-        animation: sparkle-animation 0.5s infinite alternate;
-    }
-
-    @keyframes sparkle-animation {
-        0% { transform: scale(1); }
-        100% { transform: scale(1.1); }
-    }
-
-    /* Card Icon Animations */
-    .service-card .icon i {
-        transition: transform 0.5s ease;
-    }
-
-    .service-card:hover .icon i {
-        transform: rotate(360deg);
-    }
-
-    /* Active and Neighbor Scaling */
-    .service-card.active {
-        transform: scale(1.05);
-    }
-
-    .service-card.neighbor {
-        transform: scale(1.02);
-    }
-
-    /* Remove Scrollbar */
-    .services-wrapper::-webkit-scrollbar {
-        display: none;
-    }
-
-    /* Button Glow Effect */
-    .btn-primary {
-        background-color: #007bff;
-        border-color: #007bff;
-        padding: 10px 20px; /* Adjusted padding */
-        font-size: 1rem; /* Adjusted font size */
-        border-radius: 30px;
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .btn-primary:hover {
-        background-color: #0056b3;
-        box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
-    }
-
-    /* Service Link */
-    .service-link {
-        color: inherit;
-        text-decoration: none;
-        transition: color 0.3s ease;
-    }
-
-    .service-link:hover {
-        color: #0056b3;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        .service-card {
-            flex: 0 0 90%;
-            height: 250px; /* Adjusted height */
-        }
-        .services-wrapper {
-            height: 500px;
-        }
-    }
-
-    @media (max-width: 576px) {
-        .service-card {
-            flex: 0 0 95%;
-            height: 200px; /* Adjusted height */
-        }
-        .services-wrapper {
-            height: 450px;
-        }
-    }
-</style>
-
-<!-- Services Section -->
-<section id="services" class="services-section py-5">
-    <div class="parallax"></div> <!-- Parallax background -->
-
-    <div class="container">
-        <div class="section-title text-center mb-5">
-            <h5>Our Services</h5>
-            <h1>Explore Our Services</h1>
+<section class="bg-gray-100 dark:bg-gray-900">
+  <main class="container mx-auto px-6 py-8">
+  <h2 class="text-center text-md font-bold text-[#147DC0] mb-12" data-aos="zoom-in">
+            Our Service
+        </h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:bg-[#147DC0] group relative overflow-hidden animate-fade-in" style="animation-delay: 0.1s;">
+        <div class="absolute top-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
         </div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-indigo-800 dark:text-indigo-400 mb-4 group-hover:text-white transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+        <h2 class="text-xl font-semibold text-indigo-800 dark:text-white mb-2 group-hover:text-white transition-colors duration-300">Web Development</h2>
+        <p class="text-gray-600 dark:text-gray-300 group-hover:text-white transition-colors duration-300">Custom web applications tailored to your business needs. We use cutting-edge technologies to deliver fast, responsive, and scalable solutions.</p>
+      </div>
 
-        <div class="services-wrapper">
-            <!-- Service 1: SAP Consulting -->
-            <div class="service-card p-3" style="background-color: #f8d7da;" data-aos="fade-right" data-aos-duration="1000" data-service="consulting">
-                <div class="icon mb-3">
-                    <i class="fas fa-handshake fa-2x"></i>
-                </div>
-                <h3 class="card-title">
-                    <a href="#sap-consulting" class="service-link">SAP Consulting</a>
-                </h3>
-                <p class="card-text">Expert SAP consulting services for your business.</p>
-                <a href="#sap-consulting" class="btn btn-primary">Choose Service</a>
-            </div>
-            
-            <!-- Service 2: SAP Implementation -->
-            <div class="service-card p-3 bg-info" data-aos="fade-up" data-aos-duration="1000" data-service="implementation">
-                <div class="icon mb-3">
-                    <i class="fas fa-rocket fa-2x"></i>
-                </div>
-                <h3 class="card-title">
-                    <a href="#sap-implementation" class="service-link">SAP Implementation</a>
-                </h3>
-                <p class="card-text">Accelerate growth with our SAP implementation services.</p>
-                <a href="#sap-implementation" class="btn btn-primary">Choose Service</a>
-            </div>
-
-            <!-- Service 3: SAP Support -->
-            <div class="service-card p-3" style="background-color: #C0C78C;" data-aos="fade-left" data-aos-duration="1000" data-service="support">
-                <div class="icon mb-3">
-                    <i class="fas fa-life-ring fa-2x"></i>
-                </div>
-                <h3 class="card-title">
-                    <a href="#sap-support" class="service-link">SAP Support</a>
-                </h3>
-                <p class="card-text">Support for continuous process improvement.</p>
-                <a href="#sap-support" class="btn btn-primary">Choose Service</a>
-            </div>
-
-            <!-- Service 4: CUSTOM ERP SOFTWARE -->
-            <div class="service-card p-3" style="background-color: #C4D7FF;" data-aos="zoom-in" data-aos-duration="1000" data-service="custom">
-                <div class="icon mb-3">
-                    <i class="fas fa-code fa-2x"></i>
-                </div>
-                <h3 class="card-title">
-                    <a href="#custom-development" class="service-link">CUSTOM ERP SOFTWARE</a>
-                </h3>
-                <p class="card-text">Tailored solutions for your unique business needs.</p>
-                <a href="#custom-development" class="btn btn-primary">Choose Service</a>
-            </div>
-
-            <!-- Service 5: SAP Upgradation -->
-            <div class="service-card p-3" style="background-color: #d1ecf1;" data-aos="slide-up" data-aos-duration="1000" data-service="upgradation">
-                <div class="icon mb-3">
-                    <i class="fas fa-arrow-up fa-2x"></i>
-                </div>
-                <h3 class="card-title">
-                    <a href="#sap-upgradation" class="service-link">SAP Upgradation</a>
-                </h3>
-                <p class="card-text">Elevate your enterprise with seamless SAP Upgradation.</p>
-                <a href="#sap-upgradation" class="btn btn-primary">Choose Service</a>
-            </div>
-
-            <!-- Service 6: Business Process Automation -->
-            <div class="service-card p-3" style="background-color: #d4edda;" data-aos="flip-up" data-aos-duration="1000" data-service="automation">
-                <div class="icon mb-3">
-                    <i class="fas fa-robot fa-2x"></i>
-                </div>
-                <h3 class="card-title">
-                    <a href="#business-automation" class="service-link">Business Process Automation</a>
-                </h3>
-                <p class="card-text">Streamline workflows and reduce manual tasks.</p>
-                <a href="#business-automation" class="btn btn-primary">Choose Service</a>
-            </div>
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:bg-[#147DC0] group relative overflow-hidden animate-fade-in" style="animation-delay: 0.2s;">
+        <div class="absolute top-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
         </div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-indigo-800 dark:text-indigo-400 mb-4 group-hover:text-white transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+        </svg>
+        <h2 class="text-xl font-semibold text-indigo-800 dark:text-white mb-2 group-hover:text-white transition-colors duration-300">Mobile App Development</h2>
+        <p class="text-gray-600 dark:text-gray-300 group-hover:text-white transition-colors duration-300">Innovative mobile applications for iOS and Android. We create user-friendly apps that engage your audience and drive business growth.</p>
+      </div>
 
-        <!-- Explore More Button -->
-        <div class="text-center mt-5">
-            <a href="{{ route('services.index') }}" class="btn btn-primary">Explore More</a>
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:bg-[#147DC0] group relative overflow-hidden animate-fade-in" style="animation-delay: 0.3s;">
+        <div class="absolute top-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
         </div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-indigo-800 dark:text-indigo-400 mb-4 group-hover:text-white transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+        <h2 class="text-xl font-semibold text-indigo-800 dark:text-white mb-2 group-hover:text-white transition-colors duration-300">Data Analytics</h2>
+        <p class="text-gray-600 dark:text-gray-300 group-hover:text-white transition-colors duration-300">Turn your data into actionable insights. Our analytics services help you make informed decisions and optimize your business processes.</p>
+      </div>
+
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:bg-[#147DC0] group relative overflow-hidden animate-fade-in" style="animation-delay: 0.4s;">
+        <div class="absolute top-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-indigo-800 dark:text-indigo-400 mb-4 group-hover:text-white transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016zM12 9v2m0 4h.01" />
+        </svg>
+        <h2 class="text-xl font-semibold text-indigo-800 dark:text-white mb-2 group-hover:text-white transition-colors duration-300">Cybersecurity</h2>
+        <p class="text-gray-600 dark:text-gray-300 group-hover:text-white transition-colors duration-300">Protect your digital assets with our comprehensive cybersecurity solutions. We offer threat detection, risk assessment, and security consulting services.</p>
+      </div>
+
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:bg-[#147DC0] group relative overflow-hidden animate-fade-in" style="animation-delay: 0.5s;">
+        <div class="absolute top-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-indigo-800 dark:text-indigo-400 mb-4 group-hover:text-white transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+        </svg>
+        <h2 class="text-xl font-semibold text-indigo-800 dark:text-white mb-2 group-hover:text-white transition-colors duration-300">Cloud Solutions</h2>
+        <p class="text-gray-600 dark:text-gray-300 group-hover:text-white transition-colors duration-300">Leverage the power of cloud computing for your business. We provide cloud migration, management, and optimization services to enhance your IT infrastructure.</p>
+      </div>
+
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:bg-[#147DC0] group relative overflow-hidden animate-fade-in" style="animation-delay: 0.6s;">
+        <div class="absolute top-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-indigo-800 dark:text-indigo-400 mb-4 group-hover:text-white transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5" />
+        </svg>
+        <h2 class="text-xl font-semibold text-indigo-800 dark:text-white mb-2 group-hover:text-white transition-colors duration-300">AI & Machine Learning</h2>
+        <p class="text-gray-600 dark:text-gray-300 group-hover:text-white transition-colors duration-300">Harness the power of artificial intelligence and machine learning. We develop smart solutions that automate processes and provide valuable predictions.</p>
+      </div>
     </div>
+  </main>
 </section>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const servicesWrapper = document.querySelector('.services-wrapper');
-        const serviceCards = document.querySelectorAll('.service-card');
-
-        // Check if the questionnaire has been completed
-        const isQuestionnaireCompleted = sessionStorage.getItem('questionnaireCompleted');
-
-        // Clear previous recommendations
-        sessionStorage.removeItem('highlightedService');
-
-        // Initialize AOS (Animate on Scroll)
-        AOS.init();
-
-        // Function to highlight a recommended service
-        function highlightRecommendedService() {
-            const recommendedService = getRandomService();
-            sessionStorage.setItem('highlightedService', recommendedService);
-            document.querySelector(`.service-card[data-service="${recommendedService}"]`).classList.add('highlighted');
-        }
-
-        // Function to get a random service
-        function getRandomService() {
-            const services = ['consulting', 'implementation', 'support', 'custom', 'upgradation', 'automation'];
-            return services[Math.floor(Math.random() * services.length)];
-        }
-
-        // Highlight a random service only if the questionnaire is completed
-        if (isQuestionnaireCompleted) {
-            highlightRecommendedService();
-        }
-
-        // Function to check which card is in the center of the viewport
-        function handleScroll() {
-            serviceCards.forEach((card) => {
-                const rect = card.getBoundingClientRect();
-                const center = window.innerWidth / 2;
-
-                if (rect.left < center && rect.right > center) {
-                    card.classList.add('active');
-                } else if (rect.left < center + 300 && rect.right > center - 300) {
-                    card.classList.add('neighbor');
-                } else {
-                    card.classList.remove('active', 'neighbor');
-                }
-            });
-        }
-
-        // Attach the scroll event
-        servicesWrapper.addEventListener('scroll', handleScroll);
-    });
-
-    // Function to be called when the questionnaire is completed
-    function completeQuestionnaire() {
-        sessionStorage.setItem('questionnaireCompleted', true);
-        // Optionally, you can trigger a highlight or any other action here
-        highlightRecommendedService();
-    }
-</script>

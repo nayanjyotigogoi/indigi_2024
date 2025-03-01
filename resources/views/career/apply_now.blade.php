@@ -1,4 +1,6 @@
-@extends('layouts')
+@extends('layouts.app')
+
+@section('title', 'Apply Now | Indigi')
 
 @section('content')
     <!-- Apply Now Section -->

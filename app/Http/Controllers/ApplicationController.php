@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ApplicationController extends Controller
 
 {
     public function show(){
-        return view ("nav-bar.apply_now");
+        return view ("career.apply_now");
     }
     public function store(Request $request)
     {

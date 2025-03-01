@@ -1,137 +1,90 @@
-<!-- AOS Animation Library -->
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<style>
-    /* Facts Section */
-    .facts {
-        background-color: #f9f9f9;
-        padding: 50px 0;
-    }
-    .facts .fact-box {
-        width: 100%;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-        border-radius: 15px;
-        color: #fff;
-        padding: 30px;
-        text-align: center;
-        transition: transform 0.3s ease-in-out;
-        /* Removed manual opacity */
-    }
-    .facts .fact-box:hover {
-        transform: translateY(-10px);
-        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
-    }
-    .facts .fact-icon {
-        background: rgba(255, 255, 255, 0.2);
-        border-radius: 50%;
-        width: 80px;
-        height: 80px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 20px;
-    }
-    .facts h5 {
-        font-size: 1.2rem;
-        margin-bottom: 10px;
-    }
-    .facts h1 {
-        font-size: 2.5rem;
-        font-weight: bold;
-        margin-bottom: 0;
-    }
-    </style>
+<!-- Facts Section -->
+<div class="relative bg-gradient-to-b from-[#0A629A] to-[#37AFFB] py-16">
+    <!-- Background Image -->
+    <div 
+        class="absolute inset-0 bg-cover bg-center opacity-20"
+        style="background-image: url('{{ asset('images/gallery/image14.jpeg') }}');"></div>
 
-    <!-- Facts Section -->
-    <div class="container-fluid facts" data-aos="fade-up">
-        <div class="container">
-            <div class="row gx-4 gy-4">
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="fact-box" style="background-color: #00b7c2;">
-                        <div class="fact-icon">
-                            <i class="fa fa-users fa-2x"></i>
-                        </div>
-                        <h5>Happy Clients</h5>
-                        <h1 class="counter" data-count="50">0+</h1>
-                    </div>
+    <div class="relative container mx-auto px-6 sm:px-12 lg:px-16">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center text-white">
+            <!-- Fact Box -->
+            @foreach ([
+                ['icon' => 'fa-users', 'title' => 'Happy Clients', 'count' => 50],
+                ['icon' => 'fa-check', 'title' => 'Completed Projects', 'count' => 50],
+                ['icon' => 'fa-award', 'title' => 'Industry Verticals', 'count' => 15],
+                ['icon' => 'fa-clock', 'title' => 'Years of Experience', 'count' => 6]
+            ] as $fact)
+            <div class="space-y-4 flex items-center group relative">
+                <!-- Icon on the left -->
+                <div class="flex items-center justify-center w-16 h-16 bg-white bg-opacity-30 rounded-full mr-4">
+                    <i class="fa {{ $fact['icon'] }} text-3xl text-[#FFD700]"></i>
                 </div>
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="fact-box" style="background-color: #f57c20;">
-                        <div class="fact-icon">
-                            <i class="fa fa-check fa-2x"></i>
-                        </div>
-                        <h5>Completed Projects</h5>
-                        <h1 class="counter" data-count="50">0+</h1>
-                    </div>
+                <!-- Text Section -->
+                <div class="flex flex-col items-start">
+                    <h5 class="text-xl font-semibold transition-all duration-500 ease-in-out group-hover:text-[#FFD700]">
+                        {{ $fact['title'] }}
+                    </h5>
+                    <h1 class="text-5xl font-bold counter" data-count="{{ $fact['count'] }}">0+</h1>
                 </div>
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="fact-box" style="background-color: #0d6efd;">
-                        <div class="fact-icon">
-                            <i class="fa fa-award fa-2x"></i>
-                        </div>
-                        <h5>Industry Verticals</h5>
-                        <h1 class="counter" data-count="15">0+</h1>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="fact-box" style="background-color: #6f42c1;">
-                        <div class="fact-icon">
-                            <i class="fa fa-clock fa-2x"></i>
-                        </div>
-                        <h5>Years of Experience</h5>
-                        <h1 class="counter" data-count="6">0+</h1>
-                    </div>
-                </div>
+                <!-- Underline under the text, appears only on hover, centered -->
+                <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-[#FFD700] transition-all duration-300 ease-in-out group-hover:w-1/2"></div>
             </div>
+            @endforeach
         </div>
     </div>
+</div>
 
-    <!-- Script Section -->
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<!-- Script Section -->
+<script>
+function animateCounters() {
+    const counters = document.querySelectorAll('.counter');
+    const maxTarget = Math.max(...Array.from(counters).map(counter => +counter.getAttribute('data-count'))); // Get the highest count
 
-    <script>
-    function animateCounters() {
-        const counters = document.querySelectorAll('.counter');
-        counters.forEach(counter => {
-            counter.innerText = '0+'; // Reset the counter to 0+ on scroll
-            const updateCount = () => {
-                const target = +counter.getAttribute('data-count');
-                const count = +counter.innerText.slice(0, -1); // Remove the + for counting
-                const increment = Math.ceil(target / 300); // Slower counting speed
-                if (count < target) {
-                    counter.innerText = count + increment > target ? target + '+' : count + increment + '+';
-                    setTimeout(updateCount, 300); // Slower speed
-                } else {
-                    counter.innerText = target + '+'; // Ensure it ends at target with +
-                }
-            };
-            updateCount();
-        });
-    }
+    counters.forEach(counter => {
+        counter.innerText = '0+'; // Reset to 0+ initially
 
-    function isElementInViewport(el) {
-        const rect = el.getBoundingClientRect();
-        return (
-            rect.top >= 0 &&
-            rect.left >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
-    }
+        const target = +counter.getAttribute('data-count');
+        const count = 0; // Start from 0
+        const increment = Math.ceil(target / maxTarget); // Calculate increment based on the highest target
 
-    function checkCountersInView() {
-        const factsSection = document.querySelector('.facts');
-        if (isElementInViewport(factsSection)) {
-            animateCounters(); // Trigger counting animation
-        }
-    }
+        const updateCount = () => {
+            const currentCount = +counter.innerText.slice(0, -1); // Remove "+" for counting
 
-    // Listen for scroll events to trigger counter animation when facts section comes into view
-    window.addEventListener('scroll', checkCountersInView);
+            if (currentCount < target) {
+                counter.innerText = currentCount + increment > target ? target + '+' : currentCount + increment + '+';
+                setTimeout(updateCount, 30); // Slower speed to make them end together
+            } else {
+                counter.innerText = target + '+'; // Ensure it ends at target
+            }
+        };
 
-    // Initialize AOS
-    AOS.init({
-        duration: 1000,
-        once: false, // Animation will occur every time section is scrolled into view
+        updateCount();
     });
-    </script>
+}
+
+function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+function checkCountersInView() {
+    const factsSection = document.querySelector('.relative.bg-gradient-to-b');
+    if (isElementInViewport(factsSection)) {
+        animateCounters(); // Trigger counting animation
+    }
+}
+
+window.addEventListener('scroll', checkCountersInView);
+
+// Initialize AOS
+AOS.init({
+    duration: 1000,
+    once: true, // Only animate once
+});
+
+</script>

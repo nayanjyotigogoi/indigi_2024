@@ -18,8 +18,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
+Route::get('/test', function () {
+    return view('welcome');
 });
 
 
@@ -27,40 +27,45 @@ Route::get('/', function () {
 // Define a route for the homepage where the portfolio section will be included
 Route::get('/', [PortfolioController::class, 'index']);
 
+
 //nav-bar routes
 
 
 
 
 Route::get('/about', function () {
-    return view('nav-bar.nav_about');
+    return view('about');
 })->name('about');
 
-Route::get('/products', function () {
-    return view('nav-bar.nav_products');
-})->name('products');
 
-//Route for services in the nav-bar.
+
+//products.
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+//products learn-more button.
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
+
+//Route for services
 Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
 Route::get('/services/{id}', [ServiceController::class, 'show'])->name('services.show');
 
 
+
 //Route for portfolio in the nav-bar.
-Route::get('/portfolio', [PortfolioController::class, 'view'])->name('portfolio');
+Route::get('/portfolio', [PortfolioController::class, 'view'])->name('portfolio.portfolio');
 
 //Route for gallery in the nav-bar
 Route::get('/gallery', function () {
-    return view('nav-bar\nav_gallery');
+    return view('gallery.gallery');
 })->name('gallery');
 
 //Route for Contact in the home-section
-Route::get('/contact', function () {
-    return view('home_sections.contactus');
+Route::get('/contact-us', function () {
+    return view('contactus');
 })->name('contact');
 
 //Route for the career in the nav-bar
 Route::get('/career', function () {
-    return view('nav-bar.nav_career');
+    return view('career.career');
 })->name('career');
 
 //contact us route
@@ -73,7 +78,7 @@ Route::get('/apply-now', [ApplicationController::class, 'show']);
 
 Route::post('/submit-application', [ApplicationController::class, 'store'])->name('submit-application');
 
-//products learn-more button.
-Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.learn-more');
+
+
 
 
