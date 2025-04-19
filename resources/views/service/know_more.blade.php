@@ -1,129 +1,134 @@
-@extends('layouts.app')
+@extends('layouts.app-new')
 
-@section('title', $service['title'] . ' | Indigi')
+@section('title', $service->title . ' | Indigi')
 
 @section('content')
-<style>
-    /* Service Detail Section */
-    .service-detail-container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 20px;
-    background: #ffffff;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    text-align: center;
-}
+    <!-- Header -->
+    <header class="solution-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-text">
+                    <h1 id="solution-title">{{ $service->title }}</h1>
+                    <p id="solution-tagline">
+                        {{ $service->tagline }}
+                    </p>
+                    <a href={{ route('contact.show') }} class="btn btn-white">
+                        Request a Demo <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
 
-.service-detail-container h1 {
-    font-size: 28px;
-    color: #333;
-    margin-bottom: 10px;
-}
+                @if($service->header_image)
+                    <div class="header-image">
+                        <img src="{{ asset('uploads/service/' . $service->header_image) }}" alt="{{ $service->title }}"
+                            style="max-width: 200px;">
+                    </div>
+                @endif
+            </div>
+        </div>
+    </header>
 
-.service-detail-container img {
-    max-width: 150px;
-    margin: 20px 0;
-    border-radius: 8px;
-}
-
-.service-description {
-    font-size: 16px;
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 15px;
-    text-align: justify;
-}
-
-.service-detail-container p {
-    font-size: 16px;
-    color: #444;
-    margin-bottom: 8px;
-}
-
-.service-detail-container strong {
-    font-weight: bold;
-    color: #222;
-}
-.service-features {
-    margin-top: 20px;
-    padding: 15px;
-    background: #f8f9fa;
-    border-radius: 10px;
-    text-align: left;
-}
-
-.service-features h2 {
-    font-size: 22px;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.service-features ul {
-    list-style: none;
-    padding: 0;
-}
-
-.service-features li {
-    font-size: 16px;
-    color: #444;
-    margin-bottom: 5px;
-    padding-left: 25px;
-    position: relative;
-}
-
-.service-features li::before {
-    content: "✔";
-    color: green;
-    position: absolute;
-    left: 0;
-    font-weight: bold;
-}
-
-
-.back-button {
-    display: inline-block;
-        margin-top: 20px;
-        padding: 12px 24px;
-        font-size: 18px;
-        color: #fff;
-        background: #0073e6;
-        border-radius: 8px;
-        text-decoration: none;
-        transition: background 0.3s ease, transform 0.3s ease;
-        opacity: 0;
-        animation: fadeInUp 0.8s ease-out forwards;
-        animation-delay: 0.7s;
-}
-
-.back-button:hover {
-    background: #0056b3;
-}
-
-    </style>
-    
-    <section class="service-detail-container">
-
-        <h1>{{ $service['title'] }}</h1>
-        <img src="{{ asset($service['icon']) }}" alt="{{ $service['title'] }}">
-        
-        <div class="service-description">
-            <p>{{ $service['description'] }}</p>
+    <main class="learn-more-container">
+        <!-- Stats Section -->
+        <div class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    {!! $service->stats_section !!}
+                </div>
+            </div>
         </div>
 
-        <p><strong>Expected Duration:</strong> {{ $service['duration'] }}</p>
+        <!-- Tabbed Content -->
+        <div class="tabs-section">
+            <div class="container">
+                <div class="tabs-container">
+                    <div class="tabs-header">
+                        <button class="tab-button active" data-tab="features">Key Features</button>
+                        <button class="tab-button" data-tab="duration">Duration</button>
+                        <button class="tab-button" data-tab="details">Additional Details</button>
+                    </div>
 
-        <!-- Features Section -->
-        <div class="service-features">
-            <h2>Key Features</h2>
-            <ul>
-                @foreach ($service['features'] as $feature)
-                    <li> {{ $feature }}</li>
-                @endforeach
-            </ul>
+                    <div class="tab-content active" id="features">
+                        <div class="features-grid">
+                            {!! $service->features_section !!}
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="duration">
+                        {!! $service->duration_section !!}
+                    </div>
+
+                    <div class="tab-content" id="details">
+                        {!! $service->details_section !!}
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <a href="{{ route('services.index') }}" class="back-button">← Back to Services</a>
-    </section>
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2 id="cta-title">Ready to get started?</h2>
+            <p>Discover the power of our solutions.</p>
+            <div class="cta-buttons">
+                <!-- 'Get Started' Button that always links to submit.show -->
+                <a href="{{ route('contact.show') }}" class="btn btn-white">
+                    Get Started
+                </a>
+                <!-- 'Schedule a Demo' Button that always links to submit.show -->
+                <button class="btn btn-outline" onclick="window.location.href='{{ route('contact.show') }}'">
+                    Schedule a Demo
+                </button>
+            </div>
+        </section>
+
+
+    </main>
 @endsection
 
+@push('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+
+                    button.classList.add('active');
+                    const tabId = button.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+
+            const featureCards = document.querySelectorAll('.feature-card');
+            function isInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
+
+            function animateOnScroll() {
+                featureCards.forEach(card => {
+                    if (isInViewport(card)) {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }
+                });
+            }
+
+            featureCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll();
+        });
+    </script>
+@endpush

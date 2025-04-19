@@ -1,10 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.app-new')
 
 @section('title', 'Contact | Indigi')
 
 @section('content')
-<!-- Contact-us form -->
-<section id="contact-us" class="Contact-us-section">
+
+   <!-- Contact-us form -->
+   <section id="contact-us" class="Contact-us-section">
         <div class="Contactbackground-shapes">
             <div class="Contactshape-1"></div>
             <div class="Contactshape-2"></div>
@@ -33,19 +34,19 @@
 
                     <div class="contact-info">
                         <div class="contact-item">
-                            <span>📞</span>
+                            <img class="contact-icon" src="svg/contact_us/Call-icon.svg" alt="Call-icon">
                             <span>91- 6001 3961 86</span>
                         </div>
                         <div class="contact-item">
-                            <span>✉️</span>
+                            <img class="contact-icon" src="svg/contact_us/mail-icon.svg" alt="Call-icon">
                             <span>admin@indigiconsulting.com</span>
                         </div>
                         <div class="contact-item">
-                            <span>🌐</span>
+                            <img class="contact-icon" src="svg/contact_us/website-icon.svg" alt="Call-icon">
                             <span>www.indigiconsulting.com</span>
                         </div>
                         <div class="contact-item">
-                            <span>📍</span>
+                            <img class="contact-icon" src="svg/contact_us/location-icon.svg" alt="Call-icon">
                             <span>House No-194, 2nd Floor, Panjabari Road, Ghy-37, Assam</span>
                         </div>
                     </div>
@@ -76,6 +77,6 @@
                 </div>
             </div>
         </div>
-    </section>
+   </section>
 
 @endsection

@@ -190,74 +190,151 @@ document.addEventListener('DOMContentLoaded', function() {
     observer.observe(document.querySelector('.gallery-section'));
 });
 
-// Javascript for the client-map section
-
-document.addEventListener("DOMContentLoaded", function () {
-    const clientMapContainer = document.querySelector("#client-map");
-
-    // Ensure this script only runs if the client map exists
-    if (clientMapContainer) {
-        AOS.init();
-        loadClientMap();
-    }
-});
-
-function loadClientMap() {
-    const mapContainer = document.getElementById('client-map');
-    if (!mapContainer) return; // Prevents errors if the map doesn't exist
-
-    var clientMap = new google.maps.Map(mapContainer, {
-        zoom: 2,
-        center: { lat: 26.133127918480962, lng: 91.8301502270023 }
-    });
-
-    addClientMarkers(clientMap);
-}
-
-function addClientMarkers(map) {
-    const clients = [
-        {
-            name: "Guwahati Jal Board",
-            lat: 26.198242391007767, 
-            lng: 91.76953709632484,
-            testimonial: "This is a great company!",
-            img: "images/testimonials/gjb_logo.png"
-        },
-        {
-            name: "Rongsheng",
-            lat: 26.155858629965707,
-            lng: 91.78036553865408,
-            testimonial: "Excellent services provided!",
-            img: "images/testimonials/rongsheng.jpg"
-        },
-        {
-            name: "IGGL",
-            lat: 26.154650313252183, 
-            lng: 91.78049102331455,
-            testimonial: "A wonderful experience!",
-            img: "images/testimonials/iggl_testimonial.jpg"
-        }
+//client logo section
+document.addEventListener('DOMContentLoaded', function() {
+    const clientLogos = [
+      { id: 1, name: 'Yamato Transport', location: 'Singapore', src: 'images/client/YAMATO.png' },
+      { id: 2, name: 'KREPL', location: 'Delhi', src: 'images/client/KREPL.png' },
+      { id: 3, name: 'OIL India', location: 'Assam', src: 'images/client/OIL.png' },
+      { id: 4, name: 'Green Hospital Pvt LTD', location: 'Japan', src: 'images/client/JAPAN.png' },
+      { id: 5, name: 'Max-infra(I) Limited', location: 'Hyderabad', src: 'images/client/max-infra.png' },
+      { id: 6, name: 'NRL', location: 'Assam', src: 'images/client/nrl.jpg' },
+      { id: 7, name: 'WANFENG', location: 'Japan', src: 'images/client/WANFENG.png' },
+      { id: 8, name: 'PBGL', location: 'Assam', src: 'images/client/PBGL.png' },
+      { id: 9, name: 'Purabi', location: 'Assam', src: 'images/client/purabi.png' },
+      { id: 10, name: 'Jal Board', location: 'Assam', src: 'images/client/jal-board.png' },
+      { id: 11, name: 'Incois', location: 'Hyderabad', src: 'images/client/incois.png' },
+      { id: 12, name: 'IGGL', location: 'Assam', src: 'images/client/IGGL.png' }
     ];
 
-    clients.forEach(client => {
-        const marker = new google.maps.Marker({
-            position: { lat: client.lat, lng: client.lng },
-            map: map,
-            title: client.name
-        });
+    const logosGrid = document.getElementById('logos-grid-logo_client');
 
-        const infowindow = new google.maps.InfoWindow({
-            content: `
-                <div style="text-align: center;">
-                    <img src="${client.img}" alt="${client.name}" style="width: 100px; height: auto; border-radius: 50%;">
-                    <h5>${client.name}</h5>
-                    <p>${client.testimonial}</p>
-                </div>
-            `
-        });
+    // Duplicate logos to allow seamless scroll loop
+    const scrollingLogos = [...clientLogos, ...clientLogos];
 
-        marker.addListener('click', function() {
-            infowindow.open(map, marker);
-        });
+    scrollingLogos.forEach((logo, index) => {
+      const logoItem = document.createElement('div');
+      logoItem.className = 'logo-item-logo_client';
+      logoItem.setAttribute('data-delay', index * 100);
+
+      const logoImage = document.createElement('img');
+      logoImage.src = logo.src;
+      logoImage.alt = logo.name;
+
+      const overlay = document.createElement('div');
+      overlay.className = 'overlay-logo_client';
+      overlay.innerHTML = `<h3>${logo.name}</h3><p>${logo.location}</p>`;
+
+      logoItem.appendChild(logoImage);
+      logoItem.appendChild(overlay);
+      logosGrid.appendChild(logoItem);
     });
-}
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const headerObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          headerObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    const logoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const delay = parseInt(entry.target.getAttribute('data-delay'));
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, delay);
+          logoObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    const sectionHeader = document.querySelector('.section-header-logo_client');
+    headerObserver.observe(sectionHeader);
+
+    const logoItems = document.querySelectorAll('.logo-item-logo_client');
+    logoItems.forEach(item => {
+      logoObserver.observe(item);
+    });
+  });
+
+  
+// Javascript for the client-map section
+
+// document.addEventListener("DOMContentLoaded", function () {
+//     const clientMapContainer = document.querySelector("#client-map");
+
+//     // Ensure this script only runs if the client map exists
+//     if (clientMapContainer) {
+//         AOS.init();
+//         loadClientMap();
+//     }
+// });
+
+// function loadClientMap() {
+//     const mapContainer = document.getElementById('client-map');
+//     if (!mapContainer) return; // Prevents errors if the map doesn't exist
+
+//     var clientMap = new google.maps.Map(mapContainer, {
+//         zoom: 2,
+//         center: { lat: 26.133127918480962, lng: 91.8301502270023 }
+//     });
+
+//     addClientMarkers(clientMap);
+// }
+
+// function addClientMarkers(map) {
+//     const clients = [
+//         {
+//             name: "Guwahati Jal Board",
+//             lat: 26.198242391007767, 
+//             lng: 91.76953709632484,
+//             testimonial: "This is a great company!",
+//             img: "images/testimonials/gjb_logo.png"
+//         },
+//         {
+//             name: "Rongsheng",
+//             lat: 26.155858629965707,
+//             lng: 91.78036553865408,
+//             testimonial: "Excellent services provided!",
+//             img: "images/testimonials/rongsheng.jpg"
+//         },
+//         {
+//             name: "IGGL",
+//             lat: 26.154650313252183, 
+//             lng: 91.78049102331455,
+//             testimonial: "A wonderful experience!",
+//             img: "images/testimonials/iggl_testimonial.jpg"
+//         }
+//     ];
+
+//     clients.forEach(client => {
+//         const marker = new google.maps.Marker({
+//             position: { lat: client.lat, lng: client.lng },
+//             map: map,
+//             title: client.name
+//         });
+
+//         const infowindow = new google.maps.InfoWindow({
+//             content: `
+//                 <div style="text-align: center;">
+//                     <img src="${client.img}" alt="${client.name}" style="width: 100px; height: auto; border-radius: 50%;">
+//                     <h5>${client.name}</h5>
+//                     <p>${client.testimonial}</p>
+//                 </div>
+//             `
+//         });
+
+//         marker.addListener('click', function() {
+//             infowindow.open(map, marker);
+//         });
+//     });
+// }

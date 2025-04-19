@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app-new')
 
 @section('title', 'products | Indigi')
 
@@ -12,8 +12,8 @@
         </div>
     </div>
 
-<!-- portfolio section -->
-<section class="portfolio-section">
+    <!-- portfolio section -->
+    <section class="portfolio-section">
         <div class="portfoliocontainer">
             <div class="portfoliofilternav">
                 <button class="portfoliofilter-btn active">All Work</button>

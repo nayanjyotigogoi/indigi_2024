@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.app-new')
 
 @section('title', 'products | Indigi')
 
 @section('content')
- <!-- Our Service main div -->
+    <!-- Our Service main div -->
     <div id="our-service-hero">
         <div class="our-service-content">
             <h1>Our Products</h1>
@@ -11,28 +11,34 @@
             <a href="/contact-us" class="cta-button">Let's Transform Together!</a>
         </div>
     </div>
-    <!-- product section -->
-    <section class="product-section">
-        
-        <div class="productbackground-shapes">
-            <div class="productshape"></div>
-            <div class="productshape"></div>
-        </div>
 
-        <div class="productcards-grid">
-            @foreach($products as $product)
-                <div class="productcard">
-                    <img src="{{ asset($product['image']) }}" alt="{{ $product['title'] }}">
-                    <div class="productblack-overlay">
-                        <div class="productplay-button"></div>
+    <!-- product section -->
+    <section class="portfolio-section">
+        <div class="portfoliocontainer">
+            <!-- <div class="portfoliofilternav">
+                <button class="portfoliofilter-btn active">All Work</button>
+                <button class="portfoliofilter-btn">SAP Solution</button>
+                <button class="portfoliofilter-btn">Mobile Apps</button>
+                <button class="portfoliofilter-btn">Websites</button>
+                <button class="portfoliofilter-btn">Web Portals</button>
+            </div> -->
+
+            <div class="portfolio-grid">
+                @foreach($products as $product)
+                    <div class="portfolio-item">
+                        <img src="{{ asset('uploads/' . ($product->image ?? 'default.jpg')) }}" alt="{{ $product->title }}">
+
+                        <div class="portfoliooverlay">
+                            <h3>{{ $product->title }}</h3>
+                            <p>{{ Str::limit(strip_tags($product->tagline), 100) }}</p>
+                            <a href="{{ route('products.learn-more', ['item' => $product->slug]) }}"
+                                class="productcard-button">Learn more</a>
+                        </div>
+                        <div class="portfolioplay-icon"></div>
                     </div>
-                    <div class="productblue-overlay">
-                        <h3 class="productcard-title">{{ $product['title'] }}</h3>
-                        <p class="productcard-description">{{ $product['description'] }}</p>
-                        <a href="{{ route('products.show', $product['id']) }}" class="productcard-button">Learn more</a>
-                    </div>
-                </div>
-            @endforeach
+                @endforeach
+
+            </div>
         </div>
     </section>
 
@@ -47,38 +53,34 @@
             <div class="contact-header">
                 <h4>Contact Us</h4>
                 <h1>Let's Connect and Collaborate</h1>
-                <p>Have questions or need assistance? We're here to help! Reach out to us and let's work together to achieve your goals.</p>
+                <p>Have questions or need assistance? We're here to help! Reach out to us and let's work together to achieve
+                    your goals.</p>
             </div>
 
             <div class="contact-content">
                 <div class="contact-left">
-                <div class="Contactmap-container">
-                    <iframe 
-                        width="100%" 
-                        height="250px" 
-                        style="border-radius: 8px; border: 0;" 
-                        loading="lazy" 
-                        allowfullscreen 
-                        referrerpolicy="no-referrer-when-downgrade"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14316.673843579536!2d91.79659537327568!3d26.126282165576393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a599292a5c5df%3A0xc7e4b99f5a7d6f2d!2sPanjabari%20Rd%2C%20Guwahati%2C%20Assam%20781037!5e0!3m2!1sen!2sin!4v1707903154621!5m2!1sen!2sin">
-                    </iframe>
-                </div>
+                    <div class="Contactmap-container">
+                        <iframe width="100%" height="250px" style="border-radius: 8px; border: 0;" loading="lazy"
+                            allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14316.673843579536!2d91.79659537327568!3d26.126282165576393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a599292a5c5df%3A0xc7e4b99f5a7d6f2d!2sPanjabari%20Rd%2C%20Guwahati%2C%20Assam%20781037!5e0!3m2!1sen!2sin!4v1707903154621!5m2!1sen!2sin">
+                        </iframe>
+                    </div>
 
                     <div class="contact-info">
                         <div class="contact-item">
-                            <span>📞</span>
+                            <img class="contact-icon" src="svg/contact_us/Call-icon.svg" alt="Call-icon">
                             <span>91- 6001 3961 86</span>
                         </div>
                         <div class="contact-item">
-                            <span>✉️</span>
+                            <img class="contact-icon" src="svg/contact_us/mail-icon.svg" alt="Call-icon">
                             <span>admin@indigiconsulting.com</span>
                         </div>
                         <div class="contact-item">
-                            <span>🌐</span>
+                            <img class="contact-icon" src="svg/contact_us/website-icon.svg" alt="Call-icon">
                             <span>www.indigiconsulting.com</span>
                         </div>
                         <div class="contact-item">
-                            <span>📍</span>
+                            <img class="contact-icon" src="svg/contact_us/location-icon.svg" alt="Call-icon">
                             <span>House No-194, 2nd Floor, Panjabari Road, Ghy-37, Assam</span>
                         </div>
                     </div>
@@ -110,5 +112,4 @@
             </div>
         </div>
     </section>
-
 @endsection

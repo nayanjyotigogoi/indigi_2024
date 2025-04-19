@@ -1,0 +1,545 @@
+/* Variables */
+:root {
+    --blue-50: #eff6ff;
+    --blue-100: #dbeafe;
+    --blue-500: #3b82f6;
+    --blue-600: #2563eb;
+    --blue-700: #1d4ed8;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+    --white: #ffffff;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --border-radius: 0.375rem;
+    --container-width: 1280px;
+}
+
+.learn-more-container {
+    width: 90%;
+    max-width: var(--container-width);
+    margin: 2rem auto;
+    /* padding: 0 1rem; */
+}
+
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    font-size: 1rem;
+}
+
+.btn i {
+    margin-left: 0.5rem;
+}
+
+.btn-white {
+    background-color: var(--white);
+    color: var(--blue-600);
+}
+
+.btn-white:hover {
+    background-color: var(--blue-50);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--white);
+    border: 1px solid var(--white);
+}
+
+.btn-outline:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-blue {
+    background-color: var(--blue-600);
+    color: var(--white);
+}
+
+.btn-blue:hover {
+    background-color: var(--blue-700);
+}
+
+/* Header */
+.solution-header {
+    background: linear-gradient(135deg, #C4E1F6, #37AFE1);
+    color: var(--white);
+    padding: 3rem 0;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    color: var(--white);
+    background-color: transparent;
+    border: 1px solid var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+}
+
+.back-button i {
+    margin-right: 0.5rem;
+}
+
+.back-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+}
+
+.header-content {
+    padding: 2rem 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.header-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--white);
+}
+
+.header-text p {
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+.header-image {
+    /* background-color: rgba(255, 255, 255, 0.1); */
+    padding: 0.25rem;
+    border-radius: var(--border-radius);
+}
+
+.header-image img {
+    width: 90%;
+    height: auto;
+    border-radius: calc(var(--border-radius) - 0.125rem);
+    display: block;
+}
+
+/* Content Sections */
+.content-section {
+    margin-bottom: 4rem;
+    padding-top: 1rem;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.section-header i {
+    color: var(--blue-600);
+    font-size: 1.5rem;
+    margin-right: 0.75rem;
+}
+
+.section-header h2 {
+    font-size: 1.875rem;
+    color: var(--gray-900);
+}
+
+.section-divider {
+    height: 1px;
+    background-color: var(--gray-200);
+    margin-bottom: 2rem;
+}
+
+/* Grid Layouts */
+.grid-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+/* Cards */
+.card {
+    border: 1px solid var(--blue-100);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    background-color: var(--white);
+    height: 100%;
+}
+
+.card-header {
+    background-color: var(--blue-50);
+    padding: 1rem;
+    border-bottom: 1px solid var(--blue-100);
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+}
+
+.card-header h3 {
+    color: var(--blue-700);
+    font-size: 1.25rem;
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+/* Overview Section */
+.overview-text {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+    color: var(--gray-700);
+    line-height: 1.7;
+}
+
+.testimonial {
+    background-color: var(--blue-50);
+    border-left: 4px solid var(--blue-500);
+    padding: 1.5rem;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+.testimonial p:first-child {
+    font-style: italic;
+    margin-bottom: 1rem;
+    color: var(--gray-700);
+    font-size: 1.125rem;
+}
+
+.testimonial p:last-child {
+    font-weight: 500;
+    color: var(--blue-700);
+}
+
+.highlight-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.highlight-item:last-child {
+    margin-bottom: 0;
+}
+
+.highlight-icon {
+    background-color: var(--blue-100);
+    color: var(--blue-600);
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    flex-shrink: 0;
+}
+
+.highlight-item h4 {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+    color: var(--gray-900);
+}
+
+.highlight-item p {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+}
+
+/* Who Can Opt Section */
+.opt-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.opt-item {
+    display: flex;
+    align-items: flex-start;
+    background-color: var(--white);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--blue-100);
+    box-shadow: var(--shadow-sm);
+}
+
+.opt-item i {
+    color: var(--blue-500);
+    margin-right: 0.75rem;
+    margin-top: 0.125rem;
+    flex-shrink: 0;
+}
+
+.ideal-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.ideal-item:last-child {
+    margin-bottom: 0;
+}
+
+.ideal-icon {
+    background-color: var(--blue-100);
+    color: var(--blue-600);
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    flex-shrink: 0;
+}
+
+.ideal-item h4 {
+    font-size: 1.125rem;
+    margin-bottom: 0.25rem;
+    color: var(--gray-900);
+}
+
+.ideal-item p {
+    color: var(--gray-600);
+}
+
+/* Benefits Section */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.benefit-card {
+    border: 1px solid var(--blue-100);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+
+.benefit-header {
+    background-color: var(--blue-50);
+    padding: 1rem;
+    border-bottom: 1px solid var(--blue-100);
+}
+
+.benefit-header h3 {
+    font-weight: 600;
+    color: var(--blue-700);
+}
+
+.benefit-content {
+    padding: 1rem;
+    color: var(--gray-700);
+}
+
+.business-impact {
+    background-color: var(--blue-50);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--blue-100);
+}
+
+.business-impact h3 {
+    text-align: center;
+    color: var(--blue-700);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.impact-metrics {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.metric {
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    border: 1px solid var(--blue-100);
+    box-shadow: var(--shadow-sm);
+}
+
+.metric-value {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: var(--blue-600);
+    margin-bottom: 0.5rem;
+}
+
+/* How It Works Section */
+.how-it-works {
+    grid-column: 1 / -1;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.how-it-works-content {
+    white-space: pre-line;
+    line-height: 1.7;
+    color: var(--gray-700);
+}
+
+.process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.process-step {
+    display: flex;
+    align-items: flex-start;
+}
+
+.step-number {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: var(--blue-600);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    margin-right: 0.5rem;
+    flex-shrink: 0;
+}
+
+.step-content h4 {
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+    color: var(--gray-900);
+}
+
+.step-content p {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+}
+
+/* FAQs Section */
+.faqs-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.faq-card {
+    border: 1px solid var(--blue-100);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+
+.faq-header {
+    background-color: var(--blue-50);
+    padding: 1rem;
+    border-bottom: 1px solid var(--blue-100);
+}
+
+.faq-header h3 {
+    font-size: 1.125rem;
+    color: var(--blue-700);
+}
+
+.faq-content {
+    padding: 1rem;
+    color: var(--gray-700);
+}
+
+/* CTA Section */
+.cta-section {
+    background-color: var(--blue-600);
+    color: var(--white);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.cta-section h2 {
+    font-size: 1.5rem;
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.cta-section p {
+    margin-bottom: 2rem;
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    max-width: 24rem;
+    margin: 0 auto;
+}
+
+
+/* Media Queries */
+@media (min-width: 640px) {
+    .cta-buttons {
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 768px) {
+    .header-content {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .header-text {
+        flex: 1;
+    }
+
+    .header-image {
+        flex: 1;
+    }
+
+    .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .impact-metrics {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .faqs-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid-layout {
+        grid-template-columns: 2fr 1fr;
+    }
+
+    .benefits-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .header-text h1 {
+        font-size: 1.75rem;
+    }
+}

@@ -9,7 +9,7 @@ class ContactController extends Controller
        // Function to display the contact form page
        public function show()
        {
-           return view('nav-bar.nav_contact'); // Make sure 'contact' matches your blade view filename
+           return view('contactus'); // Make sure 'contact' matches your blade view filename
        }
    
        // Function to handle the form submission
