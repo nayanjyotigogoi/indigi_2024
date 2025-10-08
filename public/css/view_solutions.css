@@ -77,7 +77,9 @@
 
 /* Header */
 .solution-header {
-    background: linear-gradient(135deg, #C4E1F6, #37AFE1);
+    /* background: linear-gradient(135deg, #C4E1F6, #37AFE1); */
+    background: linear-gradient(267.03deg, #0A629A 57.12%, #37AFFB 126.94%);
+
     color: var(--white);
     padding: 3rem 0;
 }

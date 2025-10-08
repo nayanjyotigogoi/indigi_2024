@@ -25,6 +25,7 @@
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
 </head>
 <body>
+    @include('cta-top-page')
     <!-- Navbar Section -->
     @include('layouts.navbar') 
 
@@ -50,5 +51,8 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCQw6Ml9RSra-m29ycAfi8WPMeN8NkcXg&callback=initMap">
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    {{-- Include the custom mouse cursor partial --}}
+    @include('mouse-cursor')
 </body>
 </html>

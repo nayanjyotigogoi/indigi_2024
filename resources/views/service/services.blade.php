@@ -12,62 +12,7 @@
             <a href="#contact-us" class="cta-button">Let's Transform Together!</a>
         </div>
     </div>
-    <!--  Service Section -->
-    <!-- <div class="services-container">
-            <div class="service-card">
-                <h3 class="service-title">SAP CONSULTING</h3>
-                <p class="service-description">Lorem ipsum dolor sit amet consectetur. Ut auctor nunc pretium quis egestas. Sit orci viverra porta erat urna metus.</p>
-                <a href="#" class="know-more">Know More</a>
-            </div>
 
-            <div class="service-card">
-                <h3 class="service-title">SAP IMPLEMENTATION</h3>
-                <p class="service-description">Lorem ipsum dolor sit amet consectetur. Ut auctor nunc pretium quis egestas. Sit orci viverra porta erat urna metus.</p>
-                <a href="#" class="know-more">Know More</a>
-            </div>
-
-            <div class="service-card">
-                <h3 class="service-title">SAP SUPPORT</h3>
-                <p class="service-description">Lorem ipsum dolor sit amet consectetur. Ut auctor nunc pretium quis egestas. Sit orci viverra porta erat urna metus.</p>
-                <a href="#" class="know-more">Know More</a>
-            </div>
-
-            <div class="service-card">
-                <h3 class="service-title">SAP UPGRADATION</h3>
-                <p class="service-description">Lorem ipsum dolor sit amet consectetur. Ut auctor nunc pretium quis egestas. Sit orci viverra porta erat urna metus.</p>
-                <a href="#" class="know-more">Know More</a>
-            </div>
-
-            <div class="service-card">
-                <h3 class="service-title">SAP ROLLOUT</h3>
-                <p class="service-description">Lorem ipsum dolor sit amet consectetur. Ut auctor nunc pretium quis egestas. Sit orci viverra porta erat urna metus.</p>
-                <a href="#" class="know-more">Know More</a>
-            </div>
-
-            <div class="service-card">
-                <h3 class="service-title">BUSINESS PROCESS AUTOMATION</h3>
-                <p class="service-description">Lorem ipsum dolor sit amet consectetur. Ut auctor nunc pretium quis egestas. Sit orci viverra porta erat urna metus.</p>
-                <a href="#" class="know-more">Know More</a>
-            </div>
-
-            <div class="service-card">
-                <h3 class="service-title">MANPOWER OUTSOURCING</h3>
-                <p class="service-description">Lorem ipsum dolor sit amet consectetur. Ut auctor nunc pretium quis egestas. Sit orci viverra porta erat urna metus.</p>
-                <a href="#" class="know-more">Know More</a>
-            </div>
-
-            <div class="service-card">
-                <h3 class="service-title">IoT</h3>
-                <p class="service-description">Lorem ipsum dolor sit amet consectetur. Ut auctor nunc pretium quis egestas. Sit orci viverra porta erat urna metus.</p>
-                <a href="#" class="know-more">Know More</a>
-            </div>
-
-            <div class="service-card">
-                <h3 class="service-title">TAILORED ERP</h3>
-                <p class="service-description">Lorem ipsum dolor sit amet consectetur. Ut auctor nunc pretium quis egestas. Sit orci viverra porta erat urna metus.</p>
-                <a href="#" class="know-more">Know More</a>
-            </div>
-        </div> -->
 
     <!-- Service Section -->
     <div class="services-container">
@@ -75,8 +20,9 @@
             <div class="service-card">
                 <h3 class="service-title_page">{{ $service->title }}</h3>
                 <p class="service-description_page">
-                    {{ $service->tagline ?? Str::limit(strip_tags($service->details_section), 150) }}</p>
-                    <a href="{{ route('services.viewservices', $service->slug) }}" class="know-more">Know More</a>
+                    {{ $service->tagline ?? Str::limit(strip_tags($service->details_section), 150) }}
+                </p>
+                <a href="{{ route('services.viewservices', $service->slug) }}" class="know-more">Know More</a>
 
             </div>
         @endforeach
@@ -128,22 +74,23 @@
                 </div>
 
                 <div class="contact-right">
-                    <form id="contactForm">
+                    <form id="contactForm" action="{{ route('contact-us') }}" method="POST">
+                        @csrf()
                         <div class="Contactform-group">
                             <label for="name">Name</label>
-                            <input type="text" id="name" placeholder="Enter name here">
+                            <input type="text" id="name" name="name" placeholder="Enter name here">
                         </div>
                         <div class="Contactform-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" placeholder="Enter email here">
+                            <input type="email" id="email" name="email" placeholder="Enter email here">
                         </div>
                         <div class="Contactform-group">
                             <label for="phone">Phone number</label>
-                            <input type="tel" id="phone" placeholder="Enter phone number here">
+                            <input type="tel" id="phone" name="phone" placeholder="Enter phone number here">
                         </div>
                         <div class="Contactform-group">
                             <label for="message">Message</label>
-                            <textarea id="message" rows="5" placeholder="Message here"></textarea>
+                            <textarea id="message" rows="5" name="message" placeholder="Message here"></textarea>
                         </div>
                         <button type="submit" class="Contactsubmit-btn">
                             Submit →
@@ -155,3 +102,17 @@
     </section>
 
 @endsection
+@push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if(session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: "{{ session('success') }}",
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'OK'
+            });
+        </script>
+    @endif
+@endpush

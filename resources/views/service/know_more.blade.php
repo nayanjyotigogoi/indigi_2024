@@ -19,8 +19,8 @@
 
                 @if($service->header_image)
                     <div class="header-image">
-                        <img src="{{ asset('uploads/service/' . $service->header_image) }}" alt="{{ $service->title }}"
-                            style="max-width: 200px;">
+                        <!-- <img src="{{ asset('uploads/service/' . $service->header_image) }}" alt="{{ $service->title }}"
+                            style="max-width: 80px;"> -->
                     </div>
                 @endif
             </div>

@@ -82,6 +82,8 @@ Route::get('career/apply', [CareerApplicationController::class, 'create'])->name
 Route::post('career/apply', [CareerApplicationController::class, 'store'])->name('submit-application');
 
 
+Route::post('/contact-store', [FrontendController::class, 'contactStore'])->name('contact-us');
+
 
 // Admin login/logout routes
 Route::get('admin/login', [AdminController::class, 'showLogin'])->name('admin.login');
@@ -132,6 +134,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/jobs', [JobOpeningController::class, 'index'])->name('job.index');
     Route::delete('/admin/jobs/{id}', [JobOpeningController::class, 'destroy'])->name('job.destroy');
     Route::get('/admin/jobs/{id}/edit', [JobOpeningController::class, 'edit'])->name('job.edit'); // Optional edit route
+    Route::put('/admin/jobs/{id}', [JobOpeningController::class, 'update'])->name('job.update');
+
 
     //gallery route
     Route::get('/admin/add-image', [GalleryController::class, 'create'])->name('gallery.create');
@@ -144,6 +148,7 @@ Route::middleware(['auth'])->group(function () {
 
 
 });
+
 
 // Route for career page (list of job openings)
 Route::get('/career', [CareerApplicationController::class, 'career_page'])->name('career');

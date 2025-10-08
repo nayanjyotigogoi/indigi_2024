@@ -12,11 +12,28 @@
 }
 
 .footer {
-    background-color: #003399;
-    color: white;
-    padding: 70px 20px 10px;
+    font-size:13px;
     position: relative;
+    background: url('../images/bg-footer.jpg');
+    background-size: cover;
+    color: white;
+    padding: 35px 20px 10px;
+    z-index: 1;
+    overflow: hidden;
 }
+
+.footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(255.44deg, #02266C 47.68%, #044AD2 102.98%);
+    opacity: 0.9; /* You can adjust opacity here */
+    z-index: -1;
+}
+
 
 .footer-content {
     max-width: 1200px;
@@ -91,7 +108,7 @@
 }
 
 .footer-contact-item i {
-    color: #FFD700;
+    color:white;
 }
 
 .scroll-top {
@@ -150,14 +167,15 @@
 </head>
 <body>
     <footer class="footer">
+    <div class="footer-overlay"></div>
         <div class="footer-content">
             <div class="footer-section">
                 <img src="{{ asset('images/indigi_logo.jpg') }}" alt="Indigi Logo" class="footer-logo">
                 <p class="footer-description">Empowering businesses with cutting-edge technology solutions and a commitment to innovation, quality, and customer success.</p>
                 <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-x-twitter"></i></a>
+                    <a href="https://www.facebook.com/Indigiconsulting/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.linkedin.com/company/indigi-consulting-and-solutions-pvt-ltd"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://x.com/indigiconsulti1?lang=en"><i class="fab fa-twitter"></i></a>
                 </div>
 
             </div>
@@ -176,12 +194,12 @@
             <div class="footer-section">
                 <h3 href="/services">Services</h3>
                 <ul>
-                    <li><a href="/services/1">SAP Consulting</a></li>
-                    <li><a href="/services/2">SAP Implementation</a></li>
-                    <li><a href="/services/3">SAP Support</a></li>
-                    <li><a href="/services/4">SAP Upgradation</a></li>
-                    <li><a href="/services/5">SAP Rollout</a></li>
-                    <li><a href="/services/9">Website Security Audit</a></li>
+                    <li><a href="/services/sap-consulting">SAP Consulting</a></li>
+                    <li><a href="/services/sap-implementation">SAP Implementation</a></li>
+                    <li><a href="/services/sap-support">SAP Support</a></li>
+                    <li><a href="/services/sap-migration-services">SAP Migration</a></li>
+                    <li><a href="/services/business-process-automation">Business Process Automation</a></li>
+                    <li><a href="/services/Manpower-Outsourcing">Manpower Outsourcing</a></li>
                 </ul>
             </div>
 
@@ -205,11 +223,11 @@
                         <span>House No-194, 2nd Floor, Panjabari Road, Ghy-37, Assam</span>
                     </div>
                     <div class="footer-contact-item">
-                        <i class="fas fa-building"></i>
+                        <i class="fas fa-map-marker-alt"></i>
                         <span>OFFICE NO. 311, 3-6-365, BASHEER BAGH, HIMAYATNAGAR, HYDERABAD - 500029</span>
                     </div>
                     <div class="footer-contact-item">
-                        <i class="fas fa-building"></i>
+                        <i class="fas fa-map-marker-alt"></i>
                         <span>M/S Pranay Vandan Office Solutions, 1st Floor, Anuj Chambers, 24 Park Street, Kolkata - 700016</span>
                     </div>
                 </div>

@@ -29,40 +29,42 @@
 
     <!-- About Us Section -->
     <section id="aboutUsSection" class="aboutUs-section" data-aos="fade-up">
-        <div class="aboutUscontainer">
-            <div class="aboutUsleft-section" data-aos="fade-right">
-                <div class="aboutUs">About Us</div>
-                <h1 class="aboutUstitle">Powering Digital Transformation with Innovation!</h1>
-                <p class="aboutUsdescription">Indigi Consulting & Solutions, established in 2018 and based in Guwahati, is
-                    the only SAP service provider in Northeast India. </p>
-                <p class="aboutUsdescription">We deliver tailored digital solutions across industries, focused on boosting
-                    efficiency, reducing manual effort, and enhancing productivity, with customer satisfaction at the core
-                    of everything we do.
-                    <!-- <strong>Your growth, our commitment!</strong> -->
+        <div class="main-aboutUs-container">
+            <div class="aboutUs-content" data-aos="fade-right">
+                <h3 class="aboutUs-subtitle">About Us</h3>
+                <h1 class="aboutUs-title">Powering Digital Transformation with Innovation!</h1>
+                <p class="aboutUs-description">
+                    Indigi Consulting & Solutions, established in 2018 and based in Guwahati,
+                    is the only SAP service provider in Northeast India.
                 </p>
-
-                <a href="{{ route('about') }}" class="aboutUslearn-more">Learn More →</a>
+                <p class="aboutUs-description">
+                    We deliver tailored digital solutions across industries, focused on boosting
+                    efficiency, reducing manual effort, and enhancing productivity, with customer
+                    satisfaction at the core of everything we do.
+                </p>
+                <a href="{{ route('about') }}" class="aboutUs-btn">Learn More →</a>
             </div>
-            <div class="aboutUsright-section" data-aos="fade-up">
-                <div class="aboutUscard">
-                    <img class="aboutUsicon" src="svg/about_us/Innovation.svg" alt="Innovation">
-                    <h3 class="aboutUscard-title">Innovation</h3>
-                    <div class="aboutUsquote">"Think Different"</div>
+
+            <div class="aboutUs-cards" data-aos="fade-up">
+                <div class="aboutUs-card">
+                    <img class="aboutUs-icon" src="svg/about_us/Innovation.svg" alt="Innovation" />
+                    <h3 class="aboutUs-card-title">Innovation</h3>
+                    <div class="aboutUs-quote">"Think Different"</div>
                 </div>
-                <div class="aboutUscard">
-                    <img class="aboutUsicon" src="svg/about_us/growth.svg" alt="Innovation">
-                    <h3 class="aboutUscard-title">Growth</h3>
-                    <div class="aboutUsquote">"Beyond Limits"</div>
+                <div class="aboutUs-card">
+                    <img class="aboutUs-icon" src="svg/about_us/growth.svg" alt="Growth" />
+                    <h3 class="aboutUs-card-title">Growth</h3>
+                    <div class="aboutUs-quote">"Beyond Limits"</div>
                 </div>
-                <div class="aboutUscard">
-                    <img class="aboutUsicon" src="svg/about_us/collaboration.svg" alt="Innovation">
-                    <h3 class="aboutUscard-title">Collaboration</h3>
-                    <div class="aboutUsquote">"Stronger Together"</div>
+                <div class="aboutUs-card">
+                    <img class="aboutUs-icon" src="svg/about_us/collaboration.svg" alt="Collaboration" />
+                    <h3 class="aboutUs-card-title">Collaboration</h3>
+                    <div class="aboutUs-quote">"Stronger Together"</div>
                 </div>
-                <div class="aboutUscard">
-                    <img class="aboutUsicon" src="svg/about_us/efficiency.svg" alt="Innovation">
-                    <h3 class="aboutUscard-title">Efficiency</h3>
-                    <div class="aboutUsquote">"Work Smarter"</div>
+                <div class="aboutUs-card">
+                    <img class="aboutUs-icon" src="svg/about_us/efficiency.svg" alt="Efficiency" />
+                    <h3 class="aboutUs-card-title">Efficiency</h3>
+                    <div class="aboutUs-quote">"Work Smarter"</div>
                 </div>
             </div>
         </div>
@@ -74,20 +76,20 @@
             <div class="countstats-wrapper">
                 <div class="countstat-item">
                     <img class="counticon" src="/svg/count/happy_clients.svg" alt="Happy Clients">
-                    <div class="countnumber" data-target="50">0</div>
+                    <div class="countnumber" data-target="200">0</div>
                     <div class="countlabel">Happy Clients</div>
                 </div>
 
 
                 <div class="countstat-item">
                     <img class="counticon" src="/svg/count/Completed_projects.svg" alt="Completed Projects">
-                    <div class="countnumber" data-target="50">0</div>
+                    <div class="countnumber" data-target="180">0</div>
                     <div class="countlabel">Completed Projects</div>
                 </div>
 
                 <div class="countstat-item">
                     <img class="counticon" src="/svg/count/industry_Verticals.svg" alt="Industry Verticals">
-                    <div class="countnumber" data-target="15">0</div>
+                    <div class="countnumber" data-target="20">0</div>
                     <div class="countlabel">Industry Verticals</div>
                 </div>
 
@@ -105,24 +107,27 @@
         <img class="services-background-home" src="{{ asset('svg/services/background-our-services.png') }}"
             alt="Our Services Background">
         <h3 class="servicessection-title-home">Our Services</h3>
-        <h2 class="servicessection-heading-home">We Offer A Wide Variety Of IT Services</h2>
+        <h2 class="servicessection-heading-home">We Offer A Wide<br /> Variety Of IT Services</h2>
 
         <div class="services-grid-home" data-aos="fade-right">
 
             @foreach($services as $service)
                 <div class="service-card-home">
                     <div class="service-icon-home">
-
-
                         <img class="service-icon-home" src="{{ asset('uploads/service/' . $service->header_image) }}"
                             alt="{{ $service->title }}">
                     </div>
 
                     <h3 class="service-title">{{ $service->title }}</h3>
-                    <!-- Truncate tagline to 100 characters with ellipsis if it's too long -->
-                    <p class="service-description_page">{{ \Illuminate\Support\Str::limit($service->tagline, 100, '...') }}</p>
-                    <a href="{{ route('services.viewservices', ['slug' => $service->slug]) }}" class="know-more">Know More</a>
+
+                    <p class="service-description_page">
+                        {{ \Illuminate\Support\Str::limit($service->tagline, 100, '...') }}
+                    </p>
+
+                    <!-- Link that only appears on hover -->
+                    <a href="{{ route('services.viewservices', ['slug' => $service->slug]) }}" class="know-more-link">➜</a>
                 </div>
+
             @endforeach
 
         </div>
@@ -138,13 +143,7 @@
                 <h1>Our Product</h1>
                 <h2>Explore Our Innovative Solutions</h2>
             </header>
-            <!-- <div class="portfoliofilternav">
-                                                        <button class="portfoliofilter-btn active">All Work</button>
-                                                        <button class="portfoliofilter-btn">SAP Solution</button>
-                                                        <button class="portfoliofilter-btn">Mobile Apps</button>
-                                                        <button class="portfoliofilter-btn">Websites</button>
-                                                        <button class="portfoliofilter-btn">Web Portals</button>
-                                                    </div> -->
+
 
             <div class="portfolio-grid" data-aos="fade-right">
                 @foreach($products as $product)
@@ -249,110 +248,110 @@
 
     <!-- testimonial section -->
     <!-- <section class="testimonial-section">
-                <div class="Testimonialscontainer">
-                    <p class="Testimonialssubtitle">Testimonial's</p>
-                    <h1>What Our Clients Say About Us</h1>
-                    <p class="Testimonialsdescription">Our clients' success stories reflect our dedication to delivering excellence.
-                        Here's what they have to say about their experience working with us:</p>
+                            <div class="Testimonialscontainer">
+                                <p class="Testimonialssubtitle">Testimonial's</p>
+                                <h1>What Our Clients Say About Us</h1>
+                                <p class="Testimonialsdescription">Our clients' success stories reflect our dedication to delivering excellence.
+                                    Here's what they have to say about their experience working with us:</p>
 
-                    <div class="testimonial-slider">
-                        <button class="Testimonialsslider-nav Testimonialsprev">←</button>
-                        <div class="testimonials-wrapper">
-                            <div class="testimonials">
-                                <div class="testimonial-card">
-                                    <div class="Testimonialsstars">★★★★★ <span class="Testimonialsrating">5/5</span></div>
-                                    <p class="testimonial-text">Lorem ipsum dolor sit amet consectetur. At sed imperdiet amet
-                                        ultrices dapibus aliquet. Facilisis nascetur rhoncus pulvinar ultrices nec in lorem aliquam.
-                                    </p>
-                                    <div class="Testimonialsprofile">
-                                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/testimonials.jpg-a9oCrwwSj5UPgaQongRbQQIVyUFHyp.jpeg"
-                                            alt="Profile">
-                                        <div class="Testimonialsprofile-info">
-                                            <h4>Maxin Will</h4>
-                                            <p>Product Manager</p>
+                                <div class="testimonial-slider">
+                                    <button class="Testimonialsslider-nav Testimonialsprev">←</button>
+                                    <div class="testimonials-wrapper">
+                                        <div class="testimonials">
+                                            <div class="testimonial-card">
+                                                <div class="Testimonialsstars">★★★★★ <span class="Testimonialsrating">5/5</span></div>
+                                                <p class="testimonial-text">Lorem ipsum dolor sit amet consectetur. At sed imperdiet amet
+                                                    ultrices dapibus aliquet. Facilisis nascetur rhoncus pulvinar ultrices nec in lorem aliquam.
+                                                </p>
+                                                <div class="Testimonialsprofile">
+                                                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/testimonials.jpg-a9oCrwwSj5UPgaQongRbQQIVyUFHyp.jpeg"
+                                                        alt="Profile">
+                                                    <div class="Testimonialsprofile-info">
+                                                        <h4>Maxin Will</h4>
+                                                        <p>Product Manager</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="testimonial-card">
+                                                <div class="Testimonialsstars">★★★★☆ <span class="Testimonialsrating">4/5</span></div>
+                                                <p class="testimonial-text">Lorem ipsum dolor sit amet consectetur. At sed imperdiet amet
+                                                    ultrices dapibus aliquet. Facilisis nascetur rhoncus pulvinar ultrices nec in lorem aliquam.
+                                                </p>
+                                                <div class="Testimonialsprofile">
+                                                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/testimonials.jpg-a9oCrwwSj5UPgaQongRbQQIVyUFHyp.jpeg"
+                                                        alt="Profile">
+                                                    <div class="Testimonialsprofile-info">
+                                                        <h4>Maxin Will</h4>
+                                                        <p>Product Manager</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="testimonial-card">
+                                                <div class="Testimonialsstars">★★★★☆ <span class="Testimonialsrating">4/5</span></div>
+                                                <p class="testimonial-text">Lorem ipsum dolor sit amet consectetur. At sed imperdiet amet
+                                                    ultrices dapibus aliquet. Facilisis nascetur rhoncus pulvinar ultrices nec in lorem aliquam.
+                                                </p>
+                                                <div class="Testimonialsprofile">
+                                                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/testimonials.jpg-a9oCrwwSj5UPgaQongRbQQIVyUFHyp.jpeg"
+                                                        alt="Profile">
+                                                    <div class="Testimonialsprofile-info">
+                                                        <h4>Maxin Will</h4>
+                                                        <p>Product Manager</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="testimonial-card">
+                                                <div class="Testimonialsstars">★★★★☆ <span class="Testimonialsrating">4/5</span></div>
+                                                <p class="testimonial-text">Lorem ipsum dolor sit amet consectetur. At sed imperdiet amet
+                                                    ultrices dapibus aliquet. Facilisis nascetur rhoncus pulvinar ultrices nec in lorem aliquam.
+                                                </p>
+                                                <div class="Testimonialsprofile">
+                                                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/testimonials.jpg-a9oCrwwSj5UPgaQongRbQQIVyUFHyp.jpeg"
+                                                        alt="Profile">
+                                                    <div class="Testimonialsprofile-info">
+                                                        <h4>Maxin Will</h4>
+                                                        <p>Product Manager</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="testimonial-card">
+                                                <div class="Testimonialsstars">★★★★☆ <span class="rating">4/5</span></div>
+                                                <p class="testimonial-text">Lorem ipsum dolor sit amet consectetur. At sed imperdiet amet
+                                                    ultrices dapibus aliquet. Facilisis nascetur rhoncus pulvinar ultrices nec in lorem aliquam.
+                                                </p>
+                                                <div class="Testimonialsprofile">
+                                                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/testimonials.jpg-a9oCrwwSj5UPgaQongRbQQIVyUFHyp.jpeg"
+                                                        alt="Profile">
+                                                    <div class="Testimonialsprofile-info">
+                                                        <h4>Maxin Will</h4>
+                                                        <p>Product Manager</p>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
+                                    <button class="Testimonialsslider-nav Testimonialsnext">→</button>
                                 </div>
-                                <div class="testimonial-card">
-                                    <div class="Testimonialsstars">★★★★☆ <span class="Testimonialsrating">4/5</span></div>
-                                    <p class="testimonial-text">Lorem ipsum dolor sit amet consectetur. At sed imperdiet amet
-                                        ultrices dapibus aliquet. Facilisis nascetur rhoncus pulvinar ultrices nec in lorem aliquam.
-                                    </p>
-                                    <div class="Testimonialsprofile">
-                                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/testimonials.jpg-a9oCrwwSj5UPgaQongRbQQIVyUFHyp.jpeg"
-                                            alt="Profile">
-                                        <div class="Testimonialsprofile-info">
-                                            <h4>Maxin Will</h4>
-                                            <p>Product Manager</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="testimonial-card">
-                                    <div class="Testimonialsstars">★★★★☆ <span class="Testimonialsrating">4/5</span></div>
-                                    <p class="testimonial-text">Lorem ipsum dolor sit amet consectetur. At sed imperdiet amet
-                                        ultrices dapibus aliquet. Facilisis nascetur rhoncus pulvinar ultrices nec in lorem aliquam.
-                                    </p>
-                                    <div class="Testimonialsprofile">
-                                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/testimonials.jpg-a9oCrwwSj5UPgaQongRbQQIVyUFHyp.jpeg"
-                                            alt="Profile">
-                                        <div class="Testimonialsprofile-info">
-                                            <h4>Maxin Will</h4>
-                                            <p>Product Manager</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="testimonial-card">
-                                    <div class="Testimonialsstars">★★★★☆ <span class="Testimonialsrating">4/5</span></div>
-                                    <p class="testimonial-text">Lorem ipsum dolor sit amet consectetur. At sed imperdiet amet
-                                        ultrices dapibus aliquet. Facilisis nascetur rhoncus pulvinar ultrices nec in lorem aliquam.
-                                    </p>
-                                    <div class="Testimonialsprofile">
-                                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/testimonials.jpg-a9oCrwwSj5UPgaQongRbQQIVyUFHyp.jpeg"
-                                            alt="Profile">
-                                        <div class="Testimonialsprofile-info">
-                                            <h4>Maxin Will</h4>
-                                            <p>Product Manager</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="testimonial-card">
-                                    <div class="Testimonialsstars">★★★★☆ <span class="rating">4/5</span></div>
-                                    <p class="testimonial-text">Lorem ipsum dolor sit amet consectetur. At sed imperdiet amet
-                                        ultrices dapibus aliquet. Facilisis nascetur rhoncus pulvinar ultrices nec in lorem aliquam.
-                                    </p>
-                                    <div class="Testimonialsprofile">
-                                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/testimonials.jpg-a9oCrwwSj5UPgaQongRbQQIVyUFHyp.jpeg"
-                                            alt="Profile">
-                                        <div class="Testimonialsprofile-info">
-                                            <h4>Maxin Will</h4>
-                                            <p>Product Manager</p>
-                                        </div>
-                                    </div>
+
+                                <div class="Testimonialsdots">
+                                    <span class="Testimonialsdot active"></span>
+                                    <span class="Testimonialsdot"></span>
+                                    <span class="Testimonialsdot"></span>
+                                    <span class="Testimonialsdot"></span>
+                                    <span class="Testimonialsdot"></span>
                                 </div>
                             </div>
-                        </div>
-                        <button class="Testimonialsslider-nav Testimonialsnext">→</button>
-                    </div>
 
-                    <div class="Testimonialsdots">
-                        <span class="Testimonialsdot active"></span>
-                        <span class="Testimonialsdot"></span>
-                        <span class="Testimonialsdot"></span>
-                        <span class="Testimonialsdot"></span>
-                        <span class="Testimonialsdot"></span>
-                    </div>
-                </div>
+                            <div class="write-review-container">
+                                                            <a class="write-review-button" href='/submit-review'>
+                                                               Post Your Review
+                                                            </a>
+                                                        </div>   
+                            <div class="write-review-container">
+                                <a href="/write-review" class="servicesexplore-btn">Post Your Review →</a>
+                            </div>
 
-                <div class="write-review-container">
-                                                <a class="write-review-button" href='/submit-review'>
-                                                   Post Your Review
-                                                </a>
-                                            </div>   
-                <div class="write-review-container">
-                    <a href="/write-review" class="servicesexplore-btn">Post Your Review →</a>
-                </div>
-
-            </section> -->
+                        </section> -->
 
     <!-- Gallery section -->
     <section id="gallery" class="gallery-section">
@@ -362,105 +361,153 @@
             <div class="gallery-grid">
                 <div class="gallery-item" data-aos="fade-up" data-aos-duration="500">
                     <img src="images/gallery/image1.jpeg" alt="Image 1" class="lightbox-trigger">
-                    <div class="overlay">Image 1 Description</div>
+                    <div class="overlay">Go-live ASTC</div>
                 </div>
                 <div class="gallery-item" data-aos="fade-down" data-aos-duration="500">
                     <img src="images/gallery/image2.jpeg" alt="Image 2" class="lightbox-trigger">
-                    <div class="overlay">Image 2 Description</div>
+                    <div class="overlay">Celebrations</div>
                 </div>
                 <div class="gallery-item" data-aos="zoom-in" data-aos-duration="500">
                     <img src="images/gallery/image3.jpg" alt="Image 3" class="lightbox-trigger">
-                    <div class="overlay">Image 3 Description</div>
+                    <div class="overlay"></div>
                 </div>
                 <div class="gallery-item" data-aos="fade-left" data-aos-duration="500">
                     <img src="images/gallery/image4.jpeg" alt="Image 4" class="lightbox-trigger">
-                    <div class="overlay">Image 4 Description</div>
+                    <div class="overlay">Team</div>
                 </div>
                 <div class="gallery-item" data-aos="fade-right" data-aos-duration="500">
                     <img src="images/gallery/image5.jpeg" alt="Image 5" class="lightbox-trigger">
-                    <div class="overlay">Image 5 Description</div>
+                    <div class="overlay">Celebrations</div>
                 </div>
                 <div class="gallery-item" data-aos="slide-up" data-aos-duration="500">
                     <img src="images/gallery/image6.jpeg" alt="Image 6" class="lightbox-trigger">
-                    <div class="overlay">Image 6 Description</div>
+                    <div class="overlay">Festivals</div>
                 </div>
                 <div class="gallery-item" data-aos="flip-left" data-aos-duration="500">
                     <img src="images/gallery/image7.jpg" alt="Image 7" class="lightbox-trigger">
-                    <div class="overlay">Image 7 Description</div>
+                    <div class="overlay">GO-LIVE</div>
                 </div>
                 <div class="gallery-item" data-aos="flip-right" data-aos-duration="500">
                     <img src="images/gallery/image8.jpg" alt="Image 8" class="lightbox-trigger">
-                    <div class="overlay">Image 8 Description</div>
+                    <div class="overlay">Team</div>
                 </div>
                 <div class="gallery-item" data-aos="zoom-out" data-aos-duration="500">
                     <img src="images/gallery/image9.jpeg" alt="Image 9" class="lightbox-trigger">
-                    <div class="overlay">Image 9 Description</div>
+                    <div class="overlay">ASTC Team</div>
                 </div>
                 <div class="gallery-item" data-aos="fade-in" data-aos-duration="500">
                     <img src="images/gallery/image10.jpeg" alt="Image 10" class="lightbox-trigger">
-                    <div class="overlay">Image 10 Description</div>
+                    <div class="overlay">Meeting</div>
                 </div>
                 <div class="gallery-item" data-aos="slide-down" data-aos-duration="500">
                     <img src="images/gallery/image11.jpeg" alt="Image 11" class="lightbox-trigger">
-                    <div class="overlay">Image 11 Description</div>
+                    <div class="overlay">Team</div>
                 </div>
                 <div class="gallery-item" data-aos="slide-right" data-aos-duration="500">
                     <img src="images/gallery/image12.jpeg" alt="Image 12" class="lightbox-trigger">
-                    <div class="overlay">Image 12 Description</div>
+                    <div class="overlay">Office</div>
                 </div>
                 <div class="gallery-item" data-aos="fade-up-right" data-aos-duration="500">
                     <img src="images/gallery/image13.jpeg" alt="Image 13" class="lightbox-trigger">
-                    <div class="overlay">Image 13 Description</div>
+                    <div class="overlay">Celebrations</div>
                 </div>
                 <div class="gallery-item" data-aos="fade-up-right" data-aos-duration="500">
                     <img src="{{ asset('images/gallery/image14.jpg') }}" alt="Image 14" class="lightbox-trigger">
-                    <div class="overlay">Image 14 Description</div>
+                    <div class="overlay">Office Life</div>
                 </div>
                 <div class="gallery-item" data-aos="fade-up-right" data-aos-duration="500">
                     <img src="images/gallery/image15.jpeg" alt="Image 15" class="lightbox-trigger">
-                    <div class="overlay">Image 15 Description</div>
+                    <div class="overlay">Team Indigi</div>
                 </div>
                 <div class="gallery-item" data-aos="fade-up-right" data-aos-duration="500">
                     <img src="{{ asset('images/gallery/image16.jpg') }}" alt="Image 16" class="lightbox-trigger">
-                    <div class="overlay">Image 146Description</div>
+                    <div class="overlay">GO-LIVE</div>
                 </div>
                 <div class="gallery-item" data-aos="fade-up-right" data-aos-duration="500">
                     <img src="{{ asset('images/gallery/image17.jpg') }}" alt="Image 17" class="lightbox-trigger">
-                    <div class="overlay">Image 17 Description</div>
+                    <div class="overlay">Meeting</div>
                 </div>
                 <div class="gallery-item" data-aos="fade-up-right" data-aos-duration="500">
                     <img src="{{ asset('images/gallery/image18.jpg') }}" alt="Image 18" class="lightbox-trigger">
-                    <div class="overlay">Image 18 Description</div>
+                    <div class="overlay">Women's day</div>
                 </div>
                 <div class="gallery-item" data-aos="fade-up-right" data-aos-duration="500">
                     <img src="{{ asset('images/gallery/image19.jpg') }}" alt="Image 19" class="lightbox-trigger">
-                    <div class="overlay">Image 19 Description</div>
+                    <div class="overlay">Women's day</div>
                 </div>
                 <div class="gallery-item" data-aos="fade-up-right" data-aos-duration="500">
                     <img src="{{ asset('images/gallery/image20.jpg') }}" alt="Image 20" class="lightbox-trigger">
-                    <div class="overlay">Image 20 Description</div>
+                    <div class="overlay">Interview</div>
                 </div>
                 <div class="gallery-item" data-aos="fade-up-right" data-aos-duration="500">
                     <img src="{{ asset('images/gallery/image21.jpg') }}" alt="Image 21" class="lightbox-trigger">
-                    <div class="overlay">Image 21 Description</div>
+                    <div class="overlay">Seminar</div>
                 </div>
                 <div class="gallery-item" data-aos="fade-up-right" data-aos-duration="500">
                     <img src="{{ asset('images/gallery/image22.jpg') }}" alt="Image 22" class="lightbox-trigger">
-                    <div class="overlay">Image 22 Description</div>
+                    <div class="overlay">Workshop</div>
                 </div>
                 <div class="gallery-item" data-aos="fade-up-right" data-aos-duration="500">
                     <img src="{{ asset('images/gallery/image23.jpg') }}" alt="Image 23" class="lightbox-trigger">
-                    <div class="overlay">Image 23 Description</div>
+                    <div class="overlay">Seminar</div>
                 </div>
                 <div class="gallery-item" data-aos="fade-up-right" data-aos-duration="500">
                     <img src="{{ asset('images/gallery/image24.jpg') }}" alt="Image 24" class="lightbox-trigger">
-                    <div class="overlay">Image 24 Description</div>
+                    <div class="overlay">Team</div>
                 </div>
                 <div class="gallery-item" data-aos="fade-up-right" data-aos-duration="500">
                     <img src="{{ asset('images/gallery/image25.jpg') }}" alt="Image 25" class="lightbox-trigger">
-                    <div class="overlay">Image 25 Description</div>
+                    <div class="overlay">Team</div>
                 </div>
-                
+                <div class="gallery-item" data-aos="fade-up-right" data-aos-duration="500">
+                    <img src="{{ asset('images/gallery/image26.jpg') }}" alt="Image 25" class="lightbox-trigger">
+                    <div class="overlay">Team Meeting</div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up-right" data-aos-duration="500">
+                    <img src="{{ asset('images/gallery/image27.jpg') }}" alt="Image 25" class="lightbox-trigger">
+                    <div class="overlay">Festivals</div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up-right" data-aos-duration="500">
+                    <img src="{{ asset('images/gallery/image28.jpg') }}" alt="Image 25" class="lightbox-trigger">
+                    <div class="overlay">BCPL Go-live</div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up-right" data-aos-duration="500">
+                    <img src="{{ asset('images/gallery/image29.jpg') }}" alt="Image 25" class="lightbox-trigger">
+                    <div class="overlay">BCPL GO-LIVE</div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up-right" data-aos-duration="500">
+                    <img src="{{ asset('images/gallery/image30.jpg') }}" alt="Image 25" class="lightbox-trigger">
+                    <div class="overlay">BCPL Team</div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up-right" data-aos-duration="500">
+                    <img src="{{ asset('images/gallery/NEGDCL-GOLIVE.jpg') }}" alt="Image 25" class="lightbox-trigger">
+                    <div class="overlay">NEGDCL-GOLIVE</div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up-right" data-aos-duration="500">
+                    <img src="{{ asset('images/gallery/NEGDCL-GOLIVE-1.jpg') }}" alt="Image 25" class="lightbox-trigger">
+                    <div class="overlay">NEGDCL-GOLIVE</div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up-right" data-aos-duration="500">
+                    <img src="{{ asset('images/gallery/NEGDCL-GOLIVE-2.jpg') }}" alt="Image 25" class="lightbox-trigger">
+                    <div class="overlay">NEGDCL-GOLIVE</div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up-right" data-aos-duration="500">
+                    <img src="{{ asset('images/gallery/NEGDCL-GOLIVE-3.jpg') }}" alt="Image 25" class="lightbox-trigger">
+                    <div class="overlay">NEGDCL-GOLIVE</div>
+                </div>
+                 <div class="gallery-item" data-aos="fade-up-right" data-aos-duration="500">
+                    <img src="{{ asset('images/gallery/PBGL-GOLIVE-1.jpg') }}" alt="Image 25" class="lightbox-trigger">
+                    <div class="overlay">PBGL-GOLIVE</div>
+                </div>
+                 <div class="gallery-item" data-aos="fade-up-right" data-aos-duration="500">
+                    <img src="{{ asset('images/gallery/PBGL-GOLIVE-2.jpg') }}" alt="Image 25" class="lightbox-trigger">
+                    <div class="overlay">PBGL-GOLIVE</div>
+                </div>
+                 <div class="gallery-item" data-aos="fade-up-right" data-aos-duration="500">
+                    <img src="{{ asset('images/gallery/PBGL-GOLIVE.jpg') }}" alt="Image 25" class="lightbox-trigger">
+                    <div class="overlay">PBGL-GOLIVE</div>
+                </div>
+
             </div>
         </div>
 
@@ -489,39 +536,39 @@
                 <!-- Map Section -->
                 <!-- Map Section -->
                 <div class="client-map-container">
-                <img src="images/map.png" alt="Client Location"
-                style="width: 100%; height: auto; border-radius: 12px;">
-                    
+                    <img src="images/map.png" alt="Client Location" style="width: 100%; height: auto; border-radius: 12px;">
+
                 </div>
 
                 <!-- <div class="client-map-container">
-                        <div id="client-map" data-aos="fade-up" data-aos-duration="1000">
+                                    <div id="client-map" data-aos="fade-up" data-aos-duration="1000">
 
-                        </div>
-                    </div> -->
+                                    </div>
+                                </div> -->
             </div>
         </div>
     </section>
 
     <!-- client logo section -->
     <section class="client-logos-section-logo_client">
-    <div class="container-logo_client">
-      <div class="section-header-logo_client">
-        <h2 class="client-subtitle">Trusted by Industry Leaders</h2>
-        <p class="client-description">We're proud to work with some of the most innovative companies across the globe.</p>
-      </div>
+        <div class="container-logo_client">
+            <div class="section-header-logo_client">
+                <h2 class="client-subtitle">Trusted by Industry Leaders</h2>
+                <p class="client-description">We're proud to work with some of the most innovative companies across the
+                    globe.</p>
+            </div>
 
-      <div class="logos-scroll-wrapper">
-        <div class="logos-grid-logo_client" id="logos-grid-logo_client">
-          <!-- Logos will be inserted here by JavaScript -->
+            <div class="logos-scroll-wrapper">
+                <div class="logos-grid-logo_client" id="logos-grid-logo_client">
+                    <!-- Logos will be inserted here by JavaScript -->
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
 
     <!-- Contact-us form -->
-    <section id="contact-us" class="Contact-us-section">
+    <!-- <section id="contact-us" class="Contact-us-section">
         <div class="Contactbackground-shapes">
             <div class="Contactshape-1"></div>
             <div class="Contactshape-2"></div>
@@ -589,7 +636,83 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
+
+    <!-- Contact-us form -->
+   <section id="contact-us" class="Contact-us-section">
+        <div class="Contactbackground-shapes">
+            <div class="Contactshape-1"></div>
+            <div class="Contactshape-2"></div>
+        </div>
+
+        <div class="Contactcontainer">
+            <div class="contact-header">
+                <h4>Contact Us</h4>
+                <h1>Let's Connect and Collaborate</h1>
+                <p>Have questions or need assistance? We're here to help! Reach out to us and let's work together to achieve your goals.</p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-left">
+                <div class="Contactmap-container">
+                    <iframe
+                        width="100%"
+                        height="250px"
+                        style="border-radius: 8px; border: 0;"
+                        loading="lazy"
+                        allowfullscreen
+                        referrerpolicy="no-referrer-when-downgrade"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14316.673843579536!2d91.79659537327568!3d26.126282165576393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a599292a5c5df%3A0xc7e4b99f5a7d6f2d!2sPanjabari%20Rd%2C%20Guwahati%2C%20Assam%20781037!5e0!3m2!1sen!2sin!4v1707903154621!5m2!1sen!2sin">
+                    </iframe>
+                </div>
+
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <img class="contact-icon" src="svg/contact_us/Call-icon.svg" alt="Call-icon">
+                            <span>91- 6001 3961 86</span>
+                        </div>
+                        <div class="contact-item">
+                            <img class="contact-icon" src="svg/contact_us/mail-icon.svg" alt="Call-icon">
+                            <span>admin@indigiconsulting.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <img class="contact-icon" src="svg/contact_us/website-icon.svg" alt="Call-icon">
+                            <span>www.indigiconsulting.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <img class="contact-icon" src="svg/contact_us/location-icon.svg" alt="Call-icon">
+                            <span>House No-194, 2nd Floor, Panjabari Road, Ghy-37, Assam</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-right">
+                    <form id="contactForm" action="{{ route('contact-us') }}" method="POST">
+                        @csrf()
+                        <div class="Contactform-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Enter name here">
+                        </div>
+                        <div class="Contactform-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Enter email here">
+                        </div>
+                        <div class="Contactform-group">
+                            <label for="phone">Phone number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Enter phone number here">
+                        </div>
+                        <div class="Contactform-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="5" name="message"  placeholder="Message here"></textarea>
+                        </div>
+                        <button type="submit" class="Contactsubmit-btn">
+                            Submit →
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+   </section>
 
 @endsection
 <!-- Add AOS JS -->
@@ -601,4 +724,16 @@
             once: true,
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if(session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: "{{ session('success') }}",
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'OK'
+            });
+        </script>
+    @endif
 @endpush
